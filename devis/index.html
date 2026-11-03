@@ -1,0 +1,2077 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Demande de devis gratuit · Oxalis, agence web à Reims</title>
+<meta name="description" content="Demandez votre devis gratuit et sans engagement à Oxalis, agence web pour artisans et TPE à Reims, dans la Marne et le Grand Est. Réponse sous 24 h.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Oxalis">
+<meta property="og:title" content="Demande de devis gratuit · Oxalis">
+<meta property="og:description" content="Oxalis crée, entretient et automatise le site internet des artisans, TPE et PME à Reims, dans la Marne et le Grand Est.">
+<meta name="theme-color" content="#18202a">
+<script src="/js/runtime.js"></script>
+<link rel="stylesheet" href="/css/oxalis.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="/fonts/fonts.css">
+<style>
+@property --ang{syntax:'<angle>';initial-value:0deg;inherits:false}
+@property --pct{syntax:'<integer>';initial-value:0;inherits:true}
+/* ===== Fond en vagues douces : réglages (styles en fin de cette balise style ; dessin et animation dans le script « FOND EN VAGUES DOUCES » juste avant le panneau Mentions légales) ===== */
+:root{
+--wave-base:#0b1220;          /* couleur de fond sous les vagues (bleu nuit très foncé) */
+--wave-opacity:.06;           /* visibilité générale des vagues : .03 = presque invisible, .08 = un peu plus marqué (réglage principal) */
+--wave-1:#5c7aa6;             /* teinte de la vague 1 (bleu), mélangée au fond à --wave-opacity : donne ≈ #0e1627 */
+--wave-2:#6886b0;             /* teinte de la vague 2 (bleu-gris) : donne ≈ #0f1829 */
+--wave-3:#5f8f7c;             /* teinte de la vague 3, la seule nuance vert sauge : donne ≈ #0e1a1f */
+--wave-4:#53709a;             /* teinte de la vague 4 (bleu profond) : donne ≈ #0d1526 */
+--wave-light:#c9d6e8;         /* reflet en haut de chaque vague (relief 3D) */
+--wave-shadow:#000000;        /* ombre en bas de chaque vague (relief 3D) */
+--wave-speed:32s;             /* durée d'une ondulation complète (les 4 vagues varient de 26 à 38 s) */
+--wave-blur:36px;             /* flou des bords, en pixels d'écran : plus haut = plus doux */
+}
+:root{
+--nuit:#303e4f;--foret:#2f6b4f;--on-foret:#ffffff;--sauge:#7f9a84;--logo-ground:#eef1f2;
+--surface:#18202a;--surface-raised:#222c38;--surface-sunken:#121820;--surface-hover:#2a3644;--surface-tint:#1e2a29;
+--line:#354253;--line-strong:#7a8899;--line-hover:#9aa7b5;
+--ink:#eef1f2;--ink-muted:#aab5c1;
+--accent:#7cc79b;--accent-hover:#96d6b0;--on-accent:#102018;--accent-soft:#1d3529;--accent-text:#8fd0aa;
+--sauge-300:#a3bfa8;--link:#8fd0aa;--focus-ring:#8fd0aa;
+--footer-bg:#121820;--footer-ink:#eef1f2;--footer-muted:#aab5c1;
+--success:#6fcf97;--success-soft:#17302a;--error:#ff8f85;--error-soft:#3a1d1d;
+--grid:rgba(238,241,242,0.06);
+--font-display:Sora, Geist, system-ui, sans-serif;
+--font-sans:Geist, system-ui, -apple-system, "Segoe UI", sans-serif;
+--font-mono:"Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--radius-xl:16px;--radius-leaf:16px;--radius-pill:999px;
+--shadow-sm:0 1px 2px rgba(0,0,0,.25), 0 1px 3px rgba(0,0,0,.2);
+--shadow-md:0 8px 24px rgba(0,0,0,.35);
+--shadow-lg:0 20px 48px rgba(0,0,0,.45);
+--ease:cubic-bezier(.16,1,.3,1);
+--ease-io:cubic-bezier(.65,0,.35,1);
+--bounce:cubic-bezier(.22,1,.36,1);
+--ease-r:cubic-bezier(.22,1,.36,1);
+interpolate-size:allow-keywords;
+}
+html{scroll-behavior:smooth}
+body{margin:0;background:#18202a;color:#eef1f2;font-family:Geist, system-ui, sans-serif}
+a{color:#8fd0aa}a:hover{color:#eef1f2}
+.ox-site{--L:0ms}
+.ox-site.with-loader{--L:1450ms}
+.ox-site .ox-card{position:relative}
+
+/* ---------- Mise en page ---------- */
+.wrap{max-width:1200px;margin:0 auto;padding:0 16px}
+.sec{padding:48px 0;scroll-margin-top:64px}
+.sec-head{position:relative;display:flex;flex-direction:column;gap:12px;max-width:720px}
+.g3,.g-price,.g-hero,.g-contact,.g-why{display:grid;gap:24px;grid-template-columns:minmax(0,1fr)}
+.mob-pad{padding-bottom:96px}
+
+/* ---------- Écran de chargement ---------- */
+.pl{position:fixed;inset:0;z-index:200;display:grid;place-items:center;pointer-events:auto;animation:plGone 0s linear 1.9s forwards}
+.pl-curtain{position:absolute;left:0;right:0;height:50.5%;background-color:#18202a;background-image:linear-gradient(rgba(238,241,242,.05) 1px, transparent 1px),linear-gradient(90deg, rgba(238,241,242,.05) 1px, transparent 1px);background-size:32px 32px}
+.pl-top{top:0;animation:curtUp .55s cubic-bezier(.76,0,.24,1) 1.33s forwards}
+.pl-bot{bottom:0;background-position:0 100%;animation:curtDown .55s cubic-bezier(.76,0,.24,1) 1.33s forwards}
+.pl-center{position:relative;z-index:1;width:min(340px, calc(100vw - 48px));display:flex;flex-direction:column;align-items:center;gap:20px;animation:plOut .3s ease 1.25s forwards}
+.pl-logo{display:block;animation:plLogo .6s var(--ease) both}
+.pl-bar{width:100%;height:4px;border-radius:4px;background:#222c38;overflow:hidden}
+.pl-fill{display:block;height:100%;background:#7cc79b;box-shadow:0 0 14px rgba(124,199,155,.7);transform-origin:left center;transform:scaleX(0);animation:fill 1s var(--ease-io) .1s forwards}
+.pl-meta{width:100%;display:flex;justify-content:space-between;font:500 12px/16px "Geist Mono", monospace;letter-spacing:.06em;color:#aab5c1}
+.pl-pct{color:#8fd0aa;font-variant-numeric:tabular-nums;counter-reset:pc var(--pct);animation:pct 1s var(--ease-io) .1s forwards}
+.pl-pct::after{content:counter(pc) " %"}
+.pl-term{width:100%;min-height:80px;display:flex;flex-direction:column;gap:4px;font:400 12.5px/16px "Geist Mono", monospace;color:#aab5c1}
+.pl-line{display:flex;align-items:center;gap:8px}
+.pl-line > span{display:block;width:0;overflow:hidden;white-space:nowrap;animation:type .22s steps(var(--n)) forwards;animation-delay:var(--t)}
+.pl-ok{color:#8fd0aa}
+.pl-check{opacity:0;transform:scale(.3);animation:pop .4s var(--bounce) 1.12s forwards;color:#7cc79b;flex:none}
+@keyframes type{to{width:calc(var(--n) * 1ch)}}
+@keyframes fill{to{transform:scaleX(1)}}
+@keyframes pct{to{--pct:100}}
+@keyframes pop{to{opacity:1;transform:scale(1)}}
+@keyframes plLogo{from{opacity:0;transform:translateY(8px) scale(.96)}}
+@keyframes plOut{to{opacity:0;transform:translateY(-10px)}}
+@keyframes curtUp{to{transform:translateY(-100%)}}
+@keyframes curtDown{to{transform:translateY(100%)}}
+@keyframes plGone{to{visibility:hidden;pointer-events:none}}
+
+/* ---------- En-tête ---------- */
+.hdr{position:sticky;top:0;z-index:50;background:#18202a;color:#eef1f2;border-bottom:1px solid transparent;transition:background-color .45s var(--ease), border-color .45s var(--ease), backdrop-filter .45s var(--ease), box-shadow .45s var(--ease);animation:none}
+@keyframes hdrDrop{from{transform:translate3d(0,-110%,0)}to{transform:none}}
+.hdr.is-scrolled{background:rgba(24,32,42,.68);backdrop-filter:saturate(170%) blur(16px);-webkit-backdrop-filter:saturate(170%) blur(16px);border-bottom-color:rgba(53,66,83,.8);box-shadow:0 12px 32px rgba(0,0,0,.28)}
+.hdr .ox-logo{border-radius:8px}
+.hdr .ox-header__nav a{position:relative;color:#aab5c1;transition:color .3s}
+.hdr .ox-header__nav a:hover,.hdr .ox-header__nav a.is-active{color:#eef1f2;background:transparent}
+.hdr .ox-header__nav a::after{content:"";position:absolute;left:12px;right:12px;bottom:5px;height:2px;border-radius:2px;background:#7cc79b;transform:scaleX(0);transform-origin:left center;transition:transform .45s var(--ease)}
+.hdr .ox-header__nav a:hover::after,.hdr .ox-header__nav a:focus-visible::after,.hdr .ox-header__nav a.is-active::after{transform:scaleX(1)}
+.hdr .ox-header__cta{background:#7cc79b;color:#102018}
+.hdr .ox-header__cta:hover{background:#96d6b0}
+.hdr :focus-visible{outline-color:#8fd0aa}
+.hdr .ox-header__burger{color:#eef1f2;display:grid}
+.hdr-progress{position:absolute;left:0;right:0;bottom:-1px;height:2px;background:#7cc79b;box-shadow:0 0 10px rgba(124,199,155,.6);transform-origin:left center;transform:scaleX(var(--sp,0));pointer-events:none}
+.mob-menu{position:fixed;left:0;right:0;top:64px;bottom:0;z-index:55;background:rgba(24,32,42,.96);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:24px 16px;display:flex;flex-direction:column;gap:4px;overflow:auto;animation:menuIn .45s var(--ease)}
+.mob-menu a.mlink{display:block;padding:14px 4px;font:600 22px/30px Sora, sans-serif;letter-spacing:-0.02em;color:#eef1f2;text-decoration:none;border-bottom:1px solid #354253}
+@keyframes menuIn{from{opacity:0;transform:translateY(-8px)}}
+
+/* ---------- Boutons ---------- */
+[data-magnet]{transition:transform .5s var(--ease), background-color .15s, border-color .15s, color .15s;will-change:transform}
+.ox-btn--primary svg{transition:transform .4s var(--ease)}
+.ox-btn--primary:hover svg{transform:translateX(5px)}
+.glow-pulse{animation:glowPulse 2.8s ease-in-out infinite}
+@keyframes glowPulse{0%,100%{box-shadow:0 0 0 0 rgba(124,199,155,0), 0 0 0 rgba(124,199,155,0)}50%{box-shadow:0 0 0 4px rgba(124,199,155,.12), 0 0 28px rgba(124,199,155,.45)}}
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:60;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:rgba(18,24,32,.86);border-top:1px solid #354253;backdrop-filter:saturate(150%) blur(12px);-webkit-backdrop-filter:saturate(150%) blur(12px)}
+.sticky-cta .ox-btn{animation:ctaPulse 4.5s ease-in-out 3s infinite}
+@keyframes ctaPulse{0%,70%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(124,199,155,0)}78%{transform:scale(1.03);box-shadow:0 0 0 6px rgba(124,199,155,.22)}88%{transform:scale(1);box-shadow:0 0 0 14px rgba(124,199,155,0)}}
+
+/* ---------- Hero ---------- */
+.ox-hero{background:#18202a}
+.ox-hero::after{display:none}
+.ox-hero .ox-hero__inner{padding-bottom:72px}
+.hero-bg{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0;-webkit-mask-image:radial-gradient(120% 95% at 60% 30%, #000 45%, transparent 90%);mask-image:radial-gradient(120% 95% at 60% 30%, #000 45%, transparent 90%)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(238,241,242,.06) 1px, transparent 1px),linear-gradient(90deg, rgba(238,241,242,.06) 1px, transparent 1px);background-size:32px 32px;animation:gridIn 1.6s var(--ease) var(--L) both}
+@keyframes gridIn{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 0 0)}}
+.hero-scan{position:absolute;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg, transparent, rgba(143,208,170,.8), transparent);opacity:0;animation:scan 1.6s var(--ease) var(--L) both}
+@keyframes scan{0%{opacity:1;transform:translateY(0)}85%{opacity:.8}100%{opacity:0;transform:translateY(900px)}}
+.hero-dots{position:absolute;inset:-128px;background-image:radial-gradient(circle, rgba(143,208,170,.4) 1.2px, transparent 1.9px);background-size:64px 64px;opacity:.5;animation:dotsDrift 48s linear infinite;will-change:transform}
+@keyframes dotsDrift{to{transform:translate3d(-64px,64px,0)}}
+.hero-glow{position:absolute;width:680px;height:680px;left:46%;top:-26%;translate:0 calc(var(--sy,0) * 0.12px);border-radius:50%;background:radial-gradient(circle, rgba(124,199,155,.22), rgba(124,199,155,.07) 42%, transparent 68%);animation:glowDrift 24s ease-in-out infinite alternate;will-change:transform}
+@keyframes glowDrift{0%{transform:translate3d(-8%,0,0) scale(1)}50%{transform:translate3d(16%,20%,0) scale(1.12)}100%{transform:translate3d(-30%,34%,0) scale(.94)}}
+.px{position:absolute;width:31px;height:31px;background:rgba(124,199,155,.16);box-shadow:inset 0 0 0 1px rgba(124,199,155,.28);opacity:0;animation:pixel 6s ease-in-out infinite;animation-delay:calc(var(--L) + var(--t))}
+@keyframes pixel{0%{opacity:0}6%{opacity:1}22%{opacity:.25}40%,100%{opacity:0}}
+
+.hero-shapes{position:absolute;inset:0;pointer-events:none;z-index:0;display:none}
+.hs-inner{position:relative;max-width:1200px;height:100%;margin:0 auto}
+.par{position:absolute}
+.pz{transform:translate3d(calc(var(--mx,0) * var(--z,0) * 18px), calc(var(--my,0) * var(--z,0) * 18px - var(--sy,0) * var(--z,0) * 0.28px), 0);transition:transform .9s var(--ease);will-change:transform}
+.shape{display:block}
+.s-leaf{width:56px;height:56px;border:1px solid rgba(124,199,155,.6);background:rgba(29,53,41,.88);border-radius:16px 4px 16px 4px}
+.s-sq{width:18px;height:18px;background:#7cc79b;border-radius:4px;box-shadow:0 0 24px rgba(124,199,155,.45)}
+.s-block{width:124px;height:64px;border:1px dashed #7a8899;border-radius:8px;background:rgba(34,44,56,.55)}
+.s-dot{width:10px;height:10px;border-radius:50%;background:#8fd0aa}
+.s-out{width:84px;height:84px;border:1px solid rgba(127,154,132,.55);border-radius:8px;rotate:14deg}
+.s-small{width:34px;height:34px;border:1px solid #354253;border-radius:6px;background:rgba(34,44,56,.6);rotate:-10deg}
+
+.hin{opacity:0;transform:translate3d(0,24px,0);animation:hin .85s var(--ease-r) forwards;animation-delay:calc(var(--L) + var(--t,0ms))}
+@keyframes hin{to{opacity:1;transform:none}}
+.hw{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.12em;margin-bottom:-.12em}
+.hw>span{display:inline}
+@keyframes hwUp{0%{transform:translate3d(0,112%,0);color:#8fd0aa}55%{color:#8fd0aa}100%{transform:translate3d(0,0,0);color:#eef1f2}}
+
+/* Machine à écrire */
+.tw{position:relative}
+.tw-over{position:absolute;inset:0;display:none;pointer-events:none}
+.tw-on .tw-base{color:transparent}
+.tw-on .tw-over{display:block}
+.tw-caret{display:inline-block;width:2px;height:1.05em;margin-left:2px;vertical-align:-0.15em;background:#7cc79b;animation:caret 1s steps(1) infinite}
+.tw-done .tw-caret{animation:caret 1s steps(1) 3, caretOut .4s ease 3s forwards}
+@keyframes caret{50%{opacity:0}}
+@keyframes caretOut{to{opacity:0}}
+
+/* Maquette de navigateur qui se construit */
+.mk{border-radius:12px;border:1px solid #354253;background:#121820;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.45), 0 0 0 1px rgba(124,199,155,.06)}
+.mk-bar{display:flex;align-items:center;gap:6px;padding:10px 12px;border-bottom:1px solid #354253;background:#18202a}
+.mk-bar i{width:9px;height:9px;border-radius:50%;background:#354253}
+.mk-url{margin-left:10px;flex-grow:1;border-radius:6px;background:#222c38;font:400 11px/22px "Geist Mono", monospace;color:#aab5c1;padding:0 10px}
+.mk-body{padding:14px;display:flex;flex-direction:column;gap:12px;background:#18202a;transition:background-color .8s var(--ease)}
+.mk.s4 .mk-body{background:#1d1a16}
+.mk-nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.mk-logo{display:flex;align-items:center;gap:6px;border-radius:4px;font:600 11px/16px Sora, sans-serif;color:#eef1f2;padding-right:4px}
+.mk-logo-ic{width:16px;height:16px;border-radius:6px 2px 6px 2px;background:#c9a77c}
+.mk-links{display:flex;gap:8px}
+.mk-links span{width:30px;height:7px;border-radius:4px;background:#4a4036}
+.mk-navbtn{font:500 10px/16px Geist, sans-serif;padding:3px 10px;border-radius:5px;background:#c9a77c;color:#2a1d12}
+.mk-hero{height:118px;border-radius:8px;display:flex;align-items:center;justify-content:center;gap:22px;color:#f0dfc4;background:repeating-linear-gradient(100deg, rgba(255,255,255,.045) 0 6px, transparent 6px 15px),linear-gradient(135deg,#8a6643,#3b2a1c)}
+.mk-text{display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+.mk-h{font:600 17px/22px Sora, sans-serif;letter-spacing:-0.02em;color:#f3ead9;border-radius:4px}
+.mk-p{font:400 12px/17px Geist, sans-serif;color:#b9ab98;border-radius:4px}
+.mk-cta{margin-top:4px;font:500 11px/16px Geist, sans-serif;padding:6px 12px;border-radius:6px;background:#c9a77c;color:#2a1d12}
+.mk-tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.mk-tile{height:58px;border-radius:6px;border:1px solid #3a3229;background:#26211b;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:6px;padding:0 10px;color:#c9a77c}
+.mk-tile i{display:block;width:70%;height:5px;border-radius:3px;background:#4a4036}
+.sk{position:relative}
+.sk::after{content:"";position:absolute;inset:-1px;border-radius:inherit;background:linear-gradient(90deg,#222c38 25%,#2f3b4a 50%,#222c38 75%);background-size:200% 100%;animation:shimmer 1.3s linear infinite;transition:opacity .6s var(--ease);pointer-events:none}
+.mk-h.sk::after,.mk-p.sk::after,.mk-logo.sk::after{border-radius:4px}
+.mk.s1 .p1::after,.mk.s2 .p2::after,.mk.s3 .p3::after,.mk.s4 .p4::after{opacity:0}
+.mk .p2{transition:transform .9s var(--ease)}
+.mk:not(.s2) .p2{transform:scale(.985)}
+@keyframes shimmer{from{background-position:150% 0}to{background-position:-50% 0}}
+.mk-up{padding:12px 14px;border-top:1px solid #354253;background:#18202a;display:flex;flex-direction:column;gap:8px}
+.mk-up-row{display:flex;align-items:center;justify-content:space-between;font:500 11px/16px "Geist Mono", monospace;letter-spacing:.04em;color:#aab5c1}
+.mk-up-pct{display:flex;align-items:center;gap:8px;color:#8fd0aa;font-variant-numeric:tabular-nums}
+.mk-up-pct b{font-weight:500;counter-reset:mp var(--pct)}
+.mk-up-pct b::after{content:counter(mp) " %"}
+.mk.s5 .mk-up-pct b{animation:pct 1.4s var(--ease-io) forwards}
+.mk.s6 .mk-up-pct b{--pct:100}
+.mk-up-bar{height:4px;border-radius:4px;background:#222c38;overflow:hidden}
+.mk-up-bar span{display:block;height:100%;background:#7cc79b;box-shadow:0 0 12px rgba(124,199,155,.7);transform-origin:left center;transform:scaleX(0)}
+.mk.s5 .mk-up-bar span{animation:fill 1.4s var(--ease-io) forwards}
+.mk.s6 .mk-up-bar span{transform:scaleX(1)}
+.mk-check{display:grid;place-items:center;width:18px;height:18px;border-radius:50%;background:#7cc79b;color:#102018;opacity:0;transform:scale(.3);transition:opacity .3s, transform .5s var(--bounce)}
+.mk.s6 .mk-check{opacity:1;transform:scale(1)}
+.mk-live{color:#aab5c1;transition:color .4s}
+.mk.s6 .mk-live{color:#8fd0aa}
+
+.scroll-cue{position:absolute;left:0;right:0;bottom:20px;margin:0 auto;width:max-content;z-index:2;display:none;flex-direction:column;align-items:center;gap:8px;color:#aab5c1;text-decoration:none;font:500 11px/14px "Geist Mono", monospace;letter-spacing:.14em;text-transform:uppercase}
+.scroll-cue:hover{color:#eef1f2}
+.cue-mouse{width:22px;height:34px;box-sizing:border-box;border:1.5px solid #7a8899;border-radius:12px;display:flex;justify-content:center;padding-top:6px}
+.cue-dot{width:3px;height:7px;border-radius:2px;background:#7cc79b;animation:cue 1.9s var(--ease-io) infinite}
+@keyframes cue{0%{transform:translateY(0);opacity:0}20%{opacity:1}70%{transform:translateY(11px);opacity:0}100%{opacity:0}}
+
+/* ---------- Révélations au scroll ---------- */
+.anim-on [data-reveal]:not([data-reveal="load"]){opacity:0;translate:0 24px;transition:opacity .8s var(--ease-r), translate .8s var(--ease-r);transition-delay:calc(var(--d,0) * 100ms)}
+.ox-site.anim-on [data-reveal="mask"]:not(.in){translate:0 20px}
+.ox-site.anim-on p[data-reveal]:not(.in),.ox-site.anim-on li[data-reveal="slide"]:not(.in){translate:0 10px}
+.ox-site.anim-on p[data-reveal],.ox-site.anim-on li[data-reveal="slide"]{transition-duration:.7s}
+
+.anim-on [data-reveal].in{opacity:1 !important;translate:0 0 !important}
+/* barre de chargement de section */
+.sec-load{position:absolute;left:0;top:-16px;width:132px;height:2px;border-radius:2px;background:#222c38;overflow:hidden;opacity:0;pointer-events:none}
+.sec-load::after{content:"";position:absolute;inset:0;background:#7cc79b;box-shadow:0 0 8px rgba(124,199,155,.8);transform:scaleX(0);transform-origin:left center}
+.anim-on .sec-load.in{animation:slShow 1.15s ease forwards}
+.anim-on .sec-load.in::after{animation:fill .6s var(--ease-io) .05s forwards}
+@keyframes slShow{0%,75%{opacity:1}100%{opacity:0}}
+/* titres : balayage + décodage */
+.mtitle{position:relative;width:fit-content;max-width:100%}
+.mtitle::after{content:"";position:absolute;left:-2px;right:-2px;top:6%;bottom:6%;background:#7cc79b;border-radius:2px;transform:scaleX(0);transform-origin:left center;pointer-events:none}
+@keyframes mtSweep{0%{transform:scaleX(0);transform-origin:left center}46%{transform:scaleX(1);transform-origin:left center}54%{transform:scaleX(1);transform-origin:right center}100%{transform:scaleX(0);transform-origin:right center}}
+@keyframes mtText{0%,49%{color:transparent}51%,100%{color:#eef1f2}}
+/* squelettes de cartes */
+.skel{display:none}
+.anim-on .skel{display:none;position:absolute;inset:0;z-index:4;border-radius:inherit;background:#222c38;padding:24px;flex-direction:column;gap:14px;pointer-events:none;transition:opacity .5s var(--ease) calc(var(--d,0) * 100ms + 500ms), visibility 0s linear calc(var(--d,0) * 100ms + 1000ms)}
+.anim-on .in > .skel{opacity:0;visibility:hidden}
+.skel i{display:block;border-radius:4px;background:linear-gradient(90deg,#2a3644 25%,#3a4859 50%,#2a3644 75%);background-size:200% 100%;animation:shimmer 1.2s linear infinite}
+.skel i:nth-child(1){width:48px;height:48px;border-radius:16px 4px 16px 4px}
+.skel i:nth-child(2){width:55%;height:18px;margin-top:6px}
+.skel i:nth-child(3){width:100%;height:10px}
+.skel i:nth-child(4){width:78%;height:10px}
+.skel i:nth-child(5){width:62%;height:10px}
+
+/* ---------- Icônes animées ---------- */
+.ic-hand{transform-box:view-box;transform-origin:12px 12px}
+.in .ic-hand-m{animation:spin 5s linear calc(var(--d,0) * 100ms + 900ms) infinite}
+.in .ic-hand-h{animation:spin 30s linear calc(var(--d,0) * 100ms + 900ms) infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.in .ic-lens{animation:seek 3.2s ease-in-out calc(var(--d,0) * 100ms + 900ms) infinite}
+@keyframes seek{0%,100%{transform:translate(0,0)}25%{transform:translate(-2px,-1.5px)}50%{transform:translate(1.5px,-2px)}75%{transform:translate(2px,1px)}}
+.ic-paper{transform-box:fill-box;transform-origin:50% 100%}
+
+@keyframes shake{0%,72%,100%{transform:rotate(0)}76%{transform:rotate(-6deg)}80%{transform:rotate(5deg)}84%{transform:rotate(-3deg)}88%{transform:rotate(2deg)}92%{transform:rotate(0)}}
+.anim-on .draw *{stroke-dasharray:1 2;stroke-dashoffset:1}
+.anim-on .in .draw *{stroke-dashoffset:0;transition:stroke-dashoffset 1.2s var(--ease-io) calc(var(--d,0) * 100ms + 300ms)}
+.anim-on .in .draw *:nth-child(2){transition-delay:calc(var(--d,0) * 100ms + 420ms)}
+.anim-on .in .draw *:nth-child(3){transition-delay:calc(var(--d,0) * 100ms + 540ms)}
+.ic-pin{transform-box:fill-box;transform-origin:50% 100%}
+
+@keyframes pinBounce{0%,55%,100%{transform:translateY(0)}25%{transform:translateY(-3px)}40%{transform:translateY(0) scaleY(.94)}}
+.ic-ring{transform-box:fill-box;transform-origin:center;opacity:0}
+.in .ic-ring{animation:ringPulse 2.4s ease-out calc(var(--d,0) * 100ms + 800ms) infinite}
+@keyframes ringPulse{0%{transform:scale(.55);opacity:.9}100%{transform:scale(1.25);opacity:0}}
+.in .ic-line{stroke-dasharray:1 2;animation:lineDraw 3s var(--ease-io) calc(var(--d,0) * 100ms + 800ms) infinite}
+.in .ic-line + .ic-line{animation-delay:calc(var(--d,0) * 100ms + 1000ms)}
+@keyframes lineDraw{0%{stroke-dashoffset:1}35%,80%{stroke-dashoffset:0}100%{stroke-dashoffset:-1}}
+.in .ic-typing circle{animation:typing 1.4s ease-in-out infinite}
+.in .ic-typing circle:nth-child(2){animation-delay:.18s}
+.in .ic-typing circle:nth-child(3){animation-delay:.36s}
+@keyframes typing{0%,60%,100%{opacity:.25}30%{opacity:1}}
+
+/* ---------- Cartes 3D ---------- */
+[data-tilt]{position:relative}
+.ox-site.ox-site [data-tilt][data-reveal]{transition:opacity .8s var(--ease-r) calc(var(--d,0) * 100ms), translate .8s var(--ease-r) calc(var(--d,0) * 100ms), transform .7s var(--ease), border-color .35s, box-shadow .35s}
+.ox-site.ox-site [data-tilt][data-reveal].tilting{transition:opacity .8s var(--ease-r), translate .8s var(--ease-r), transform .14s linear, border-color .35s, box-shadow .35s}
+[data-tilt]::before{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(420px circle at var(--gx,50%) var(--gy,50%), rgba(143,208,170,.16), transparent 45%);opacity:0;transition:opacity .35s;pointer-events:none;z-index:1}
+[data-tilt].tilting::before{opacity:1}
+[data-tilt].tilting{border-color:#7cc79b;box-shadow:0 0 0 1px rgba(124,199,155,.35), 0 22px 48px rgba(0,0,0,.42), 0 0 40px rgba(124,199,155,.12)}
+.fx-on .ox-card--interactive:hover{transform:none}
+
+/* ---------- Nos services (accordéon) ---------- */
+.svc-grid{display:grid;gap:24px;grid-template-columns:minmax(0,1fr);align-items:start}
+@media (min-width:768px){.svc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.svc-card{gap:12px}
+.svc-card[data-open="true"]{border-color:#7cc79b;box-shadow:0 0 0 1px rgba(124,199,155,.35)}
+.svc-toggle{margin-top:4px}
+.svc-toggle .svc-chev{width:18px;height:18px;transition:transform .35s var(--ease)}
+.svc-toggle[aria-expanded="true"] .svc-chev{transform:rotate(180deg)}
+.svc-panel{display:grid;grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows .45s var(--ease), visibility 0s linear .45s}
+.svc-card[data-open="true"] .svc-panel{grid-template-rows:1fr;visibility:visible;transition:grid-template-rows .45s var(--ease), visibility 0s}
+.svc-panel__in{overflow:hidden;min-height:0}
+.svc-panel__body{display:flex;flex-direction:column;gap:14px;padding-top:16px;margin-top:8px;border-top:1px dashed #354253;opacity:0;transform:translateY(-6px);transition:opacity .35s var(--ease), transform .45s var(--ease)}
+.svc-card[data-open="true"] .svc-panel__body{opacity:1;transform:none;transition-delay:.08s}
+.svc-panel__body p{margin:0;color:#c9d1d8}
+.svc-panel__body .svc-sub{color:#eef1f2;font-weight:600}
+.svc-list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.svc-list li{display:flex;align-items:flex-start;gap:10px;font-size:15px;line-height:22px;color:#c9d1d8}
+.svc-list svg{flex:none;width:18px;height:18px;margin-top:2px;color:#7cc79b}
+@media (prefers-reduced-motion: reduce){.svc-panel,.svc-card[data-open="true"] .svc-panel,.svc-panel__body,.svc-toggle .svc-chev{transition:none !important}}
+
+/* ---------- Tarifs ---------- */
+.price-run::after{content:"";position:absolute;inset:-1px;border-radius:13px;padding:1.5px;background:conic-gradient(from var(--ang), transparent 0deg, transparent 240deg, rgba(181,236,201,0) 250deg, rgba(181,236,201,.95) 325deg, rgba(181,236,201,0) 360deg);-webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);mask-composite:exclude;animation:runBorder 6s linear infinite;pointer-events:none;z-index:2}
+@keyframes runBorder{to{--ang:360deg}}
+.ox-price__amount,.price-sub{font-variant-numeric:tabular-nums}
+.anim-on .ox-price__list li{opacity:0;translate:-10px 0;transition:opacity .6s var(--ease-r), translate .6s var(--ease-r);transition-delay:calc(var(--d,0) * 100ms + 350ms + var(--i,0) * 80ms)}
+.anim-on .in .ox-price__list li{opacity:1;translate:0 0}
+.anim-on .ox-price__list li svg path{stroke-dasharray:1 2;stroke-dashoffset:1}
+.anim-on .in .ox-price__list li svg path{stroke-dashoffset:0;transition:stroke-dashoffset .5s var(--ease-io) calc(var(--d,0) * 100ms + 450ms + var(--i,0) * 80ms)}
+
+/* ---------- Étapes ---------- */
+.steps{position:relative}
+.steps-list{display:grid;gap:32px;list-style:none;margin:0;padding:0;position:relative}
+.step{display:grid;grid-template-columns:48px minmax(0,1fr);gap:16px;align-items:start}
+.steps-track{position:absolute;left:23.5px;top:24px;bottom:40px;width:1px;background:#354253}
+.steps-fill{position:absolute;inset:0;background:#7cc79b;box-shadow:0 0 10px rgba(124,199,155,.6);transform-origin:center top;transform:scaleY(var(--lp,1))}
+.step-num{position:relative;z-index:1;width:48px;height:48px;box-sizing:border-box;display:grid;place-items:center;background:#1d3529;border:1px solid #7cc79b;border-radius:16px 4px 16px 4px;font:500 15px/20px "Geist Mono", monospace;color:#8fd0aa;box-shadow:0 0 0 6px rgba(124,199,155,.07), 0 0 24px rgba(124,199,155,.25);transition:background-color .5s var(--ease), border-color .5s var(--ease), color .5s var(--ease), box-shadow .5s var(--ease), transform .6s var(--bounce)}
+.step-body{display:flex;flex-direction:column;gap:8px;transition:opacity .7s var(--ease), translate .7s var(--ease)}
+.anim-on .step:not(.on) .step-num{background:#18202a;border-color:#354253;color:#aab5c1;box-shadow:none}
+.anim-on .step:not(.on) .step-body{opacity:.2;translate:0 10px}
+
+/* ---------- Réalisations ---------- */
+.mock-win{height:200px;overflow:hidden;position:relative}
+.mock-page{transition:transform 1.4s cubic-bezier(.45,0,.2,1)}
+@media (hover:hover){
+[data-mock]:hover .mock-page{transform:translateY(calc(-100% + 200px));transition-duration:3.4s}
+}
+[data-mock]:focus-within .mock-page{transform:translateY(calc(-100% + 200px));transition-duration:3.4s}
+.anim-on [data-mock] .mock-win{opacity:0;transition:opacity .8s var(--ease-r) calc(var(--d,0) * 100ms + 200ms)}
+.anim-on [data-mock].in .mock-win{opacity:1}
+
+/* ---------- FAQ ---------- */
+.ox-faq__item{transition:border-color .3s, background-color .3s}
+.ox-faq__item:hover{border-color:#7a8899}
+.ox-faq__item::details-content{block-size:0;overflow:hidden;transition:block-size .5s var(--ease), content-visibility .5s allow-discrete}
+.ox-faq__item[open]::details-content{block-size:auto}
+.ox-faq__item[open] .ox-faq__answer{animation:faqIn .5s var(--ease)}
+.ox-faq .ox-faq__icon svg{transition:transform .45s var(--ease)}
+.ox-faq .ox-faq__icon{transition:background-color .35s, color .35s, border-color .35s}
+@keyframes faqIn{from{opacity:0;transform:translateY(-6px)}}
+
+/* ---------- Contact ---------- */
+.ox-field__label{transition:color .3s}
+.ox-field:focus-within .ox-field__label{color:#8fd0aa}
+.ox-site .ox-input{transition:border-color .3s, box-shadow .4s var(--ease), background-color .3s}
+.ox-site .ox-input:focus{border-color:#8fd0aa;background:#1e2a29;box-shadow:0 0 0 1px #8fd0aa, 0 0 0 5px rgba(124,199,155,.14), 0 0 28px rgba(124,199,155,.22)}
+.send-btn{position:relative;overflow:hidden}
+.send-btn .sb-label,.send-btn .sb-load,.send-btn .sb-done{transition:opacity .35s var(--ease), transform .45s var(--ease)}
+.send-btn .sb-label{display:inline-flex;align-items:center;gap:8px}
+.send-btn .sb-load,.send-btn .sb-done{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:8px;opacity:0;transform:translateY(8px)}
+.send-btn .sb-track{position:absolute;left:20px;right:20px;top:50%;height:6px;margin-top:-3px;border-radius:6px;background:rgba(16,32,24,.25);overflow:hidden}
+.send-btn .sb-track span{display:block;height:100%;background:#102018;border-radius:6px;transform-origin:left center;transform:scaleX(0)}
+.send-btn.is-sending,.send-btn.is-done{cursor:default}
+.send-btn.is-sending{background:#7cc79b;color:#102018}
+.send-btn.is-sending .sb-label{opacity:0;transform:translateY(-8px)}
+.send-btn.is-sending .sb-load{opacity:1;transform:none}
+.send-btn.is-sending .sb-track span{animation:fill 1.4s var(--ease-io) forwards}
+.send-btn.is-done{background:#17302a;color:#6fcf97;border-color:#6fcf97}
+.send-btn.is-done .sb-label{opacity:0;transform:translateY(-8px)}
+.send-btn.is-done .sb-done{opacity:1;transform:none}
+.send-btn .sb-done path{stroke-dasharray:1 2;stroke-dashoffset:1}
+.send-btn.is-done .sb-done path{stroke-dashoffset:0;transition:stroke-dashoffset .5s var(--ease-io) .15s}
+
+/* ---------- Curseur ---------- */
+.cur-ring{position:fixed;left:0;top:0;width:30px;height:30px;margin:-15px 0 0 -15px;pointer-events:none;z-index:150;display:none;will-change:transform}
+.fx-on.cur-visible .cur-ring{display:block}
+.cur-ring span{display:block;width:100%;height:100%;box-sizing:border-box;border-radius:50%;border:1.5px solid rgba(124,199,155,.8);background:rgba(124,199,155,.08);transition:transform .45s var(--ease), background-color .3s, border-color .3s}
+.cur-hot .cur-ring span{transform:scale(1.8);background:rgba(124,199,155,.14);border-color:rgba(124,199,155,1)}
+
+/* ---------- Points de rupture ---------- */
+@media (min-width:768px){
+.wrap{padding:0 24px}
+.sec{padding:64px 0}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g-why{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g-price{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:start}
+.scroll-cue{display:flex}
+.ox-hero .ox-hero__inner{padding-bottom:128px}
+}
+@media (min-width:900px){
+.sticky-cta,.mob-menu{display:none}
+.mob-pad{padding-bottom:0}
+.hdr .ox-header__burger{display:none}
+}
+@media (min-width:1024px){
+.wrap{padding:0 32px}
+.sec{padding:96px 0;scroll-margin-top:80px}
+.g-hero{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:center;gap:56px}
+.g-contact{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:48px;align-items:start}
+.g-why{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:48px;align-items:center}
+.hero-shapes{display:block}
+.steps-list{grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.step{grid-template-columns:minmax(0,1fr)}
+.steps-track{left:24px;right:calc(25% - 42px);top:23.5px;bottom:auto;width:auto;height:1px}
+.steps-fill{transform-origin:left center;transform:scaleX(var(--lp,1))}
+}
+
+
+/* ---------- Logo clair sur fond sombre ---------- */
+.lg{display:flex;align-items:center;min-height:48px;border-radius:6px;flex:none}
+.lg-img{display:block;height:34px;width:auto}
+.pl-logo-img{display:block;height:58px;width:auto;max-width:100%}
+.ft-logo{display:block;height:44px;width:auto;margin-bottom:16px}
+@media (min-width:900px){.lg-img{height:40px}}
+
+/* ---------- Mini-sites des réalisations ---------- */
+.ms{font-family:Geist, system-ui, sans-serif;color:#eef1f2;font-size:10px;line-height:14px;background:var(--bg);padding-bottom:0}
+.ms-nav{display:flex;align-items:center;justify-content:space-between;padding:9px 12px}
+.ms-brand{display:flex;align-items:center;gap:6px;font:600 10.5px/14px Sora, sans-serif;letter-spacing:-.01em}
+.ms-mark{width:14px;height:14px;border-radius:4px 1px 4px 1px;background:var(--a);animation:msSpin 6s var(--ease) infinite}
+@keyframes msSpin{0%,80%{transform:rotate(0)}90%,100%{transform:rotate(180deg)}}
+.ms-burger{display:flex;flex-direction:column;gap:2.5px}
+.ms-burger i{display:block;width:13px;height:1.5px;border-radius:1px;background:rgba(255,255,255,.75)}
+.ms-hero{position:relative;height:150px;margin:0 10px;border-radius:8px;overflow:hidden}
+.ms-copy{position:absolute;left:12px;top:12px;bottom:12px;width:54%;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:7px;z-index:3}
+.ms-copy > *{animation:msIn 7s var(--ease) infinite}
+.ms-copy > *:nth-child(2){animation-delay:.15s}
+.ms-copy > *:nth-child(3){animation-delay:.3s}
+@keyframes msIn{0%{opacity:0;transform:translateY(8px)}8%,90%{opacity:1;transform:none}100%{opacity:0;transform:translateY(-4px)}}
+.ms-tag{font:500 8px/11px "Geist Mono", monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--a);padding:2px 6px;border:1px solid currentColor;border-radius:999px}
+.ms-h{font:600 15px/18px Sora, sans-serif;letter-spacing:-.02em;text-shadow:0 2px 10px rgba(0,0,0,.45)}
+.ms-btn{font:500 9.5px/13px Geist, sans-serif;padding:5px 10px;border-radius:6px;background:var(--a);color:#15110c}
+.ms-btn{animation:msIn 7s var(--ease) .3s infinite, msPulse 2.2s ease-out infinite}
+@keyframes msPulse{0%{box-shadow:0 0 0 0 rgba(255,255,255,.4)}70%,100%{box-shadow:0 0 0 8px rgba(255,255,255,0)}}
+.ms-sec{padding:12px}
+.ms-st{display:block;font:600 11px/14px Sora, sans-serif;margin-bottom:8px}
+.ms-list{display:grid;gap:6px}
+.ms-item{display:flex;align-items:center;gap:8px;padding:7px 8px;border-radius:6px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);animation:msSlide 6s var(--ease) infinite;animation-delay:calc(var(--i) * .2s)}
+@keyframes msSlide{0%{opacity:0;transform:translateX(-12px)}10%,86%{opacity:1;transform:none}100%{opacity:0;transform:translateX(12px)}}
+.ms-ico{flex:none;width:20px;height:20px;border-radius:6px 2px 6px 2px;display:grid;place-items:center;background:var(--as);color:var(--a)}
+.ms-txt{flex-grow:1;display:flex;flex-direction:column;gap:3px}
+.ms-txt b{font:500 9.5px/12px Geist, sans-serif}
+.ms-txt i{display:block;height:3px;width:70%;border-radius:2px;background:rgba(255,255,255,.13)}
+.ms-foot{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border-top:1px solid rgba(255,255,255,.08);font:400 8px/12px "Geist Mono", monospace;color:rgba(255,255,255,.55)}
+.ms-shine{position:relative;overflow:hidden}
+.ms-shine::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg, transparent 30%, rgba(255,255,255,.16) 50%, transparent 70%);transform:translateX(-120%);animation:msShine 3.6s ease-in-out infinite;animation-delay:var(--t,0s)}
+@keyframes msShine{0%,55%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+
+/* Maçonnerie */
+.ms-b{--a:#b04f26;--as:rgba(176,79,38,.12);--bg:#f6f2eb;color:#2a2420}
+.ms-b .ms-burger i{background:#2a2420}
+.ms-b .ms-h{color:#2a2420;text-shadow:none;font-size:14px;line-height:17px}
+.ms-b .ms-btn{color:#fff}
+.ms-b .ms-item{background:#fffdf9;border-color:#ddd3c4}
+.ms-b .ms-txt i{background:#e4dacb}
+.ms-b .ms-foot{border-color:#ddd3c4;color:#5f554c}
+.ms-b .ms-st{color:#2a2420}
+.ms-b-hero{background:#f6f2eb;border:1px solid #ddd3c4}
+.ms-b-wall{position:absolute;right:6px;top:6px;bottom:6px;width:44%;border-radius:7px;display:flex;flex-direction:column-reverse;align-items:center;gap:3px;padding:8px 4px;z-index:1;background:radial-gradient(70% 70% at 70% 90%, rgba(217,154,78,.35), transparent 70%),linear-gradient(160deg,#2e2621,#1b1613)}
+.ms-b-row{display:flex;gap:3px}
+.ms-b-row:nth-child(even){margin-left:14px}
+.ms-brick{display:block;width:24px;height:12px;border-radius:2px;background:linear-gradient(180deg,#cf7f45,#9b582b);box-shadow:inset 0 -2px 0 rgba(0,0,0,.22);opacity:0;animation:brick 7s var(--bounce) infinite;animation-delay:calc(var(--i) * .14s)}
+@keyframes brick{0%{opacity:0;transform:translateY(-80px)}5%{opacity:1;transform:none}84%{opacity:1;transform:none}93%,100%{opacity:0;transform:translateY(6px)}}
+.ms-b-trowel{position:absolute;right:20px;top:14px;color:#f0c58f;z-index:2;animation:trowel 3.5s ease-in-out infinite;transform-origin:80% 80%}
+@keyframes trowel{0%,100%{transform:rotate(-8deg) translateY(0)}50%{transform:rotate(10deg) translateY(4px)}}
+.ms-ba{position:relative;height:86px;margin:0 12px 12px;border-radius:8px;overflow:hidden;background:repeating-linear-gradient(0deg, rgba(0,0,0,.18) 0 1px, transparent 1px 14px), linear-gradient(135deg,#4b4238,#26211b)}
+.ms-ba-after{position:absolute;inset:0;background:repeating-linear-gradient(0deg, rgba(0,0,0,.18) 0 2px, transparent 2px 14px), repeating-linear-gradient(90deg, rgba(0,0,0,.14) 0 2px, transparent 2px 30px), linear-gradient(135deg,#e6ad6a,#a8652f);animation:baClip 5s ease-in-out infinite alternate}
+.ms-ba-line{position:absolute;top:0;bottom:0;width:2px;margin-left:-1px;background:#fff;box-shadow:0 0 10px rgba(255,255,255,.7);animation:baLine 5s ease-in-out infinite alternate}
+.ms-ba-line::after{content:"";position:absolute;top:50%;left:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:#fff}
+.ms-ba-l{position:absolute;top:6px;font:500 8px/11px "Geist Mono", monospace;letter-spacing:.08em;text-transform:uppercase;padding:2px 6px;border-radius:4px;background:rgba(0,0,0,.45)}
+@keyframes baClip{from{clip-path:inset(0 0 0 82%)}to{clip-path:inset(0 0 0 18%)}}
+@keyframes baLine{from{left:82%}to{left:18%}}
+
+/* Paysagiste */
+.ms-g{--a:#9ad17a;--as:rgba(154,209,122,.15);--bg:#121c16}
+.ms-g-hero{background:linear-gradient(180deg,#24402f 0%,#172a1f 75%)}
+.ms-g-sun{position:absolute;right:26px;top:16px;width:28px;height:28px;border-radius:50%;background:radial-gradient(circle,#f8e58a,#e7b74a);box-shadow:0 0 26px rgba(248,229,138,.6);animation:sun 6s ease-in-out infinite}
+@keyframes sun{0%,100%{transform:translateY(8px) scale(.95)}50%{transform:translateY(-3px) scale(1.05)}}
+.ms-g-hill{position:absolute;border-radius:50%}
+.ms-g-h1{left:-25%;right:25%;bottom:-46px;height:92px;background:#2e573b}
+.ms-g-h2{left:30%;right:-35%;bottom:-56px;height:104px;background:#3c7048}
+.ms-g-tree{position:absolute;bottom:20px;width:34px;height:58px;transform-origin:50% 100%;animation:grow 7s var(--ease) infinite;z-index:1}
+.ms-g-tree.t2{width:24px;height:42px;animation-delay:.5s}
+.ms-g-tree span{position:absolute;left:50%;bottom:0;width:5px;height:22px;margin-left:-2.5px;border-radius:2px;background:#6b4a31}
+.ms-g-tree b{position:absolute;left:0;right:0;bottom:16px;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 35%,#8fd27f,#4f9a55);animation:breeze 3s ease-in-out infinite;transform-origin:50% 100%}
+@keyframes grow{0%{transform:scale(0)}14%,88%{transform:scale(1)}100%{transform:scale(0)}}
+@keyframes breeze{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+.ms-g-grass{position:absolute;left:0;right:0;bottom:0;height:16px;display:flex;justify-content:space-around;align-items:flex-end;z-index:2}
+.ms-g-grass i{display:block;width:2px;height:12px;border-radius:2px 2px 0 0;background:#86c96f;transform-origin:50% 100%;animation:sway 2.2s ease-in-out infinite;animation-delay:calc(var(--i) * -.17s)}
+.ms-g-grass i:nth-child(3n){height:8px}
+.ms-g-grass i:nth-child(4n){height:15px;background:#a6dd86}
+@keyframes sway{0%,100%{transform:rotate(-14deg)}50%{transform:rotate(14deg)}}
+.ms-g-leaf{position:absolute;top:-12px;left:var(--x);width:8px;height:8px;border-radius:8px 0;background:#c1e396;opacity:0;animation:leafFall 5.5s linear infinite;animation-delay:var(--t);z-index:2}
+@keyframes leafFall{0%{transform:translate(0,0) rotate(0);opacity:0}10%{opacity:1}100%{transform:translate(-36px,175px) rotate(340deg);opacity:0}}
+.ms-g-seasons{display:flex;gap:5px;padding:12px 12px 2px;flex-wrap:wrap}
+.ms-g-seasons span{font:500 8px/11px "Geist Mono", monospace;padding:3px 7px;border-radius:999px;border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.7);animation:chip 8s infinite;animation-delay:calc(var(--i) * 2s - 8s)}
+@keyframes chip{0%,22%{background:#9ad17a;color:#10200f;border-color:#9ad17a}25%,100%{background:transparent;color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.14)}}
+.ms-g-gal{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;padding:10px 12px 12px}
+.ms-g-tile{height:56px;border-radius:6px;display:grid;place-items:center;color:#c1e396;background:linear-gradient(140deg,#2f5c3c,#1b3324)}
+.ms-g-tile:nth-child(2){background:linear-gradient(140deg,#4d7a3a,#25401f)}
+.ms-g-tile:nth-child(3){background:linear-gradient(140deg,#3a6b5a,#1c3a30)}
+.ms-g-tile:nth-child(4){background:linear-gradient(140deg,#6a8a3c,#33461d)}
+.ms-g-tile svg{animation:breeze 3s ease-in-out infinite}
+
+/* Commerce */
+.ms-c{--a:#ff9f6e;--as:rgba(255,159,110,.15);--bg:#1c1a22}
+.ms-c-hero{background:radial-gradient(70% 80% at 80% 20%, rgba(255,159,110,.2), transparent 70%), linear-gradient(180deg,#2b2535,#19161f)}
+.ms-c-shop{position:absolute;right:12px;bottom:28px;width:118px;height:94px;z-index:1}
+.ms-c-awning{position:absolute;left:-6px;right:-6px;top:0;height:20px;border-radius:4px 4px 0 0;background:repeating-linear-gradient(90deg,#ff9f6e 0 12px,#fff1e6 12px 24px);transform-origin:50% 0;animation:awning 3s ease-in-out infinite;z-index:2}
+.ms-c-awning::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:6px;background:radial-gradient(circle at 6px 0, #ff9f6e 6px, transparent 6.5px) 0 0/24px 6px repeat-x, radial-gradient(circle at 18px 0, #fff1e6 6px, transparent 6.5px) 0 0/24px 6px repeat-x}
+@keyframes awning{0%,100%{transform:skewX(0) scaleY(1)}50%{transform:skewX(-3deg) scaleY(1.06)}}
+.ms-c-front{position:absolute;left:0;right:0;top:18px;bottom:0;border-radius:0 0 4px 4px;background:#3b3446;display:flex;gap:6px;padding:12px 8px 0;align-items:flex-end}
+.ms-c-win{position:relative;flex-grow:1;height:46px;border-radius:3px;background:linear-gradient(180deg,#5d5170,#463d55);display:flex;align-items:flex-end;justify-content:space-around;padding:0 4px 5px;overflow:hidden}
+.ms-c-win i{display:block;width:9px;border-radius:2px;background:#ffcf9e;animation:prodPop 2.4s var(--bounce) infinite;animation-delay:calc(var(--i) * .2s)}
+.ms-c-win i:nth-child(1){height:14px;background:#ff9f6e}
+.ms-c-win i:nth-child(2){height:20px;background:#9fd3ff}
+.ms-c-win i:nth-child(3){height:11px;background:#ffd56e}
+@keyframes prodPop{0%,100%{transform:translateY(0)}20%{transform:translateY(-4px)}40%{transform:translateY(0)}}
+.ms-c-sign{position:absolute;top:4px;left:50%;transform:translateX(-50%);font:600 6.5px/9px "Geist Mono", monospace;letter-spacing:.1em;padding:1px 4px;border-radius:2px;background:#16131b;color:#7cf0a8;animation:neon 2.6s steps(1) infinite}
+@keyframes neon{0%,40%,48%,100%{opacity:1;text-shadow:0 0 6px #7cf0a8}44%{opacity:.3;text-shadow:none}}
+.ms-c-door{width:24px;height:52px;border-radius:3px 3px 0 0;background:#2a2433;border:1px solid #6b5e80;border-bottom:0}
+.ms-c-belt{position:absolute;left:0;right:0;bottom:0;height:26px;overflow:hidden;background:rgba(0,0,0,.3);border-top:1px solid rgba(255,255,255,.08);z-index:2}
+.ms-c-track{display:flex;gap:10px;width:max-content;padding:5px 0 0 10px;animation:belt 9s linear infinite}
+.ms-c-track i{display:block;width:16px;height:16px;border-radius:4px;background:var(--c)}
+@keyframes belt{to{transform:translateX(-50%)}}
+.ms-c-card{display:flex;align-items:center;gap:10px;margin:12px 12px 0;padding:10px;border-radius:8px;background:rgba(255,255,255,.05);border:1px solid rgba(255,159,110,.35)}
+.ms-c-bag{position:relative;color:#ff9f6e;animation:bag 1.8s var(--bounce) infinite}
+@keyframes bag{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-4px)}}
+.ms-c-count{position:absolute;top:-5px;right:-7px;min-width:12px;height:12px;border-radius:6px;background:#ff9f6e;color:#1c1a22;font:600 8px/12px "Geist Mono", monospace;text-align:center;counter-reset:cc var(--pct);animation:cnt 6s steps(1) infinite, pop2 2s var(--bounce) infinite}
+.ms-c-count::after{content:counter(cc)}
+@keyframes cnt{0%{--pct:1}33%{--pct:2}66%{--pct:3}}
+@keyframes pop2{0%{transform:scale(.6)}25%,100%{transform:scale(1)}}
+.ms-c-hours{display:grid;gap:5px;padding:12px}
+.ms-c-hours div{display:flex;justify-content:space-between;padding:5px 8px;border-radius:5px;background:rgba(255,255,255,.04);font:400 9px/12px Geist, sans-serif;color:rgba(255,255,255,.8)}
+.ms-c-open{display:flex;align-items:center;gap:6px;font:500 8.5px/12px "Geist Mono", monospace;color:#7cf0a8}
+.ms-c-open::before{content:"";width:6px;height:6px;border-radius:50%;background:#7cf0a8;animation:dotPulse 1.6s ease-out infinite}
+@keyframes dotPulse{0%{box-shadow:0 0 0 0 rgba(124,240,168,.7)}100%{box-shadow:0 0 0 7px rgba(124,240,168,0)}}
+
+@media (prefers-reduced-motion: reduce){
+.ms *,.ms *::before,.ms *::after{animation:none !important}
+.ms-brick{opacity:1}
+.ms-g-leaf{display:none}
+.ms-ba-after{clip-path:inset(0 0 0 50%)}
+.ms-ba-line{left:50%}
+}
+
+
+/* ---------- Zone d'intervention (illustration) ---------- */
+.zone{margin:0;position:relative;aspect-ratio:4 / 3;border-radius:12px;border:1px solid #354253;background:radial-gradient(55% 60% at 50% 50%, #1d3529, #121820 78%);overflow:hidden}
+.zone-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(238,241,242,.05) 1px, transparent 1px),linear-gradient(90deg, rgba(238,241,242,.05) 1px, transparent 1px);background-size:32px 32px;-webkit-mask-image:radial-gradient(circle at 50% 50%, #000 30%, transparent 75%);mask-image:radial-gradient(circle at 50% 50%, #000 30%, transparent 75%)}
+.zone-ring,.zone-wave,.zone-sweep,.zone-orbit{position:absolute;left:50%;top:50%;aspect-ratio:1;border-radius:50%;translate:-50% -50%}
+.zone-ring{height:var(--s);border:1px solid rgba(124,199,155,.32)}
+.zone-ring.r1{--s:18%;background:rgba(124,199,155,.12);border-color:rgba(124,199,155,.7)}
+.zone-ring.r2{--s:42%}
+.zone-ring.r3{--s:66%;border-style:dashed}
+.zone-ring.r4{--s:90%;border-style:dashed;border-color:rgba(170,181,193,.3)}
+.zone-ring em{position:absolute;left:50%;top:-9px;translate:-50% 0;white-space:nowrap;font:500 10.5px/16px "Geist Mono", monospace;font-style:normal;letter-spacing:.08em;text-transform:uppercase;color:#8fd0aa;background:#152019;padding:1px 7px;border-radius:4px}
+.zone-ring.r4 em{color:#aab5c1;background:#121820}
+.zone-wave{height:18%;border:1.5px solid rgba(124,199,155,.6);opacity:0;animation:zoneWave 3.9s ease-out infinite;animation-delay:var(--t,0s)}
+@keyframes zoneWave{0%{transform:scale(1);opacity:.9}100%{transform:scale(5);opacity:0}}
+.zone-sweep{height:90%;background:conic-gradient(from 0deg, rgba(124,199,155,.22), rgba(124,199,155,0) 22%, transparent 100%);animation:spin 7s linear infinite}
+.zone-orbit{height:42%;animation:spin 9s linear infinite}
+.zone-orbit i{position:absolute;left:50%;top:-4px;width:8px;height:8px;margin-left:-4px;border-radius:50%;background:#7cc79b;box-shadow:0 0 12px rgba(124,199,155,.9)}
+.zone-dot{position:absolute;width:5px;height:5px;margin:-2.5px 0 0 -2.5px;border-radius:50%;background:#8fd0aa;opacity:.25;animation:zoneDot 3.2s ease-in-out infinite;animation-delay:var(--t,0s)}
+@keyframes zoneDot{0%,100%{opacity:.2;transform:scale(.8)}40%{opacity:1;transform:scale(1.3);box-shadow:0 0 10px rgba(143,208,170,.8)}}
+.zone-pin{position:absolute;left:50%;top:50%;translate:-50% -88%;color:#7cc79b;z-index:2}
+.zone-city{position:absolute;left:50%;top:50%;translate:-50% 14px;font:600 14px/18px Sora, sans-serif;letter-spacing:-.01em;color:#eef1f2;z-index:2;text-shadow:0 2px 8px rgba(0,0,0,.6)}
+@media (prefers-reduced-motion: reduce){.zone-wave,.zone-sweep,.zone-orbit,.zone-dot{animation:none !important}.zone-wave{display:none}}
+/* Carte zone : radar + bandeau d'infos dessous, centrée à côté du texte (plus de vide) */
+.zone-card{position:relative;border-radius:12px;border:1px solid #354253;background:#121820;overflow:hidden}
+.zone-card > .zone{border:0;border-radius:0}
+.zone-foot{display:grid;gap:12px;padding:18px 20px 20px;border-top:1px solid #2a3542;background:linear-gradient(180deg,#141c25,#121820)}
+.zone-foot p{margin:0;display:flex;align-items:flex-start;gap:10px;font-size:15px;line-height:22px;color:#c9d1d8}
+.zone-foot p b{font-weight:600;color:#eef1f2}
+.zone-foot svg{flex:none;width:18px;height:18px;margin-top:2px;color:#7cc79b}
+.zone-foot .zone-lbl{font:500 11px/16px "Geist Mono", monospace;letter-spacing:.08em;text-transform:uppercase;color:#8fd0aa}
+@media (min-width:768px){.g-why > .zone-card{align-self:center}}
+.g-why.why-list{grid-template-columns:minmax(0,1fr)}
+@media (min-width:600px){.g-why.why-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+
+
+
+/* ---------- Interface d'automatisation ---------- */
+.wf{border:1px solid #354253;border-radius:14px;overflow:hidden;background:#121820;box-shadow:0 30px 70px rgba(0,0,0,.35), 0 0 0 1px rgba(124,199,155,.05)}
+.wf-bar{display:flex;align-items:center;gap:12px;padding:10px 14px;border-bottom:1px solid #354253;background:#18202a}
+.wf-dots{display:flex;gap:6px}.wf-dots i{width:10px;height:10px;border-radius:50%;background:#354253}
+.wf-title{flex-grow:1;min-width:0;display:flex;align-items:center;gap:8px;font:500 12px/18px "Geist Mono", monospace;color:#aab5c1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wf-title svg{color:#8fd0aa;flex:none}
+.wf-live{display:inline-flex;align-items:center;gap:7px;padding:3px 10px;border-radius:999px;background:#1d3529;color:#8fd0aa;font:500 11px/16px "Geist Mono", monospace;letter-spacing:.06em;text-transform:uppercase}
+.wf-live::before{content:"";width:7px;height:7px;border-radius:50%;background:#7cc79b;animation:dotPulse 1.6s ease-out infinite}
+.wf-body{display:flex;min-height:200px}
+.wf-side{display:none;flex-direction:column;gap:10px;padding:14px 10px;border-right:1px solid #354253;background:#151c25}
+.wf-side i{display:block;width:26px;height:26px;border-radius:7px;background:#222c38;border:1px solid #354253}
+.wf-side i.on{background:#1d3529;border-color:#7cc79b;box-shadow:0 0 12px rgba(124,199,155,.35)}
+.wf-canvas{position:relative;flex-grow:1;min-width:0;padding:18px 16px;background-color:#121820;background-image:linear-gradient(rgba(238,241,242,.045) 1px, transparent 1px),linear-gradient(90deg, rgba(238,241,242,.045) 1px, transparent 1px),radial-gradient(60% 70% at 50% 50%, rgba(124,199,155,.08), transparent 70%);background-size:24px 24px,24px 24px,100% 100%}
+.wf-fit{display:none;position:relative;height:380px}
+.wf-stage{position:absolute;left:0;top:0;width:1100px;height:380px;transform-origin:0 0}
+.wf-lines{position:absolute;inset:0;overflow:visible}
+.wf-lines path{fill:none}
+.wf-base path{stroke:#354253;stroke-width:1.5}
+.anim-on .wf .wf-base path{stroke-dasharray:1 2;stroke-dashoffset:1;transition:stroke-dashoffset 1.2s var(--ease-io) .5s}
+.anim-on .wf.in .wf-base path{stroke-dashoffset:0}
+.wf-flow path{stroke:#7cc79b;stroke-width:1.75;stroke-dasharray:4 9;opacity:.75;filter:drop-shadow(0 0 4px rgba(124,199,155,.8));animation:wfFlow 1.1s linear infinite}
+.anim-on .wf .wf-flow{opacity:0;transition:opacity .8s ease 1.5s}
+.anim-on .wf.in .wf-flow{opacity:1}
+@keyframes wfFlow{to{stroke-dashoffset:-13}}
+.wf-dot{position:absolute;left:0;top:0;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:#e6fff0;box-shadow:0 0 0 3px rgba(124,199,155,.3), 0 0 16px 3px rgba(124,199,155,.85);offset-rotate:0deg;opacity:0;animation:wfDot 6s var(--ease-io) infinite;animation-delay:var(--t)}
+@keyframes wfDot{0%{offset-distance:0%;opacity:0}3%{opacity:1}17%{offset-distance:100%;opacity:1}20%,100%{offset-distance:100%;opacity:0}}
+.wf-node{position:absolute;width:180px;height:64px;box-sizing:border-box;display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;background:#1b232e;border:1px solid #354253;box-shadow:0 10px 24px rgba(0,0,0,.3);animation:wfLit 6s ease-in-out infinite;animation-delay:var(--t)}
+.wf-node.trig{border-color:rgba(124,199,155,.55)}
+.wf-node.end{animation-name:wfLitEnd}
+@keyframes wfLit{0%,100%{border-color:#354253;box-shadow:0 10px 24px rgba(0,0,0,.3)}4%,14%{border-color:#7cc79b;box-shadow:0 0 0 1px rgba(124,199,155,.4), 0 0 26px rgba(124,199,155,.35)}24%{border-color:#354253;box-shadow:0 10px 24px rgba(0,0,0,.3)}}
+@keyframes wfLitEnd{0%,100%{border-color:#354253}4%,22%{border-color:#7cc79b;background:#1d3529;box-shadow:0 0 0 1px rgba(124,199,155,.5), 0 0 34px rgba(124,199,155,.45)}30%{border-color:#354253;background:#1b232e}}
+.wf-ic{flex:none;width:34px;height:34px;display:grid;place-items:center;border-radius:10px 3px 10px 3px;background:#1e2a29;border:1px solid #354253;color:#8fd0aa}
+.wf-node.end .wf-ic{background:#7cc79b;color:#102018;border-color:#7cc79b}
+.wf-tx{display:flex;flex-direction:column;min-width:0}
+.wf-tx b{font:600 12.5px/16px Sora, sans-serif;letter-spacing:-.01em;color:#eef1f2}
+.wf-tx small{font:400 10.5px/14px "Geist Mono", monospace;color:#aab5c1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wf-port{position:absolute;top:50%;width:9px;height:9px;margin-top:-4.5px;border-radius:50%;background:#121820;border:1.5px solid #7cc79b}
+.wf-in{left:-5px}.wf-out{right:-5px}
+.wf-node.trig .wf-in,.wf-node.end .wf-out{display:none}
+.wf-mobile{list-style:none;margin:0;padding:0;display:grid;gap:22px;position:relative}
+.wfm-step{position:relative;display:flex;align-items:center;gap:12px;padding:12px;border-radius:12px;background:#1b232e;border:1px solid #354253;animation:wfLit 6s ease-in-out infinite;animation-delay:var(--t)}
+.wfm-step + .wfm-step::before{content:"";position:absolute;left:29px;top:-23px;width:2px;height:22px;background:repeating-linear-gradient(180deg,#7cc79b 0 4px,transparent 4px 9px);background-size:2px 13px;animation:wfDown 1.1s linear infinite;filter:drop-shadow(0 0 3px rgba(124,199,155,.8))}
+@keyframes wfDown{to{background-position:0 13px}}
+.wfm-step:last-child .wf-ic{background:#7cc79b;color:#102018;border-color:#7cc79b}
+.wf-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 14px;border-top:1px solid #354253;background:#18202a;font:500 11px/16px "Geist Mono", monospace;letter-spacing:.06em;text-transform:uppercase;color:#8fd0aa}
+.wf-zoom{display:flex;gap:4px}.wf-zoom i{font-style:normal;padding:2px 8px;border-radius:5px;background:#222c38;color:#aab5c1;letter-spacing:0}
+@media (min-width:720px){.wf-fit{display:block}.wf-mobile{display:none}.wf-side{display:flex}.wf-canvas{padding:22px 24px}}
+@media (prefers-reduced-motion: reduce){.wf-flow path,.wf-dot,.wf-node,.wfm-step,.wfm-step::before{animation:none !important}.wf-dot{display:none}}
+
+
+/* ---------- Visuels cerveau & réseau ---------- */
+.viz{position:relative;border-radius:10px;border:1px solid #354253;overflow:hidden;background-color:#111820;background-image:linear-gradient(rgba(238,241,242,.04) 1px, transparent 1px),linear-gradient(90deg, rgba(238,241,242,.04) 1px, transparent 1px),radial-gradient(55% 60% at 50% 50%, rgba(124,199,155,.14), transparent 72%);background-size:22px 22px,22px 22px,100% 100%}
+.viz canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.viz-brain{height:220px;margin-bottom:4px}
+.viz-net{height:260px}
+.viz-tag{position:absolute;left:14px;bottom:12px;font:500 11px/16px "Geist Mono", monospace;letter-spacing:.08em;text-transform:uppercase;color:#8fd0aa;background:rgba(17,24,32,.75);padding:3px 8px;border-radius:4px}
+@media (min-width:1024px){.viz-net{height:300px}}
+
+/* ---------- Globe numérique ---------- */
+.hero-visual{position:relative}
+.globe-wrap{position:relative;width:100%;max-width:560px;aspect-ratio:1;margin:0 auto}
+.globe-halo{position:absolute;inset:4%;border-radius:50%;background:radial-gradient(circle at 50% 50%, rgba(124,199,155,.22), rgba(124,199,155,.06) 48%, transparent 66%);filter:blur(6px);animation:haloPulse 6s ease-in-out infinite}
+@keyframes haloPulse{0%,100%{opacity:.75;transform:scale(1)}50%{opacity:1;transform:scale(1.04)}}
+.globe{position:absolute;inset:0;width:100%;height:100%;display:block}
+.mk-float{position:relative;width:84%;margin:-44px auto 0;z-index:2}
+@media (min-width:1024px){
+.globe-wrap{margin:0 -2% 0 auto;max-width:620px}
+.mk-float{position:absolute;left:-14%;bottom:-6%;width:60%;margin:0;zoom:.76}
+}
+@media (prefers-reduced-motion: reduce){.globe-halo{animation:none}}
+
+/* ===== Écran de chargement (logo + barre verte) ===== */
+  .intro-loader {
+    --nuit: #05080d; --sauge: #9cc4a4;
+    position: fixed; inset: 0; z-index: 300;
+    display: grid; place-items: center; background: var(--nuit);
+    transition: opacity .8s ease, visibility .8s;
+  }
+  .intro-loader.is-done { opacity: 0; visibility: hidden; }
+  .intro-loader-inner { width: min(220px, 60vw); text-align: center; }
+  .intro-loader-logo { display: block; width: min(200px, 56vw); height: auto; margin: 0 auto; background: none; border: 0; box-shadow: none; border-radius: 0; }
+  .intro-bar { margin-top: 1.25rem; height: 2px; background: #1a2533; border-radius: 2px; overflow: hidden; }
+  .intro-bar span { display: block; height: 100%; width: 0; background: var(--sauge); transition: width .2s ease; }
+
+/* ===== Accessibilité : lien d'évitement, visible seulement au clavier ===== */
+  .skip-link { position: absolute; left: 12px; top: -80px; z-index: 400; padding: 10px 16px; border-radius: 8px; background: #8fd0aa; color: #0d1a14; font-weight: 600; text-decoration: none; }
+  .skip-link:focus { top: 12px; }
+  .skip-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ===== Hero en haut de page ===== */
+  .site-hero { position: relative; width: 100%; min-height: 100svh; display: flex; flex-direction: column; overflow: hidden; background: #18202a; color: #eef1f2; font-family: Geist, system-ui, sans-serif; }
+  .site-hero > .hdr-hero { position: relative; flex: none; z-index: 2; }
+  .hdr-hero .hdr-progress { display: none; }
+  .site-hero > .ox-hero { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; justify-content: center; border-bottom: 0; }
+  .site-hero .ox-hero .ox-hero__inner { width: 100%; padding-top: clamp(20px, 5vh, 96px); padding-bottom: clamp(56px, 11vh, 128px); }
+  @media (max-width: 760px) {
+    /* Sur téléphone, le hero tient dans l'écran : texte en haut, globe réduit, maquette masquée */
+    .site-hero > .ox-hero { justify-content: flex-start; }
+    .site-hero .ox-hero .ox-hero__inner { padding-top: 28px; padding-bottom: 24px; gap: 20px; }
+    .site-hero .ox-display { font-size: 32px; line-height: 36px; }
+    .site-hero .mk-float { display: none; }
+    .site-hero .globe-wrap { max-width: 250px; }
+    .site-hero .scroll-cue { display: none; }
+  }
+  /* Menu fixe : il apparaît quand le hero quitte l'écran */
+  .hdr.hdr-site { position: fixed; left: 0; right: 0; top: 0; transform: translateY(-110%); transition: transform .45s cubic-bezier(.22,1,.36,1), background-color .45s, border-color .45s, box-shadow .45s; }
+  .hdr.hdr-site.is-shown { transform: none; }
+  .sticky-cta { transition: opacity .4s ease, transform .4s ease; }
+
+/* ---------- Site exemple (styles isolés en mx-) ---------- */
+
+.mx-m{font-family:Figtree, system-ui, sans-serif;color:#2a2420;
+--cream:#f6f2eb;--sand:#ece4d8;--paper:#fffdf9;--ink:#2a2420;--muted:#5f554c;--line:#ddd3c4;
+--terra:#b04f26;--terra-d:#8f3e1c;--ochre:#d99a4e;--dark:#221c18;--dark2:#2e2621;
+--ease:cubic-bezier(.16,1,.3,1);--bounce:cubic-bezier(.34,1.56,.64,1);
+}
+.mx-m a{color:#b04f26}.mx-m a:hover{color:#8f3e1c}
+.mx-m, .mx-m *{box-sizing:border-box}
+.mx-m{font-size:16px;line-height:26px;-webkit-font-smoothing:antialiased}
+.mx-m :focus-visible{outline:2px solid #b04f26;outline-offset:2px}
+.mx-m .mx-h1,.mx-m .mx-h2,.mx-m .mx-h3{font-family:"Bricolage Grotesque", Figtree, sans-serif;margin:0;letter-spacing:-0.025em;text-wrap:balance;color:#2a2420}
+.mx-m .mx-h1{font-size:38px;line-height:42px;font-weight:750}
+.mx-m .mx-h2{font-size:30px;line-height:36px;font-weight:700}
+.mx-m .mx-h3{font-size:19px;line-height:26px;font-weight:650}
+.mx-m p{margin:0}
+.mx-wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+.mx-sec{padding:56px 0;scroll-margin-top:72px}
+.mx-kicker{display:inline-flex;align-items:center;gap:8px;font:700 12px/16px Figtree, sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#b04f26}
+.mx-kicker::before{content:"";width:18px;height:2px;background:#b04f26;border-radius:2px}
+.mx-lead{font-size:18px;line-height:29px;color:#5f554c}
+.mx-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:12px 22px;border-radius:10px;border:2px solid transparent;font:650 16px/20px Figtree, sans-serif;text-decoration:none;cursor:pointer;transition:background-color .2s, color .2s, border-color .2s, transform .3s var(--ease), box-shadow .3s}
+.mx-btn svg{width:20px;height:20px;flex:none;transition:transform .3s var(--ease)}
+.mx-btn-main{background:#b04f26;color:#fff}
+.mx-btn-main:hover{background:#8f3e1c;color:#fff;transform:translateY(-2px);box-shadow:0 10px 24px rgba(176,79,38,.3)}
+.mx-btn-main:hover svg{transform:translateX(4px)}
+.mx-btn-ghost{background:transparent;color:#2a2420;border-color:#2a2420}
+.mx-btn-ghost:hover{background:#2a2420;color:#f6f2eb}
+.mx-btn-block{width:100%}
+
+/* bandeau Oxalis */
+.mx-demo-bar{background:#18202a;color:#eef1f2;font:500 13px/18px Figtree, sans-serif}
+.mx-demo-bar .mx-wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:40px}
+.mx-demo-bar a{color:#8fd0aa;text-decoration:none;display:inline-flex;align-items:center;gap:6px;min-height:40px}
+.mx-demo-bar a:hover{color:#eef1f2}
+.mx-demo-bar .mx-tag{display:inline-flex;align-items:center;gap:8px}
+.mx-demo-bar .mx-tag::before{content:"";width:7px;height:7px;border-radius:50%;background:#7cc79b}
+
+/* en-tête */
+.mx-hdr{position:sticky;top:0;z-index:40;background:rgba(246,242,235,.88);backdrop-filter:saturate(160%) blur(12px);-webkit-backdrop-filter:saturate(160%) blur(12px);border-bottom:1px solid #ddd3c4}
+.mx-hdr .mx-wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:68px}
+.mx-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#2a2420}
+.mx-brand-mark{width:36px;height:36px;border-radius:9px;background:#b04f26;display:grid;place-items:center;color:#fff}
+.mx-brand-name{display:flex;flex-direction:column;font:800 16px/18px "Bricolage Grotesque", sans-serif;letter-spacing:-0.02em}
+.mx-brand-name small{font:600 11px/14px Figtree, sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5f554c}
+.mx-nav{display:none;gap:2px}
+.mx-nav a{position:relative;padding:10px 12px;color:#2a2420;text-decoration:none;font-weight:600;font-size:15px}
+.mx-nav a::after{content:"";position:absolute;left:12px;right:12px;bottom:6px;height:2px;background:#b04f26;transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+.mx-nav a:hover::after{transform:scaleX(1)}
+.mx-hdr-cta{display:none}
+.mx-burger{width:48px;height:48px;display:grid;place-items:center;border:0;background:none;color:#2a2420;border-radius:10px;cursor:pointer}
+.mx-burger svg{width:26px;height:26px}
+.mx-mmenu{position:absolute;left:0;right:0;top:68px;height:640px;z-index:39;background:#f6f2eb;padding:16px;display:flex;flex-direction:column;gap:4px;overflow:auto;animation:mx-fadeDown .35s var(--ease)}
+.mx-mmenu a.mx-ml{padding:14px 4px;border-bottom:1px solid #ddd3c4;color:#2a2420;text-decoration:none;font:700 22px/30px "Bricolage Grotesque", sans-serif}
+@keyframes mx-fadeDown{from{opacity:0;transform:translateY(-8px)}}
+
+/* héros */
+.mx-hero{position:relative;overflow:hidden;padding:40px 0 56px}
+.mx-hero-grid{display:grid;gap:36px;grid-template-columns:minmax(0,1fr);align-items:center}
+.mx-hero-copy{display:flex;flex-direction:column;gap:20px}
+.mx-hero-copy > *{animation:mx-up .9s var(--ease) both;animation-delay:var(--t,0ms)}
+.mx-hero .mx-h1 em{font-style:normal;color:#b04f26;position:relative;white-space:nowrap}
+.mx-hero .mx-h1 em::after{content:"";position:absolute;left:0;right:0;bottom:2px;height:8px;background:rgba(217,154,78,.35);z-index:-1;border-radius:3px;transform:scaleX(0);transform-origin:left;animation:mx-mark .8s var(--ease) .7s forwards}
+@keyframes mx-mark{to{transform:scaleX(1)}}
+@keyframes mx-up{from{opacity:0;transform:translateY(18px)}}
+.mx-hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+.mx-trust{display:flex;flex-wrap:wrap;gap:8px 20px;list-style:none;margin:0;padding:0;font-size:14px;font-weight:600;color:#5f554c}
+.mx-trust li{display:flex;align-items:center;gap:8px}
+.mx-trust svg{width:18px;height:18px;color:#b04f26}
+.mx-wall-card{position:relative;aspect-ratio:5 / 4;border-radius:20px;background:radial-gradient(70% 70% at 70% 90%, rgba(217,154,78,.35), transparent 70%),linear-gradient(160deg,#2e2621,#1b1613);overflow:hidden;box-shadow:0 30px 60px rgba(42,36,32,.25)}
+.mx-wall{position:absolute;left:8%;right:8%;bottom:10%;display:flex;flex-direction:column-reverse;gap:5px}
+.mx-wrow{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:5px}
+.mx-wrow.mx-off{grid-template-columns:minmax(0,.5fr) repeat(5,minmax(0,1fr)) minmax(0,.5fr)}
+.mx-brk{display:block;height:20px;border-radius:3px;background:linear-gradient(180deg,#d1814a,#9d5a2d);box-shadow:inset 0 -3px 0 rgba(0,0,0,.2), inset 0 1px 0 rgba(255,255,255,.15);opacity:0;animation:mx-drop .7s var(--bounce) forwards;animation-delay:calc(400ms + var(--i) * 70ms)}
+@keyframes mx-drop{from{opacity:0;transform:translateY(-140px)}to{opacity:1;transform:none}}
+.mx-level{position:relative;margin:0 22% 8px;height:16px;border-radius:4px;background:#e9b44c;box-shadow:inset 0 -3px 0 rgba(0,0,0,.18);display:flex;align-items:center;justify-content:center;animation:mx-levelIn 1s var(--ease) 2.4s both}
+.mx-level span{width:34px;height:8px;border-radius:5px;background:rgba(255,255,255,.75);position:relative;overflow:hidden}
+.mx-level span::after{content:"";position:absolute;top:1px;width:6px;height:6px;border-radius:50%;background:#7cc79b;animation:mx-bubble 3s ease-in-out 3s infinite;left:14px}
+@keyframes mx-levelIn{from{opacity:0;transform:translateY(-20px) rotate(-6deg)}}
+@keyframes mx-bubble{0%,100%{left:14px}30%{left:6px}60%{left:22px}}
+.mx-wall-tag{position:absolute;left:16px;top:16px;font:700 12px/16px Figtree, sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#f3d9b3;background:rgba(0,0,0,.35);padding:6px 10px;border-radius:999px}
+.mx-wall-badge{position:absolute;right:16px;top:58px;background:#fffdf9;color:#2a2420;border-radius:14px;padding:12px 14px;display:flex;align-items:center;gap:10px;box-shadow:0 12px 30px rgba(0,0,0,.3);animation:mx-up .8s var(--ease) 2.8s both, mx-float 5s ease-in-out 3.6s infinite}
+.mx-wall-badge b{display:block;font:700 15px/18px "Bricolage Grotesque", sans-serif}
+.mx-wall-badge small{font-size:12px;line-height:16px;color:#5f554c}
+.mx-wall-badge i{width:36px;height:36px;border-radius:10px;background:#f1e3d3;display:grid;place-items:center;color:#b04f26}
+@keyframes mx-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+/* cartes savoir-faire */
+.mx-grid3{display:grid;gap:16px;grid-template-columns:minmax(0,1fr)}
+.mx-svc{position:relative;background:#fffdf9;border:1px solid #ddd3c4;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:10px;transition:transform .35s var(--ease), box-shadow .35s, border-color .35s;overflow:hidden}
+.mx-svc:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(42,36,32,.12);border-color:#b04f26}
+.mx-svc-ico{width:48px;height:48px;border-radius:12px;background:#f1e3d3;color:#b04f26;display:grid;place-items:center;transition:background-color .3s, color .3s, transform .4s var(--bounce)}
+.mx-svc:hover .mx-svc-ico{background:#b04f26;color:#fff;transform:rotate(-6deg) scale(1.05)}
+.mx-svc-ico svg{width:24px;height:24px}
+.mx-svc p{color:#5f554c}
+.mx-svc-n{position:absolute;right:18px;top:14px;font:800 40px/1 "Bricolage Grotesque", sans-serif;color:#ece4d8;transition:color .3s}
+.mx-svc:hover .mx-svc-n{color:#f1e3d3}
+
+/* avant / après */
+.mx-ba{position:relative;aspect-ratio:16 / 10;border-radius:18px;overflow:hidden;border:1px solid #ddd3c4;--pos:50%;user-select:none}
+.mx-ba-before,.mx-ba-after{position:absolute;inset:0}
+.mx-ba-before{background:repeating-linear-gradient(0deg, rgba(0,0,0,.12) 0 1px, transparent 1px 26px),radial-gradient(40% 30% at 30% 40%, rgba(0,0,0,.25), transparent),radial-gradient(30% 25% at 70% 70%, rgba(0,0,0,.2), transparent),linear-gradient(135deg,#8c8378,#5f574e)}
+.mx-ba-after{clip-path:inset(0 0 0 var(--pos));background:repeating-linear-gradient(0deg, rgba(0,0,0,.16) 0 3px, transparent 3px 30px),repeating-linear-gradient(90deg, rgba(0,0,0,.12) 0 3px, transparent 3px 62px),linear-gradient(135deg,#e6ae6c,#b4672f)}
+.mx-ba-lbl{position:absolute;top:14px;font:700 12px/16px Figtree, sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,.45);padding:6px 10px;border-radius:999px}
+.mx-ba-line{position:absolute;top:0;bottom:0;left:var(--pos);width:3px;margin-left:-1.5px;background:#fff;box-shadow:0 0 14px rgba(0,0,0,.35);pointer-events:none}
+.mx-ba-knob{position:absolute;top:50%;left:50%;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;background:#fff;color:#2a2420;display:grid;place-items:center;box-shadow:0 6px 18px rgba(0,0,0,.3)}
+.mx-ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.mx-proj{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.mx-tile{position:relative;aspect-ratio:4 / 3;border-radius:14px;overflow:hidden;display:flex;align-items:flex-end;padding:12px;color:#fff;font:650 14px/18px Figtree, sans-serif}
+.mx-tile::before{content:"";position:absolute;inset:0;background:var(--bg);transition:transform .8s var(--ease)}
+.mx-tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, transparent 40%, rgba(0,0,0,.6))}
+.mx-tile:hover::before{transform:scale(1.08)}
+.mx-tile span{position:relative;z-index:1}
+
+/* étapes */
+.mx-steps{display:grid;gap:16px;grid-template-columns:minmax(0,1fr);list-style:none;margin:0;padding:0;counter-reset:st}
+.mx-step{position:relative;background:#fffdf9;border:1px solid #ddd3c4;border-radius:16px;padding:22px 22px 22px 76px;counter-increment:st}
+.mx-step::before{content:counter(st, decimal-leading-zero);position:absolute;left:22px;top:20px;width:40px;height:40px;border-radius:50%;background:#2a2420;color:#f6f2eb;display:grid;place-items:center;font:700 14px/1 "Bricolage Grotesque", sans-serif}
+.mx-step p{color:#5f554c;margin-top:4px}
+
+/* points forts (bande sombre) */
+.mx-dark{background:#221c18;color:#f6f2eb}
+.mx-dark .mx-h2,.mx-dark .mx-h3{color:#f6f2eb}
+.mx-dark .mx-kicker{color:#e9b44c}.mx-dark .mx-kicker::before{background:#e9b44c}
+.mx-why{display:grid;gap:24px;grid-template-columns:minmax(0,1fr)}
+.mx-why-i{display:flex;gap:16px;align-items:flex-start}
+.mx-why-i i{flex:none;width:48px;height:48px;border-radius:12px;background:#3a2f28;color:#e9b44c;display:grid;place-items:center}
+.mx-why-i p{color:#cfc3b4;margin-top:4px}
+
+/* zone */
+.mx-chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
+.mx-chips li{padding:8px 14px;border-radius:999px;background:#fffdf9;border:1px solid #ddd3c4;font-weight:600;font-size:15px;transition:background-color .25s, color .25s, border-color .25s}
+.mx-chips li:hover{background:#2a2420;color:#f6f2eb;border-color:#2a2420}
+.mx-chips li.mx-home{background:#b04f26;border-color:#b04f26;color:#fff}
+
+/* FAQ */
+.mx-faq{display:grid;gap:10px}
+.mx-faq details{background:#fffdf9;border:1px solid #ddd3c4;border-radius:12px;transition:border-color .25s}
+.mx-faq details[open]{border-color:#b04f26}
+.mx-faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 18px;min-height:56px;font:650 17px/24px "Bricolage Grotesque", sans-serif}
+.mx-faq summary::-webkit-details-marker{display:none}
+.mx-faq summary span{flex:none;width:28px;height:28px;border-radius:50%;background:#f1e3d3;color:#b04f26;display:grid;place-items:center;transition:transform .35s var(--ease), background-color .3s, color .3s}
+.mx-faq details[open] summary span{transform:rotate(45deg);background:#b04f26;color:#fff}
+.mx-faq details p{padding:0 18px 18px;color:#5f554c}
+
+/* devis */
+.mx-devis{display:grid;gap:24px;grid-template-columns:minmax(0,1fr)}
+.mx-form{background:#fffdf9;border:1px solid #ddd3c4;border-radius:18px;padding:22px;display:grid;gap:18px}
+.mx-fgrid{display:grid;gap:16px;grid-template-columns:minmax(0,1fr)}
+.mx-field{display:grid;gap:6px}
+.mx-field label,.mx-legend{font-weight:650;font-size:15px}
+.mx-inp{width:100%;min-height:50px;padding:12px 14px;border:1.5px solid #c9bcaa;border-radius:10px;background:#fff;color:#2a2420;font:400 16px/22px Figtree, sans-serif;transition:border-color .2s, box-shadow .2s}
+.mx-inp:hover{border-color:#8f8170}
+.mx-inp:focus{outline:none;border-color:#b04f26;box-shadow:0 0 0 4px rgba(176,79,38,.15)}
+textarea.mx-inp{min-height:110px;resize:vertical}
+.mx-types{display:flex;flex-wrap:wrap;gap:8px}
+.mx-type{min-height:44px;padding:10px 14px;border-radius:999px;border:1.5px solid #c9bcaa;background:#fff;color:#2a2420;font:600 14px/18px Figtree, sans-serif;cursor:pointer;transition:background-color .2s, border-color .2s, color .2s, transform .25s var(--bounce)}
+.mx-type:hover{border-color:#2a2420}
+.mx-type[aria-pressed="true"]{background:#2a2420;border-color:#2a2420;color:#f6f2eb;transform:scale(1.03)}
+.mx-ok{display:flex;gap:14px;align-items:flex-start;padding:18px;border-radius:14px;background:#e9f4ec;color:#1f5c37;animation:mx-up .6s var(--ease)}
+.mx-ok b{display:block;color:#173f27;font-size:17px}
+.mx-side{display:flex;flex-direction:column;gap:14px}
+.mx-side-card{background:#221c18;color:#f6f2eb;border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:14px}
+.mx-side-card a{color:#f6f2eb;text-decoration:none;display:flex;align-items:center;gap:12px;font-weight:650;font-size:17px;min-height:44px}
+.mx-side-card a:hover{color:#e9b44c}
+.mx-side-card i{flex:none;width:40px;height:40px;border-radius:10px;background:#3a2f28;color:#e9b44c;display:grid;place-items:center}
+.mx-hours{display:grid;gap:6px;font-size:15px;color:#cfc3b4}
+.mx-hours div{display:flex;justify-content:space-between;border-top:1px solid #3a2f28;padding-top:6px}
+
+/* pied */
+.mx-foot{background:#1b1613;color:#cfc3b4;font-size:15px;padding:40px 0 24px}
+.mx-foot .mx-wrap{display:grid;gap:24px}
+.mx-foot a{color:#f6f2eb;text-decoration:none}
+.mx-foot a:hover{color:#e9b44c}
+.mx-foot-b{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 20px;border-top:1px solid #3a2f28;padding-top:18px;font-size:13px}
+.mx-made{display:inline-flex;align-items:center;gap:8px;color:#8fd0aa !important}
+
+/* barre mobile */
+.mx-mbar{position:sticky;bottom:0;z-index:45;display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(246,242,235,.94);border-top:1px solid #ddd3c4;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+
+
+/* révélations */
+.mx-anim [data-r]{opacity:0;translate:0 26px;transition:opacity .8s var(--ease), translate .8s var(--ease);transition-delay:calc(var(--d,0) * 90ms)}
+.mx-anim [data-r].mx-in{opacity:1;translate:0 0}
+
+@media (min-width:640px){
+.mx-grid3{grid-template-columns:repeat(2,minmax(0,1fr))}
+.mx-fgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.mx-proj{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+@media (min-width:900px){
+.mx-wrap{padding:0 32px}
+.mx-sec{padding:88px 0}
+.mx-m .mx-h1{font-size:56px;line-height:60px}
+.mx-m .mx-h2{font-size:40px;line-height:46px}
+.mx-nav,.mx-hdr-cta{display:flex}
+.mx-burger,.mx-mmenu,.mx-mbar{display:none}
+
+.mx-hero{padding:64px 0 88px}
+.mx-brk{height:28px}
+.mx-hero-grid{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:56px}
+.mx-grid3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.mx-steps{grid-template-columns:repeat(4,minmax(0,1fr))}
+.mx-step{padding:76px 22px 22px}
+.mx-step::before{top:22px}
+.mx-why{grid-template-columns:repeat(3,minmax(0,1fr))}
+.mx-devis{grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);align-items:start}
+.mx-foot .mx-wrap{grid-template-columns:2fr 1fr 1fr}
+.mx-real{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:32px;align-items:center}
+.mx-proj{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (prefers-reduced-motion: reduce){
+.mx-m *,.mx-m *::before,.mx-m *::after{animation:none !important;transition:none !important}
+.mx-brk{opacity:1}
+.mx-hero .mx-h1 em::after{transform:scaleX(1)}
+}
+
+
+/* photos du site exemple */
+.mx-wall-card{aspect-ratio:4 / 3}
+.mx-wall-card::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg, rgba(0,0,0,.4), transparent 38%);pointer-events:none}
+.mx-wall-card .mx-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;animation:mx-kb 16s ease-in-out infinite alternate}
+@keyframes mx-kb{from{transform:scale(1.09)}to{transform:scale(1)}}
+.mx-wall-tag,.mx-wall-badge{z-index:2}
+.mx-tile{margin:0}
+.mx-tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.mx-tile:hover img{transform:scale(1.06)}
+.mx-tile figcaption{position:relative;z-index:1}
+.mx-tile::after{z-index:0}
+@media (min-width:900px){.mx-m .mx-proj{grid-template-columns:minmax(0,1fr)}.mx-m .mx-tile{aspect-ratio:2 / 1}}
+@media (prefers-reduced-motion: reduce){.mx-wall-card .mx-photo{animation:none}}
+/* ---------- Site exemple intégré ---------- */
+.emb{border:1px solid #354253;border-radius:14px;overflow:hidden;background:#121820;box-shadow:0 30px 70px rgba(0,0,0,.4), 0 0 0 1px rgba(124,199,155,.06)}
+.emb-bar{display:flex;align-items:center;gap:12px;padding:10px 14px;border-bottom:1px solid #354253;background:#18202a}
+.emb-dots{display:flex;gap:6px}
+.emb-dots i{width:10px;height:10px;border-radius:50%;background:#354253}
+.emb-url{flex-grow:1;min-width:0;display:flex;align-items:center;gap:8px;padding:4px 12px;border-radius:8px;background:#222c38;color:#aab5c1;font:400 12px/18px "Geist Mono", monospace;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.emb-url em{font-style:normal;color:#8fd0aa;border:1px solid rgba(143,208,170,.4);border-radius:4px;padding:0 5px;font-size:10.5px;text-transform:uppercase;letter-spacing:.08em}
+.emb-full{display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 10px;border-radius:8px;color:#eef1f2;text-decoration:none;font:500 13px/18px Geist, sans-serif;white-space:nowrap}
+.emb-full:hover{background:#2a3644;color:#eef1f2}
+.emb-scroll{height:480px;overflow-y:auto;overflow-x:hidden;background:#f6f2eb;scrollbar-width:thin;scrollbar-color:#7a8899 #18202a}
+.emb-sizer{position:relative;overflow:hidden;height:2600px}
+.emb-inner{position:absolute;left:0;top:0;width:1280px;transform-origin:0 0}
+.emb-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px;padding:12px 14px;border-top:1px solid #354253;background:#18202a}
+.emb-pill{font:500 12px/16px "Geist Mono", monospace;letter-spacing:.06em;text-transform:uppercase;color:#8fd0aa}
+.emb-hint{display:inline-flex;align-items:center;gap:6px;font:400 13px/18px Geist, sans-serif;color:#aab5c1}
+.emb-hint svg{animation:cue2 1.8s var(--ease-io) infinite}
+@keyframes cue2{0%,100%{transform:translateY(-2px)}50%{transform:translateY(3px)}}
+@media (min-width:900px){.emb-scroll{height:620px}}
+button.emb-full{border:0;background:transparent;cursor:pointer}
+.mx-m a.mx-btn-main,.mx-m a.mx-btn-main:hover,.mx-m .mx-btn-main{color:#fff}
+.mx-m a.mx-btn-ghost{color:#2a2420}
+.mx-m a.mx-btn-ghost:hover{color:#f6f2eb}
+.mx-m .mx-nav a{color:#2a2420}
+.mx-m a.mx-brand{color:#2a2420}
+.emb .mx-hdr{position:relative}
+.emb .mx-mbar{display:none}
+.emb.is-full{position:fixed;inset:12px;z-index:180;display:flex;flex-direction:column;translate:none !important;opacity:1 !important}
+.emb.is-full .emb-scroll{flex-grow:1;height:auto}
+.emb-backdrop{display:none}
+.emb.is-full + .emb-backdrop{display:block;position:fixed;inset:0;z-index:170;background:rgba(10,14,20,.7);backdrop-filter:blur(4px)}
+@media (prefers-reduced-motion: reduce){.emb-hint svg{animation:none}}
+
+/* ---------- Réduire les animations : tout s'affiche directement ---------- */
+@media (prefers-reduced-motion: reduce){
+html{scroll-behavior:auto}
+.pl{display:none !important}
+.hdr,.hero-grid,.hero-scan{animation:none !important}
+.hin,.hw>span{animation:none !important;opacity:1 !important;transform:none !important;color:inherit}
+.hero-dots,.hero-glow,.px,.cue-dot,.price-run::after,.mob-menu,.glow-pulse,.sticky-cta .ox-btn,.sk::after,.tw-caret{animation:none !important}
+.px{display:none}
+.sk::after{display:none}
+.pz{transform:none !important;transition:none !important}
+.mock-page{transition:none !important;transform:none !important}
+.mk-up-bar span{animation:none !important;transform:none !important}
+.mk-up-pct b::after{content:"100 %"}
+.mk-check{opacity:1;transform:none}
+.ox-faq__item::details-content{transition:none}
+.ox-faq__item[open] .ox-faq__answer{animation:none}
+.send-btn .sb-track span{animation:none !important;transform:none}
+}
+/* ===== Fond en vagues douces (réglages : variables --wave-* en haut de cette balise style) ===== */
+html{background:var(--wave-base)}
+body{background:transparent}  /* le fond de body masquerait le calque des vagues placé en z-index négatif */
+.ox-waves{position:fixed;inset:0;z-index:-1;display:block;width:100%;height:100%;pointer-events:none;background:var(--wave-base)}
+
+/* Sections qui avaient leur propre fond uni : transparentes, ou légèrement voilées
+   (Le constat, Tarifs, Réalisations, FAQ, pied de page) pour garder l'alternance. */
+.ox-site.ox-site,.site-hero,.ox-hero{background:transparent !important}
+.site-hero > .hdr-hero:not(.is-scrolled){background:transparent}
+#constat,#tarifs,#realisations,#faq{background:rgba(5,9,16,.35) !important}
+.ox-footer{background:rgba(5,9,16,.5)}
+/* ===== fin du fond en vagues ===== */
+
+/* ---------- Bandeau contact (accueil) + page devis ---------- */
+.cta-band{display:grid;gap:24px;padding:32px 24px;border-radius:var(--radius-lg);border:1px solid #354253;background:radial-gradient(70% 120% at 100% 0%, rgba(124,199,155,.14), transparent 60%),#18202a}
+.cta-band__actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px}
+.cta-band__link{color:#eef1f2;font-weight:500;text-underline-offset:4px}
+.cta-band__link:hover{color:#8fd0aa}
+@media (min-width:900px){.cta-band{grid-template-columns:minmax(0,1.3fr) auto;align-items:center;padding:40px}}
+main > section[id]{scroll-margin-top:72px}
+.page-main{padding-top:72px}
+@media (min-width:900px){.page-main{padding-top:80px}}
+.back-bar{padding-top:24px}
+.back-btn{gap:8px}
+.back-btn svg{width:18px;height:18px}
+/* ---------- Formulaire de devis complet ---------- */
+.dv-form{display:grid;gap:28px}
+.dv-set{margin:0;padding:0;border:0;min-width:0;display:grid;gap:16px}
+.dv-set + .dv-set{padding-top:24px;border-top:1px dashed #354253}
+.dv-legend{float:left;width:100%;display:flex;align-items:center;gap:10px;padding:0;margin:0 0 4px;font:600 17px/24px Sora, sans-serif;color:#eef1f2;letter-spacing:-.01em}
+.dv-legend span{width:26px;height:26px;flex:none;display:grid;place-items:center;border-radius:8px 3px 8px 3px;background:rgba(124,199,155,.14);border:1px solid rgba(124,199,155,.4);color:#8fd0aa;font:600 12px/1 "Geist Mono", monospace}
+.dv-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.dv-full{grid-column:1 / -1}
+.dv-legend + *{clear:both}
+.dv-hint{margin:-4px 0 0;font-size:14px;line-height:20px;color:#aab5c1}
+.dv-chips{display:flex;flex-wrap:wrap;gap:10px}
+.dv-chip{position:relative;display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:10px 14px;border:1px solid #3a4859;border-radius:10px;background:#1b232e;color:#c9d1d8;font-size:15px;line-height:20px;cursor:pointer;transition:border-color .2s, background-color .2s, color .2s}
+.dv-chip:hover{border-color:#5a6b7e}
+.dv-chip input{position:absolute;opacity:0;width:1px;height:1px;margin:0}
+.dv-chip::before{content:"";width:16px;height:16px;flex:none;border-radius:4px;border:1.5px solid #6a7888;transition:background-color .2s, border-color .2s, box-shadow .2s}
+.dv-chip--radio::before{border-radius:50%}
+.dv-chip:has(input:checked){border-color:#7cc79b;background:rgba(124,199,155,.1);color:#eef1f2}
+.dv-chip:has(input:checked)::before{border-color:#7cc79b;background:#7cc79b;box-shadow:inset 0 0 0 3px #1b232e}
+.dv-chip:has(input:focus-visible){outline:2px solid #8fd0aa;outline-offset:2px}
+.dv-select{appearance:none;-webkit-appearance:none;padding-right:40px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238fd0aa' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:16px;cursor:pointer}
+.dv-select option{background:#18202a;color:#eef1f2}
+</style>
+</helmet>
+
+<div class="ox ox-site mob-pad {{loaderClass}}" style="min-height: 100vh; background: #18202a">
+<a class="skip-link" href="#contact">Aller au contenu</a>
+
+<div class="cur-ring" aria-hidden="true"><span></span></div>
+
+
+<!-- MENU FIXE (apparaît après le hero) -->
+<header class="ox-header hdr hdr-site is-shown is-scrolled">
+<div class="ox-header__inner">
+<a class="lg" href="/"><img class="lg-img" src="/assets/oxalis-logo.png" alt="Oxalis — accueil" width="190" height="40"></a>
+<nav class="ox-header__nav" aria-label="Principale (menu fixe)">
+<a href="/#services">Services</a>
+<a href="/#tarifs">Tarifs</a>
+<a href="/#realisations">Réalisations</a>
+<a href="/#faq">FAQ</a>
+<a href="/devis/">Contact</a>
+</nav>
+<a class="ox-btn ox-btn--sm ox-header__cta" href="/devis/" data-magnet="">Demander mon devis gratuit</a>
+<button class="ox-header__burger" type="button" aria-label="{{menuLabel}}" aria-expanded="{{menuExpanded}}" onClick="{{toggleMenu}}">
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{false}}">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12"></path><path d="M18 6 6 18"></path></svg>
+</sc-if>
+<sc-if value="{{menuClosed}}" hint-placeholder-val="{{true}}">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16"></path><path d="M4 12h16"></path><path d="M4 17h16"></path></svg>
+</sc-if>
+</button>
+</div>
+<div class="hdr-progress" aria-hidden="true"></div>
+</header>
+
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{false}}">
+<nav class="mob-menu" aria-label="Menu mobile">
+<a class="mlink" href="/#services" onClick="{{closeMenu}}">Services</a>
+<a class="mlink" href="/#tarifs" onClick="{{closeMenu}}">Tarifs</a>
+<a class="mlink" href="/#realisations" onClick="{{closeMenu}}">Réalisations</a>
+<a class="mlink" href="/#faq" onClick="{{closeMenu}}">FAQ</a>
+<a class="mlink" href="/devis/" onClick="{{closeMenu}}">Contact</a>
+<a class="ox-btn ox-btn--primary ox-btn--block" href="/devis/" onClick="{{closeMenu}}" style="margin-top: 24px">Demander mon devis gratuit</a>
+</nav>
+</sc-if>
+
+<main class="page-main">
+<div class="wrap back-bar">
+<a class="ox-btn ox-btn--secondary ox-btn--sm back-btn" href="/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"></path><path d="m11 6-6 6 6 6"></path></svg>Retour</a>
+</div>
+<!-- DEMANDE DE DEVIS -->
+<section id="contact" class="sec" style="padding-top: 32px">
+<div class="wrap" style="display: flex; flex-direction: column; gap: 40px">
+<div class="sec-head">
+<span class="sec-load" data-reveal="load" aria-hidden="true"></span>
+<p class="ox-overline" data-reveal="" style="margin: 0; --d: 2">Demande de devis</p>
+<h1 class="ox-h2 mtitle" data-reveal="mask" style="--d: 3">Parlons de votre projet</h1>
+<p class="ox-lead" data-reveal="" style="--d: 4">Un premier échange gratuit et sans engagement. Devis sous 48 h.</p>
+</div>
+<div class="g-contact">
+<div class="ox-card" data-reveal="" style="--d: 1; padding: 24px">
+<sc-if value="{{formOpen}}" hint-placeholder-val="{{true}}">
+<form name="devis" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit="{{send}}" class="dv-form">
+<input type="hidden" name="form-name" value="devis">
+<input type="hidden" name="besoins" value="">
+<p hidden><label>Ne pas remplir : <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+<fieldset class="dv-set">
+<legend class="dv-legend"><span>1</span>Vous</legend>
+<div class="dv-grid">
+<div class="ox-field dv-full"><label class="ox-field__label" for="f-nom">Nom et prénom</label><input class="ox-input" id="f-nom" name="nom" autocomplete="name" required="required"></div>
+<div class="ox-field"><label class="ox-field__label" for="f-tel">Téléphone</label><input class="ox-input" id="f-tel" name="telephone" type="tel" autocomplete="tel" inputmode="tel"></div>
+<div class="ox-field"><label class="ox-field__label" for="f-email">E-mail</label><input class="ox-input" id="f-email" name="email" type="email" autocomplete="email"></div>
+</div>
+<p class="dv-hint">Indiquez au moins un téléphone ou un e-mail pour qu'on puisse vous répondre.</p>
+<div class="ox-field"><span class="ox-field__label" id="dv-pref">Comment préférez-vous être recontacté ? <span>(facultatif)</span></span><div class="dv-chips" role="radiogroup" aria-labelledby="dv-pref"><label class="dv-chip dv-chip--radio"><input type="radio" name="preference_contact" value="Par téléphone"><span>Par téléphone</span></label><label class="dv-chip dv-chip--radio"><input type="radio" name="preference_contact" value="Par e-mail"><span>Par e-mail</span></label><label class="dv-chip dv-chip--radio"><input type="radio" name="preference_contact" value="Peu importe"><span>Peu importe</span></label></div></div>
+</fieldset>
+<fieldset class="dv-set">
+<legend class="dv-legend"><span>2</span>Votre entreprise</legend>
+<div class="dv-grid">
+<div class="ox-field"><label class="ox-field__label" for="f-entreprise">Nom de l'entreprise <span>(facultatif)</span></label><input class="ox-input" id="f-entreprise" name="entreprise" autocomplete="organization"></div>
+<div class="ox-field"><label class="ox-field__label" for="f-metier">Métier <span>(facultatif)</span></label><input class="ox-input" id="f-metier" name="metier" placeholder="Ex. menuisier, paysagiste…"></div>
+<div class="ox-field"><label class="ox-field__label" for="f-taille">Taille de l'entreprise <span>(facultatif)</span></label><select class="ox-input dv-select" id="f-taille" name="taille"><option value="">Choisir…</option><option value="Artisan indépendant (seul)">Artisan indépendant (seul)</option><option value="TPE (moins de 10 personnes)">TPE (moins de 10 personnes)</option><option value="PME (10 personnes et plus)">PME (10 personnes et plus)</option></select></div>
+<div class="ox-field"><label class="ox-field__label" for="f-ville">Commune <span>(facultatif)</span></label><input class="ox-input" id="f-ville" name="commune" autocomplete="address-level2" placeholder="Ex. Reims"></div>
+</div>
+</fieldset>
+<fieldset class="dv-set">
+<legend class="dv-legend"><span>3</span>Votre projet</legend>
+<div class="ox-field"><span class="ox-field__label" id="dv-besoins">De quoi avez-vous besoin ? <span>(plusieurs choix possibles)</span></span><div class="dv-chips" role="group" aria-labelledby="dv-besoins"><label class="dv-chip"><input type="checkbox" value="Création d'un site" data-besoin=""><span>Création d'un site</span></label><label class="dv-chip"><input type="checkbox" value="Refonte de mon site actuel" data-besoin=""><span>Refonte de mon site actuel</span></label><label class="dv-chip"><input type="checkbox" value="Référencement local Google" data-besoin=""><span>Référencement local Google</span></label><label class="dv-chip"><input type="checkbox" value="Automatisations" data-besoin=""><span>Automatisations</span></label><label class="dv-chip"><input type="checkbox" value="Maintenance" data-besoin=""><span>Maintenance</span></label><label class="dv-chip"><input type="checkbox" value="Autre" data-besoin=""><span>Autre</span></label></div></div>
+<div class="dv-grid">
+<div class="ox-field"><span class="ox-field__label" id="dv-site">Avez-vous déjà un site ? <span>(facultatif)</span></span><div class="dv-chips" role="radiogroup" aria-labelledby="dv-site"><label class="dv-chip dv-chip--radio"><input type="radio" name="site_actuel" value="Oui"><span>Oui</span></label><label class="dv-chip dv-chip--radio"><input type="radio" name="site_actuel" value="Non"><span>Non</span></label></div></div>
+<div class="ox-field"><label class="ox-field__label" for="f-url">Adresse du site actuel <span>(facultatif)</span></label><input class="ox-input" id="f-url" name="site_url" inputmode="url" autocomplete="url" placeholder="Ex. www.monentreprise.fr"></div>
+<div class="ox-field"><label class="ox-field__label" for="f-delai">Pour quand ? <span>(facultatif)</span></label><select class="ox-input dv-select" id="f-delai" name="delai"><option value="">Choisir…</option><option value="Dès que possible">Dès que possible</option><option value="Dans le mois">Dans le mois</option><option value="Dans 1 à 3 mois">Dans 1 à 3 mois</option><option value="Pas pressé">Pas pressé</option></select></div>
+</div>
+<div class="ox-field dv-full"><label class="ox-field__label" for="f-msg">Décrivez votre projet</label><textarea class="ox-input" id="f-msg" name="message" rows="5" required="required" placeholder="Vos services, ce que vous attendez du site, vos idées, vos questions…"></textarea></div>
+</fieldset>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<button class="ox-btn ox-btn--primary ox-btn--block send-btn {{sendClass}}" type="submit" data-magnet="" aria-disabled="{{sendBusy}}">
+<span class="sb-label">Envoyer ma demande <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></span>
+<span class="sb-load" aria-hidden="true"><span class="sb-track"><span></span></span></span>
+<span class="sb-done" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" pathLength="1"></path></svg>Message prêt ✓</span>
+</button>
+<p class="ox-small" role="status" style="margin: 0; min-height: 21px">{{sendStatus}}</p>
+<p class="ox-small" style="margin: 0">Vos informations servent uniquement à répondre à votre demande. <a href="#mentions-legales" style="color: #8fd0aa">Voir les mentions légales.</a></p>
+</div>
+</form>
+</sc-if>
+<sc-if value="{{formSent}}" hint-placeholder-val="{{false}}">
+<div class="form-ok" role="status" style="display: flex; flex-direction: column; align-items: flex-start; gap: 14px; padding: 8px 0">
+<div class="ox-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></div>
+<p class="ox-h3" style="margin: 0">Merci, votre demande a bien été envoyée. Je vous réponds sous 24 h.</p>
+</div>
+</sc-if>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 28px">
+<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 20px">
+<li data-reveal="" style="--d: 2; display: flex; gap: 16px; align-items: center">
+<span class="ox-card__icon" style="flex: none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg></span>
+<a href="mailto:contact@agence-oxalis.fr?subject=Demande%20de%20devis%20%E2%80%94%20site%20Oxalis" style="color: #eef1f2; font-weight: 500; word-break: break-all">contact@agence-oxalis.fr</a>
+</li>
+<li data-reveal="" style="--d: 3; display: flex; gap: 16px; align-items: center">
+<span class="ox-card__icon" style="flex: none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"></path></svg></span>
+<a href="tel:+33667864885" style="color: #eef1f2; font-weight: 500">06 67 86 48 85</a>
+</li>
+<li data-reveal="" style="--d: 4; display: flex; gap: 16px; align-items: center">
+<span class="ox-card__icon" style="flex: none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"></path><circle cx="12" cy="9" r="2.5"></circle></svg></span>
+<span style="color: #aab5c1">Reims, Marne &amp; Grand Est, et partout en France à distance</span>
+</li>
+</ul>
+<div class="viz viz-net" data-reveal="" style="--d: 5" aria-hidden="true"><canvas data-viz="net"></canvas><span class="viz-tag">// Réponse sous 24 h</span></div>
+</div>
+</div>
+</div>
+</section>
+
+</main>
+
+<!-- 10. FOOTER -->
+<footer class="ox-footer">
+<div class="ox-footer__inner">
+<div class="ox-footer__brand" data-reveal="" style="--d: 0">
+<img class="ft-logo" src="/assets/oxalis-logo.png" alt="Oxalis">
+<p>Le digital, simplement.</p>
+</div>
+<div>
+<h4 role="heading" aria-level="2">Navigation</h4>
+<ul>
+<li data-reveal="slide" style="--d: 1"><a href="/#services">Services</a></li>
+<li data-reveal="slide" style="--d: 1.5"><a href="/#tarifs">Tarifs</a></li>
+<li data-reveal="slide" style="--d: 2"><a href="/#realisations">Réalisations</a></li>
+<li data-reveal="slide" style="--d: 2.5"><a href="/#faq">FAQ</a></li>
+<li data-reveal="slide" style="--d: 3"><a href="/devis/">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4 role="heading" aria-level="2">Informations</h4>
+<ul>
+<li data-reveal="slide" style="--d: 2"><a href="#mentions-legales">Mentions légales</a></li>
+<li data-reveal="slide" style="--d: 2.5"><a href="#mentions-legales-donnees">Politique de confidentialité</a></li>
+<li data-reveal="slide" style="--d: 3"><a href="https://www.linkedin.com/in/adrien-eloy-a9698928a/" target="_blank" rel="noopener">LinkedIn<span class="skip-sr"> (nouvel onglet)</span></a></li>
+</ul>
+</div>
+<div>
+<h4 role="heading" aria-level="2">Contact</h4>
+<ul>
+<li data-reveal="slide" style="--d: 3"><a href="mailto:contact@agence-oxalis.fr?subject=Demande%20de%20devis%20%E2%80%94%20site%20Oxalis" style="word-break: break-all">contact@agence-oxalis.fr</a></li>
+<li data-reveal="slide" style="--d: 3.5"><a href="tel:+33667864885">06 67 86 48 85</a></li>
+<li data-reveal="slide" style="--d: 4">Reims, Marne &amp; Grand Est</li>
+</ul>
+</div>
+<div class="ox-footer__bottom"><span>© 2026 Oxalis</span><span>Reims · Marne · Grand Est</span></div>
+</div>
+</footer>
+
+
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":14800}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    var reduce = false, show = false;
+    try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+    if (!reduce) {
+      var seen = false;
+      show = false;
+    }
+    this.reduce = reduce;
+    this.loaderShown = show;
+    this.L = show ? 1450 : 0;
+    this.state = { svcOpen: null, menuOpen: false, sendState: 'idle', loader: show, mxMenuOpen: false, mxSent: false, mxType: 'ext', embFull: false };
+    this.cleanups = [];
+    this.timers = new Set();
+  }
+
+  later(fn, ms) {
+    var self = this;
+    var id = setTimeout(function () { self.timers.delete(id); fn(); }, ms);
+    this.timers.add(id);
+    return id;
+  }
+
+  componentDidMount() {
+    var self = this;
+    var doc = document;
+    var win = doc.defaultView || window;
+    var root = doc.querySelector('.ox-site');
+    if (!root) return;
+    var reduce = this.reduce;
+    var L = this.L;
+    var raf = function (f) { return win.requestAnimationFrame(f); };
+    var on = function (t, ev, fn, opt) { t.addEventListener(ev, fn, opt); self.cleanups.push(function () { t.removeEventListener(ev, fn, opt); }); };
+
+    if (this.state.loader) this.later(function () { self.setState({ loader: false }); }, 2000);
+
+    /* --- Écran de chargement : la barre se remplit, puis le site apparaît --- */
+    (function () {
+      var ld = doc.getElementById('intro-loader'), bar = doc.getElementById('intro-bar');
+      if (!ld) return;
+      if (reduce) { ld.classList.add('is-done'); return; }
+      var t0 = win.performance.now(), MIN = 1100, MAX = 3000, pageReady = doc.readyState === 'complete', done = false;
+      if (!pageReady) on(win, 'load', function () { pageReady = true; });
+      var tick = function (now) {
+        if (done) return;
+        var t = now - t0, p = Math.min(1, t / MIN);
+        var pct = (pageReady || t > MAX) ? 100 * (1 - Math.pow(1 - p, 3)) : Math.min(90, 100 * (1 - Math.pow(1 - p, 3)));
+        if (bar) bar.style.width = pct.toFixed(1) + '%';
+        if (pct >= 100) { done = true; self.later(function () { ld.classList.add('is-done'); }, 250); return; }
+        raf(tick);
+      };
+      raf(tick);
+    })();
+
+    /* --- Arrivée avec une ancre depuis une autre page (ex. /#services) --- */
+    if (win.location.hash && win.location.hash.length > 1 && win.location.hash.indexOf('mentions') < 0) {
+      var hashEl = doc.getElementById(win.location.hash.slice(1));
+      if (hashEl) self.later(function () { hashEl.scrollIntoView({ block: 'start' }); }, 60);
+    }
+
+    /* --- Titres « décodés » --- */
+    var GLYPHS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var decode = function (el) {
+      var node = null;
+      for (var i = 0; i < el.childNodes.length; i++) { if (el.childNodes[i].nodeType === 3 && el.childNodes[i].nodeValue.trim()) { node = el.childNodes[i]; break; } }
+      if (!node || el.children.length) return;
+      var fin = node.nodeValue, t0 = 0, n = 0, dur = 900;
+      el.style.minHeight = el.offsetHeight + 'px';
+      var step = function (now) {
+        if (!t0) t0 = now;
+        var p = Math.min(1, (now - t0) / dur);
+        if (p >= 1) { node.nodeValue = fin; el.style.minHeight = ''; return; }
+        if ((n++ % 2) === 0) {
+          var fixed = Math.floor(p * fin.length * 1.05), s = '';
+          for (var k = 0; k < fin.length; k++) {
+            var c = fin[k];
+            s += (k < fixed || /[\s.,:;'’!?…&-]/.test(c)) ? c : GLYPHS[(Math.random() * GLYPHS.length) | 0];
+          }
+          node.nodeValue = s;
+        }
+        raf(step);
+      };
+      raf(step);
+    };
+    /* --- Compteurs de prix --- */
+    var countUp = function (el) {
+      var node = el.firstChild; if (!node || node.nodeType !== 3) return;
+      var fin = node.nodeValue, target = parseInt(el.getAttribute('data-count'), 10) || 0, t0 = 0, dur = 1300;
+      var step = function (now) {
+        if (!t0) t0 = now;
+        var p = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+        node.nodeValue = p >= 1 ? fin : String(Math.round(target * e));
+        if (p < 1) raf(step);
+      };
+      node.nodeValue = '0';
+      raf(step);
+    };
+
+    /* --- Révélations au scroll --- */
+    var revealEls = Array.prototype.slice.call(root.querySelectorAll('[data-reveal]'));
+    var onIn = function (el) {
+      el.classList.add('in');
+      var d = parseFloat(win.getComputedStyle(el).getPropertyValue('--d')) || 0;
+      Array.prototype.forEach.call(el.querySelectorAll('[data-count]'), function (c) { self.later(function () { countUp(c); }, d * 100 + 650); });
+    };
+    if (!reduce && 'IntersectionObserver' in win) {
+      root.classList.add('anim-on');
+      var io = new win.IntersectionObserver(function (entries) {
+        entries.forEach(function (en) { if (en.isIntersecting) { io.unobserve(en.target); onIn(en.target); } });
+      }, { rootMargin: '0px', threshold: 0.15 });
+      revealEls.forEach(function (el) { io.observe(el); });
+      self.cleanups.push(function () { io.disconnect(); });
+    } else {
+      revealEls.forEach(function (el) { el.classList.add('in'); });
+    }
+
+    /* --- Lien actif du menu --- */
+    var navLinks = Array.prototype.slice.call(root.querySelectorAll('.ox-header__nav a'));
+    if ('IntersectionObserver' in win) {
+      var spy = new win.IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (!en.isIntersecting) return;
+          var id = '#' + en.target.id;
+          navLinks.forEach(function (a) { a.classList.toggle('is-active', a.getAttribute('href') === id); });
+        });
+      }, { rootMargin: '-45% 0px -50% 0px' });
+      Array.prototype.forEach.call(root.querySelectorAll('main > section[id]'), function (s) { spy.observe(s); });
+      self.cleanups.push(function () { spy.disconnect(); });
+    }
+
+    /* --- Sous-titre machine à écrire --- */
+    var tw = root.querySelector('[data-type]');
+    if (tw && !reduce) {
+      var base = tw.querySelector('.tw-base'), typed = tw.querySelector('.tw-typed');
+      var full = base ? base.textContent : '';
+      if (typed && full) {
+        tw.classList.add('tw-on');
+        typed.textContent = '';
+        this.later(function () {
+          var t0 = 0, last = -1;
+          var step = function (now) {
+            if (!t0) t0 = now;
+            var n = Math.min(full.length, Math.floor((now - t0) / 18));
+            if (n !== last) { typed.textContent = full.slice(0, n); last = n; }
+            if (n < full.length) raf(step); else tw.classList.add('tw-done');
+          };
+          raf(step);
+        }, L + 650);
+      }
+    }
+
+    /* --- Maquette qui se construit (boucle) --- */
+    Array.prototype.forEach.call(root.querySelectorAll('[data-mk]'), function (mk) {
+    var STAGES = ['s1', 's2', 's3', 's4', 's5', 's6'];
+    if (mk) {
+      if (reduce) { STAGES.forEach(function (s) { mk.classList.add(s); }); }
+      else {
+        var OFFS = [300, 900, 1500, 2100, 2700, 4200];
+        var cycle = function () {
+          STAGES.forEach(function (s) { mk.classList.remove(s); });
+          OFFS.forEach(function (o, i) { self.later(function () { mk.classList.add(STAGES[i]); }, o); });
+          self.later(cycle, 7000);
+        };
+        self.later(cycle, L + 700);
+      }
+    }
+    });
+
+    /* --- Interface d'automatisation : mise à l'échelle --- */
+    var wf = root.querySelector('.wf');
+    if (wf) {
+      var wfFit = wf.querySelector('.wf-fit'), wfStage = wf.querySelector('.wf-stage');
+      var fitWf = function () {
+        if (!wfFit || !wfStage || !wfFit.clientWidth) return;
+        var k = Math.min(1, wfFit.clientWidth / 1100);
+        wfStage.style.transform = 'scale(' + k.toFixed(4) + ')';
+        wfFit.style.height = Math.round(380 * k) + 'px';
+        wfStage.style.left = Math.max(0, Math.round((wfFit.clientWidth - 1100 * k) / 2)) + 'px';
+      };
+      fitWf();
+      on(win, 'resize', fitWf, { passive: true });
+      if ('ResizeObserver' in win) { var wro = new win.ResizeObserver(fitWf); wro.observe(wf); self.cleanups.push(function () { wro.disconnect(); }); }
+    }
+
+    /* --- Visuels 3D : cerveau numérique et réseau de nœuds --- */
+    var vizEls = Array.prototype.slice.call(root.querySelectorAll('[data-viz]'));
+    var seedRand = function (seed) { var x = seed; return function () { x = (x * 16807) % 2147483647; return (x - 1) / 2147483646; }; };
+    var buildBrain = function () {
+      var rnd = seedRand(7), pts = [];
+      for (var i = 0; i < 1300; i++) {
+        var u = rnd() * 2 - 1, th = rnd() * Math.PI * 2, r = Math.sqrt(1 - u * u);
+        var x = r * Math.cos(th), y = u, z = r * Math.sin(th);
+        var side = i % 2 ? 1 : -1;
+        if (x * side < 0) x = -x * 0.35;
+        var fold = 1 + 0.07 * Math.sin(9 * x + 2) * Math.sin(8 * y) * Math.sin(7 * z + 1);
+        var X = side * 0.06 + x * 0.44 * fold, Y = y * 0.6 * fold, Z = z * 0.82 * fold;
+        if (Y < -0.28) Y = -0.28 + (Y + 0.28) * 0.35;
+        if (rnd() < 0.18) { var k = 0.55 + rnd() * 0.35; X *= k; Y *= k; Z *= k; }
+        pts.push([X, Y + 0.05, Z]);
+      }
+      for (var s = 0; s < 40; s++) { var t = s / 40; pts.push([(rnd() - 0.5) * 0.06, -0.3 - t * 0.38, -0.25 - t * 0.12]); }
+      return pts;
+    };
+    var buildNet = function () {
+      var rnd = seedRand(42), pts = [];
+      while (pts.length < 90) { var x = rnd() * 2 - 1, y = rnd() * 2 - 1, z = rnd() * 2 - 1; if (x * x + y * y + z * z < 1) pts.push([x * 1.15, y * 0.8, z]); }
+      return pts;
+    };
+    var linkNearest = function (pts, k, maxD) {
+      var edges = [], seen = {};
+      for (var i = 0; i < pts.length; i++) {
+        var best = [];
+        for (var j = 0; j < pts.length; j++) {
+          if (i === j) continue;
+          var dx = pts[i][0] - pts[j][0], dy = pts[i][1] - pts[j][1], dz = pts[i][2] - pts[j][2], d = dx * dx + dy * dy + dz * dz;
+          if (d > maxD * maxD) continue;
+          best.push([d, j]);
+        }
+        best.sort(function (a, b) { return a[0] - b[0]; });
+        for (var b = 0; b < Math.min(k, best.length); b++) { var a1 = Math.min(i, best[b][1]), a2 = Math.max(i, best[b][1]), key = a1 + '-' + a2; if (!seen[key]) { seen[key] = 1; edges.push([a1, a2]); } }
+      }
+      return edges;
+    };
+    vizEls.forEach(function (cv, vi) {
+      var kind = cv.getAttribute('data-viz');
+      var ctx2 = cv.getContext && cv.getContext('2d'); if (!ctx2) return;
+      var pts = kind === 'brain' ? buildBrain() : buildNet();
+      var edges = kind === 'brain' ? linkNearest(pts, 2, 0.16) : linkNearest(pts, 3, 0.62);
+      var pulses = []; var rndP = seedRand(99 + vi);
+      var vdpr = Math.min(2, win.devicePixelRatio || 1), VW = 0, VH = 0;
+      var vsize = function () { VW = cv.clientWidth; VH = cv.clientHeight; if (!VW || !VH) return; cv.width = Math.round(VW * vdpr); cv.height = Math.round(VH * vdpr); };
+      vsize();
+      var yaw = kind === 'brain' ? 1.35 : 0, pitch = kind === 'brain' ? -0.18 : 0.35, pyaw = 0, ppitch = 0, tyaw = 0, tpitch = 0;
+      var proj2 = [], tmp = [0, 0, 0, 0];
+      var project = function (p, out) {
+        var cy1 = Math.cos(yaw + pyaw), sy1 = Math.sin(yaw + pyaw), cp = Math.cos(pitch + ppitch), sp = Math.sin(pitch + ppitch);
+        var x = p[0] * cy1 + p[2] * sy1, z = -p[0] * sy1 + p[2] * cy1;
+        var y = p[1] * cp - z * sp; z = p[1] * sp + z * cp;
+        var sc = Math.min(VW, VH) * vdpr * (kind === 'brain' ? 0.7 : 0.5), persp = 2.6 / (2.6 - z);
+        out[0] = VW * vdpr / 2 + x * sc * persp; out[1] = VH * vdpr / 2 - y * sc * persp; out[2] = z; out[3] = persp;
+      };
+      var drawV = function (time) {
+        var g = ctx2; g.clearRect(0, 0, cv.width, cv.height); if (!VW) return;
+        for (var i = 0; i < pts.length; i++) { if (!proj2[i]) proj2[i] = [0, 0, 0, 0]; project(pts[i], proj2[i]); }
+        g.lineWidth = 0.8 * vdpr;
+        for (var e = 0; e < edges.length; e++) {
+          var A = proj2[edges[e][0]], B = proj2[edges[e][1]], depth = ((A[2] + B[2]) / 2 + 1) / 2;
+          g.strokeStyle = 'rgba(124,199,155,' + (0.05 + depth * (kind === 'brain' ? 0.28 : 0.4)).toFixed(3) + ')';
+          g.beginPath(); g.moveTo(A[0], A[1]); g.lineTo(B[0], B[1]); g.stroke();
+        }
+        for (var n = 0; n < pts.length; n++) {
+          var P2 = proj2[n], dd = (P2[2] + 1) / 2, rr = (kind === 'brain' ? 1.1 : 2.2) * vdpr * P2[3];
+          g.fillStyle = 'rgba(143,208,170,' + (0.2 + dd * 0.75).toFixed(3) + ')';
+          if (kind === 'brain') g.fillRect(P2[0] - rr / 2, P2[1] - rr / 2, rr, rr);
+          else { g.beginPath(); g.arc(P2[0], P2[1], rr, 0, 6.283); g.fill(); if (dd > 0.7) { g.fillStyle = 'rgba(124,199,155,0.18)'; g.beginPath(); g.arc(P2[0], P2[1], rr * 3, 0, 6.283); g.fill(); } }
+        }
+        if (reduce) return;
+        if (pulses.length < (kind === 'brain' ? 14 : 8) && rndP() < 0.12) pulses.push({ e: (rndP() * edges.length) | 0, t: 0, sp: 0.02 + rndP() * 0.03, hops: kind === 'brain' ? 4 : 3 });
+        for (var q = pulses.length - 1; q >= 0; q--) {
+          var pu = pulses[q]; pu.t += pu.sp;
+          var ed = edges[pu.e], A2 = proj2[ed[0]], B2 = proj2[ed[1]];
+          var x = A2[0] + (B2[0] - A2[0]) * pu.t, y = A2[1] + (B2[1] - A2[1]) * pu.t;
+          g.strokeStyle = 'rgba(181,236,201,0.85)'; g.lineWidth = 1.6 * vdpr; g.beginPath(); g.moveTo(A2[0], A2[1]); g.lineTo(x, y); g.stroke();
+          g.fillStyle = 'rgba(124,199,155,0.3)'; g.beginPath(); g.arc(x, y, 4 * vdpr, 0, 6.283); g.fill();
+          g.fillStyle = '#e6fff0'; g.beginPath(); g.arc(x, y, 1.6 * vdpr, 0, 6.283); g.fill();
+          if (pu.t >= 1) {
+            pu.hops--; var end = ed[1], nexts = [];
+            for (var z2 = 0; z2 < edges.length; z2++) if (z2 !== pu.e && (edges[z2][0] === end)) nexts.push(z2);
+            if (pu.hops > 0 && nexts.length) { pu.e = nexts[(rndP() * nexts.length) | 0]; pu.t = 0; } else pulses.splice(q, 1);
+          }
+        }
+      };
+      if ('ResizeObserver' in win) { var vro = new win.ResizeObserver(function () { vsize(); if (reduce) drawV(0); }); vro.observe(cv); self.cleanups.push(function () { vro.disconnect(); }); }
+      if (reduce) { drawV(0); return; }
+      var vVis = false, vRaf = 0, vT0 = 0;
+      var vLoop = function (now) {
+        vRaf = 0; if (!vVis || doc.hidden) return;
+        if (!vT0) vT0 = now; var ts = (now - vT0) / 1000;
+        if (kind === 'brain') yaw = 1.35 + Math.sin(ts * 0.25) * 0.5; else yaw = ts * 0.12;
+        pyaw += (tyaw - pyaw) * 0.06; ppitch += (tpitch - ppitch) * 0.06;
+        drawV(now); vRaf = raf(vLoop);
+      };
+      if ('IntersectionObserver' in win) {
+        var vio = new win.IntersectionObserver(function (en) { vVis = en[0].isIntersecting; if (vVis && !vRaf) vRaf = raf(vLoop); }, { threshold: 0 });
+        vio.observe(cv); self.cleanups.push(function () { vio.disconnect(); });
+      } else { vVis = true; vRaf = raf(vLoop); }
+      on(cv.parentNode, 'pointermove', function (e) { if (e.pointerType && e.pointerType !== 'mouse') return; var r = cv.getBoundingClientRect(); tyaw = ((e.clientX - r.left) / r.width - 0.5) * 0.7; tpitch = ((e.clientY - r.top) / r.height - 0.5) * 0.4; }, { passive: true });
+      on(cv.parentNode, 'pointerleave', function () { tyaw = 0; tpitch = 0; });
+      on(doc, 'visibilitychange', function () { if (!doc.hidden && vVis && !vRaf) vRaf = raf(vLoop); });
+      self.cleanups.push(function () { vVis = false; if (vRaf) win.cancelAnimationFrame(vRaf); });
+    });
+
+    /* --- Globe numérique 3D (canvas) --- */
+    Array.prototype.forEach.call(root.querySelectorAll('[data-globe]'), function (gCanvas) {
+    if (gCanvas.getContext) {
+      var gctx = gCanvas.getContext('2d');
+      var MASK = 'AAAAAAAAAAAAQgJASAgJISEhJAUMhJAQEhICAkrACAgIIUEg4AAMlZABMncABkLAARgQAgdg7MAMmJEhM3MEDsTckZ05MtNmZsnMmolpc/ktbv3Ntrz3Fv/6Wtvfeztff+/t//2Vt7331/722tv7/ytrf+/t/f+1t/P/dt7+ylv5+ytv9+2tvP21t/L2dt7u31t5+2tv5e+tjN21t/J3Vk7O31k7OSsr5e+szJy/k3JyVl7K3UmZOScn5e6s7JyZkzJ3Rl7O3UnZOSOn5+aMvJy7kzJzRk7OzQnZOXenZ+aE/JyZE7NzYm7PzMn5OTen5+aEnJ6bk/Nzbm7OzUu5PTen5+ac3Jybk3Nzak7Pzam5OTen5+bUnJyb03Nzbk7Oz+k5OTcn5+bU3JybU3Nyam7Pzam5OTen5+TU3J6b03Nyak7Pzak5OTen5uTUnJ6bUXNybk7Nyak5OTej5ubUjJ6bU3Nybk7NzakZOTen5uTEjJqbU3NybkbNyakZNSej5+TMjJqTEzN6RkbO6akZNScj5tSMjJ6TEzNqRkbOqbk5NScjZtSMjJzTE3NqRk7MqTk5MSen5tScnJhRE3JiTk7MqRkxPSMm5NSMmJhRE2JqTk7MqRkxMaMm5MSMmJhTc2JyTk7IqRkxMaMm5MSMmJhTMzJiRk7IiBkxNaMmZPSMnJIRM2JqRkzI6BkxNSMnRNSMnJLRM2JqRkzIqBk5JaMmxNSMmJBRM2JKRk3IqBkxJaMmxNSMmpBRM2JKRk3IqRk1JaMmxJSMnpJRc2JKRk2IKTk1JaMmxJScmpJTc2pKTk2JKTk1JaemxJSckpJTUmpKTkmJKTk1JaemxJScghJTUkpKTkmJKTklJaemlJScglJTUkpKRkkpKTkFJabmlJScglJTckpKRkkpKTkFJabklJScglJSUkpKREUpKTklpabklJScglJSckpKREEpKTgFpaSglJSIklJScEpKTUEpKTAlpaSglJSMklJScEpKTUEpKTAlpaSglBSKmlJSYEpKSUEpKTg1paSAlJQKmlJSYEpKSQGpKTQkpKSAlBSaClJTYEhISQGpKRQkpaTAlJSSClJTYEhISQEpKRQEpKTKkJCSAlJTaEhKSQUhKRQEpKbCkJCSClJSKQhITQUhKRUEpKbwEJCaAkJSKAhITQEhIRUFhKSQEJCaAkJQKAhITUEhIDUEhKSQEJCaAkJQCggITSEhIDUEhKKQEJCagkJQCggIRSEhIDUFhKKQEBCawkJQSggIRWEhICUFhKCQEBCCQkJASggIRSEpIAQEhKAUEBCKwkJACioIQSEhIASEhIAUEBCKwkJACigIQSEhICSEhYAUUBCKQkJASCgIAS2hIASUhICUVBAKSkJBSCgIASmhIASVhICUUBACSkJBCCgIASGpIASUhYKUUBAKSkJBCCgKBSGpIASUhIIQUBACSkJBCCgKBSmpIASUhIIQUBACSkJBCCgIBSGoKACUhKIQUBACSkJBAChIBSWoIASUhKIAUBAKClBBAChIRQWgIAQUhIIAUBCKClBBAChIRQWgIAAUgIIAUBCKClBBAChIBQWgIBAVoIIAUBCKCkBBICpABQGgIBQVgIIAVACKCkBBICpARQGgKBQVoIJAVIAKCkBBICpARQGoABQVgIJAVIAKCkARKCpABYGoABQUgIJAVIQKCkABKCpABYWoCBQVgAJQVIAKClERKChCBYWoCBQVgAJQVIAKClEBKCpCBYSoCBUVgSJSUIQKCkEBKCoCBYSoCBUUgwJSUIQKCEEBKCgCBYSgCBUUgwJyUAQKCEEBOCgGBaSgABUQgyJSUAQKCEEBKCgGBaSgCBUQgwJSUAQKCEEBKChGBaSgCBUQggJSUIQKCEEBKCBGBaSgCBQQggJQUAgKSFEBKCJGBaSoCBQQogJQRAgKSEEBKCAGBaCgABSQgwJQQAgKSEEBKCAGBaCgABSQggJQQAgKQEERKCAEBaCgEBSBggJQQAgKQEEBKCAEBaCAEBSBgiJQQAgKQEEBKAIFBaCAEBSBgiJQRAoKQAEBKAoFBaCAEBSAggJQBAoKQBEhKAoFRaCAEBSAgiJQFAoKQBEhKAIFRaCIFBSAIgJQFAqKQBEhKAIFRaAoFBSBIgJQBAqKQFEJKAJFRKAoFBSAIgJwBIqIQFEoKAJFBKAoFBSBohJQBIqIQFEoKAJFBKAIFBGBohBQBIqIQFEoIgJFBKAIFBGBohBUBIqIQBEoIgJFAaAIFBGBolBEFIqIQBEoIgJFAagIFBGBI1BEBIqCUBEoIgJFIagIFBGhIlBEBIqCUBEoAgJFoIgIFAGhIlBEBIoCUBEoAkJFoIgIFAWhIlAEBIpAEREoAkJFoAgIFAUhIlAEBIpAEREoAkJFoAgIFAEjIlAEhIpAERAoAkJFoAgIFIEjIlAEhIpAERAoAkJEoAgIFIEiIFAEhIpAERAoAkZEoAgIFYEiIFAEhIhAERAoAkRAoAgIEYEiIFAEjIhAERAoAkRAoAgIEYEiIFAEjIBAERAiAkVAoAAYAYEiIFAEiIBAARAiAkVAoAAQAYECIEAEiIBAARACAgVAgAAQAYECIEQECoAAASACAgRAgAAQAAECIAQECIAAASAAAgRAAAAQAAECQAAACIAAACAAAgRAAAAQAAECQAAACIAAACAQAgSAAAAQCAEAQAAACAAAACAQAgSAAAAQAAEAQCAAAAABACAAAACAAAAQAAAAQCAAAAABACAAAACAAAAAAAIAQAAAAAABAAAAAgCAAAAAAAAAQAAAAACBAAAAAACAAAAAAAIBAAAAAAABAAAAAAKAAAAAAAIAAAAAAAABAAAABAIAAAAAAAIAAAAIBAAAAAAABAAAAAAAAAIAAAAIAAAAAAAABAAAABAAAAIAAAAIAAAAAAAABAAAABAAAAAAAAAIAAAAAAAAAAAAABAAAAAAAAAIAAAAIAAAAAAAABAAAAAAAAAIAAAAIAAAAAAAABAAAAAAAAAAAAAAIAAAAAAAgAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==';
+      var N = 20000, GA = Math.PI * (3 - Math.sqrt(5));
+      var bin = win.atob(MASK);
+      var land = [];
+      for (var gi = 0; gi < N; gi++) {
+        if ((bin.charCodeAt(gi >> 3) >> (gi & 7)) & 1) {
+          var yy = 1 - 2 * (gi + 0.5) / N, rr = Math.sqrt(1 - yy * yy), th = GA * gi;
+          land.push(Math.cos(th) * rr, yy, Math.sin(th) * rr);
+        }
+      }
+      var vec = function (lat, lon) { var a = lat * Math.PI / 180, o = lon * Math.PI / 180; return [Math.cos(a) * Math.cos(o), Math.sin(a), Math.cos(a) * Math.sin(o)]; };
+      var C = {
+        reims: [49.26, 4.03], paris: [48.86, 2.35], lyon: [45.76, 4.84], marseille: [43.3, 5.37], bordeaux: [44.84, -0.58], lille: [50.63, 3.06], strasbourg: [48.57, 7.75], nantes: [47.22, -1.55], toulouse: [43.6, 1.44],
+        bruxelles: [50.85, 4.35], londres: [51.5, -0.12], newyork: [40.7, -74], montreal: [45.5, -73.6], dakar: [14.7, -17.4], casablanca: [33.6, -7.6], dubai: [25.2, 55.3], tokyo: [35.7, 139.7],
+        saopaulo: [-23.5, -46.6], singapour: [1.35, 103.8], sydney: [-33.9, 151.2], lecap: [-33.9, 18.4], sanfrancisco: [37.77, -122.4], nairobi: [-1.29, 36.8]
+      };
+      var nodes = {}; Object.keys(C).forEach(function (k) { nodes[k] = vec(C[k][0], C[k][1]); });
+      var E = [['reims','paris'],['reims','lyon'],['reims','marseille'],['reims','bordeaux'],['reims','lille'],['reims','strasbourg'],['reims','nantes'],['reims','toulouse'],['reims','bruxelles'],
+        ['reims','londres'],['reims','newyork'],['reims','montreal'],['reims','dakar'],['reims','dubai'],['reims','saopaulo'],['reims','tokyo'],['reims','nairobi'],
+        ['newyork','sanfrancisco'],['londres','dubai'],['dubai','singapour'],['singapour','sydney'],['tokyo','sanfrancisco'],['dakar','saopaulo'],['casablanca','lecap'],['casablanca','reims'],['nairobi','lecap'],['singapour','tokyo']];
+      var SEG = 44;
+      var arcs = E.map(function (e, i) {
+        var a = nodes[e[0]], b = nodes[e[1]];
+        var dot = Math.max(-1, Math.min(1, a[0] * b[0] + a[1] * b[1] + a[2] * b[2])), om = Math.acos(dot), so = Math.sin(om) || 1;
+        var h = 0.04 + 0.32 * om / Math.PI, pts = [];
+        for (var s = 0; s <= SEG; s++) {
+          var t = s / SEG, k1 = Math.sin((1 - t) * om) / so, k2 = Math.sin(t * om) / so, lift = 1 + h * Math.sin(Math.PI * t);
+          pts.push((a[0] * k1 + b[0] * k2) * lift, (a[1] * k1 + b[1] * k2) * lift, (a[2] * k1 + b[2] * k2) * lift);
+        }
+        return { p: pts, off: (i * 0.137) % 1, dur: 2.6 + (i % 5) * 0.55, start: i * 0.09 };
+      });
+      var grat = [];
+      for (var m = 0; m < 12; m++) { var lo = m * 30, line = []; for (var la = -80; la <= 80; la += 8) { var v = vec(la, lo); line.push(v[0], v[1], v[2]); } grat.push(line); }
+      for (var p2 = -60; p2 <= 60; p2 += 30) { var line2 = []; for (var lo2 = 0; lo2 <= 360; lo2 += 8) { var v2 = vec(p2, lo2); line2.push(v2[0], v2[1], v2[2]); } grat.push(line2); }
+      var dpr = Math.min(2, win.devicePixelRatio || 1), W = 0, R = 0, cx = 0, cy = 0;
+      var size = function () { var w = gCanvas.clientWidth; if (!w) return; W = w; gCanvas.width = Math.round(w * dpr); gCanvas.height = Math.round(w * dpr); R = w * 0.4 * dpr; cx = cy = w * 0.5 * dpr; };
+      size();
+      if ('ResizeObserver' in win) { var gro = new win.ResizeObserver(function () { size(); if (reduce) drawG(9999); }); gro.observe(gCanvas); self.cleanups.push(function () { gro.disconnect(); }); }
+      var rotA = -85 * Math.PI / 180, tilt = 0.5, offA = 0, offT = 0, tgtA = 0, tgtT = 0;
+      var proj = function (x, y, z, out) {
+        var ca = Math.cos(rotA + offA), sa = Math.sin(rotA + offA), ct = Math.cos(tilt + offT), st = Math.sin(tilt + offT);
+        var x1 = x * ca + z * sa, z1 = -x * sa + z * ca;
+        var y2 = y * ct - z1 * st, z2 = y * st + z1 * ct;
+        out[0] = cx - x1 * R; out[1] = cy - y2 * R; out[2] = z2;
+      };
+      var P = [0, 0, 0], Q = [0, 0, 0];
+      var drawG = function (time) {
+        var g = gctx; g.clearRect(0, 0, gCanvas.width, gCanvas.height);
+        if (!R) return;
+        var grd = g.createRadialGradient(cx - R * 0.3, cy - R * 0.35, R * 0.1, cx, cy, R);
+        grd.addColorStop(0, 'rgba(29,53,41,0.55)'); grd.addColorStop(0.75, 'rgba(18,24,32,0.85)'); grd.addColorStop(1, 'rgba(124,199,155,0.16)');
+        g.fillStyle = grd; g.beginPath(); g.arc(cx, cy, R, 0, Math.PI * 2); g.fill();
+        g.lineWidth = 1 * dpr; g.strokeStyle = 'rgba(124,199,155,0.35)'; g.stroke();
+        g.lineWidth = 0.7 * dpr; g.strokeStyle = 'rgba(143,208,170,0.08)'; g.beginPath();
+        grat.forEach(function (ln) { var pen = false; for (var j = 0; j < ln.length; j += 3) { proj(ln[j], ln[j + 1], ln[j + 2], P); if (P[2] > 0) { if (pen) g.lineTo(P[0], P[1]); else g.moveTo(P[0], P[1]); pen = true; } else pen = false; } });
+        g.stroke();
+        var ds = 1.25 * dpr;
+        g.fillStyle = 'rgba(143,208,170,0.09)';
+        for (var j = 0; j < land.length; j += 3) { proj(land[j], land[j + 1], land[j + 2], P); if (P[2] <= 0) g.fillRect(P[0] - ds / 2, P[1] - ds / 2, ds, ds); }
+        var buckets = [[], [], [], []];
+        for (var j2 = 0; j2 < land.length; j2 += 3) { proj(land[j2], land[j2 + 1], land[j2 + 2], P); if (P[2] > 0) { buckets[Math.min(3, (P[2] * 4) | 0)].push(P[0], P[1]); } }
+        buckets.forEach(function (bk, bi) { g.fillStyle = 'rgba(143,208,170,' + (0.28 + bi * 0.2) + ')'; for (var q = 0; q < bk.length; q += 2) g.fillRect(bk[q] - ds / 2, bk[q + 1] - ds / 2, ds, ds); });
+        var ts = time / 1000;
+        arcs.forEach(function (a) {
+          var f = reduce ? 1 : Math.max(0, Math.min(1, (ts - L / 1000 - 0.6 - a.start) / 1.1));
+          if (f <= 0) return;
+          var last = Math.round(SEG * f);
+          g.lineWidth = 1 * dpr; g.beginPath(); var pen = false, vis = 0;
+          for (var s = 0; s <= last; s++) { proj(a.p[s * 3], a.p[s * 3 + 1], a.p[s * 3 + 2], P); if (P[2] > -0.08) { if (pen) g.lineTo(P[0], P[1]); else g.moveTo(P[0], P[1]); pen = true; vis++; } else pen = false; }
+          g.strokeStyle = 'rgba(124,199,155,0.5)'; g.stroke();
+          if (f < 1 || reduce) return;
+          var u = ((ts / a.dur) + a.off) % 1, si = Math.floor(u * SEG);
+          g.lineWidth = 2 * dpr; g.strokeStyle = 'rgba(181,236,201,0.9)'; g.beginPath(); pen = false;
+          for (var s2 = Math.max(0, si - 6); s2 <= si; s2++) { proj(a.p[s2 * 3], a.p[s2 * 3 + 1], a.p[s2 * 3 + 2], P); if (P[2] > -0.05) { if (pen) g.lineTo(P[0], P[1]); else g.moveTo(P[0], P[1]); pen = true; } else pen = false; }
+          g.stroke();
+          proj(a.p[si * 3], a.p[si * 3 + 1], a.p[si * 3 + 2], Q);
+          if (Q[2] > -0.05) { g.fillStyle = 'rgba(124,199,155,0.25)'; g.beginPath(); g.arc(Q[0], Q[1], 4.5 * dpr, 0, 6.283); g.fill(); g.fillStyle = '#e6fff0'; g.beginPath(); g.arc(Q[0], Q[1], 1.6 * dpr, 0, 6.283); g.fill(); }
+        });
+        Object.keys(nodes).forEach(function (k, i) {
+          var n = nodes[k]; proj(n[0], n[1], n[2], P); if (P[2] <= 0) return;
+          var hub = k === 'reims', r0 = (hub ? 3.2 : 2) * dpr;
+          var ph = reduce ? 0.5 : ((ts * 0.6 + i * 0.13) % 1);
+          g.strokeStyle = 'rgba(124,199,155,' + (0.6 * (1 - ph) * P[2]) + ')'; g.lineWidth = 1 * dpr; g.beginPath(); g.arc(P[0], P[1], r0 + ph * (hub ? 14 : 8) * dpr, 0, 6.283); g.stroke();
+          g.fillStyle = hub ? '#e6fff0' : 'rgba(181,236,201,' + (0.5 + 0.5 * P[2]) + ')'; g.beginPath(); g.arc(P[0], P[1], r0, 0, 6.283); g.fill();
+          if (hub) { g.fillStyle = 'rgba(124,199,155,0.3)'; g.beginPath(); g.arc(P[0], P[1], r0 * 2.6, 0, 6.283); g.fill(); }
+        });
+      };
+      if (reduce) { drawG(0); }
+      else {
+        var gVisible = true, gRaf = 0, gLast = 0;
+        var gLoop = function (now) {
+          gRaf = 0;
+          if (!gVisible || doc.hidden) return;
+          var dt = gLast ? Math.min(50, now - gLast) : 16; gLast = now;
+          rotA += dt * 0.00011;
+          offA += (tgtA - offA) * 0.05; offT += (tgtT - offT) * 0.05;
+          drawG(now);
+          gRaf = raf(gLoop);
+        };
+        var gStart = function () { if (!gRaf) { gLast = 0; gRaf = raf(gLoop); } };
+        if ('IntersectionObserver' in win) {
+          var gio = new win.IntersectionObserver(function (en) { gVisible = en[0].isIntersecting; if (gVisible) gStart(); }, { threshold: 0 });
+          gio.observe(gCanvas); self.cleanups.push(function () { gio.disconnect(); });
+        }
+        on(doc, 'visibilitychange', function () { if (!doc.hidden) gStart(); });
+        on(gCanvas.parentNode, 'pointermove', function (e) {
+          if (e.pointerType && e.pointerType !== 'mouse') return;
+          var r = gCanvas.getBoundingClientRect();
+          tgtA = ((e.clientX - r.left) / r.width - 0.5) * 0.6;
+          tgtT = ((e.clientY - r.top) / r.height - 0.5) * 0.3;
+        }, { passive: true });
+        on(gCanvas.parentNode, 'pointerleave', function () { tgtA = 0; tgtT = 0; });
+        gStart();
+        self.cleanups.push(function () { if (gRaf) win.cancelAnimationFrame(gRaf); gVisible = false; });
+      }
+    }
+    });
+
+    /* --- Site exemple intégré : mise à l'échelle, ancres, révélations --- */
+    var emb = root.querySelector('[data-embed]');
+    if (emb) {
+      var embBox = emb.querySelector('.emb-scroll'), embSizer = emb.querySelector('.emb-sizer'), embInner = emb.querySelector('.emb-inner');
+      self.embEl = emb; self.embBox = embBox;
+      var fitEmb = function () {
+        if (!embBox || !embInner) return;
+        var vw = win.innerWidth || 1280;
+        var iw = Math.min(1280, Math.max(360, vw));
+        var s = embBox.clientWidth / iw;
+        embInner.style.width = iw + 'px';
+        embInner.style.transform = 'scale(' + s.toFixed(4) + ')';
+        emb.style.setProperty('--es', s.toFixed(4));
+        var h = embInner.offsetHeight;
+        if (h > 0) embSizer.style.height = Math.ceil(h * s) + 'px';
+      };
+      self.fitEmb = fitEmb;
+      fitEmb();
+      on(win, 'resize', fitEmb, { passive: true });
+      if ('ResizeObserver' in win) {
+        var ro = new win.ResizeObserver(function () { fitEmb(); });
+        ro.observe(embInner); ro.observe(embBox);
+        self.cleanups.push(function () { ro.disconnect(); });
+      }
+      this.later(fitEmb, 400); this.later(fitEmb, 1500);
+      /* liens internes du site exemple : défilement dans le cadre uniquement */
+      on(embBox, 'click', function (e) {
+        var a = e.target && e.target.closest ? e.target.closest('a[href^="#mx-"]') : null;
+        if (!a) return;
+        var t = embBox.querySelector(a.getAttribute('href'));
+        if (!t) return;
+        e.preventDefault();
+        var s = parseFloat(emb.style.getPropertyValue('--es')) || 1;
+        var y = t.getBoundingClientRect().top - embBox.getBoundingClientRect().top + embBox.scrollTop - 70 * s;
+        embBox.scrollTo({ top: Math.max(0, y), behavior: reduce ? 'auto' : 'smooth' });
+      });
+      /* révélations au défilement dans le cadre */
+      var mxRoot = embInner.querySelector('.mx-m');
+      if (mxRoot) {
+        var mxEls = Array.prototype.slice.call(mxRoot.querySelectorAll('[data-r]'));
+        if (!reduce && 'IntersectionObserver' in win) {
+          mxRoot.classList.add('mx-anim');
+          var mio = new win.IntersectionObserver(function (entries) {
+            entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('mx-in'); mio.unobserve(en.target); } });
+          }, { root: embBox, rootMargin: '0px 0px -6% 0px', threshold: 0.08 });
+          mxEls.forEach(function (el) { mio.observe(el); });
+          self.cleanups.push(function () { mio.disconnect(); });
+        }
+      }
+    }
+
+    /* --- Scroll : progression, en-tête, parallaxe, étapes --- */
+    var header = root.querySelector('.hdr-site');
+    var introEl = doc.getElementById('accueil');
+    var hero = root.querySelector('.ox-hero');
+    var steps = root.querySelector('[data-steps]');
+    var stepItems = steps ? Array.prototype.slice.call(steps.querySelectorAll('[data-step]')) : [];
+    var scroller = null, ticking = false;
+    var update = function () {
+      ticking = false;
+      var se = scroller || doc.scrollingElement || doc.documentElement;
+      var top = se.scrollTop, max = Math.max(1, se.scrollHeight - se.clientHeight);
+      root.style.setProperty('--sp', Math.min(1, Math.max(0, top / max)).toFixed(4));
+      var ib = introEl ? introEl.getBoundingClientRect().bottom : -1;
+      if (header) { var shown = ib < 80; header.classList.toggle('is-shown', shown); header.classList.add('is-scrolled'); header.inert = !shown; if (shown) header.removeAttribute('aria-hidden'); else header.setAttribute('aria-hidden', 'true'); }
+      var vh = win.innerHeight || se.clientHeight;
+      if (hero && !reduce) {
+        var hr = hero.getBoundingClientRect();
+        if (hr.bottom > -50) hero.style.setProperty('--sy', Math.max(0, -hr.top).toFixed(1));
+      }
+      if (steps) {
+        var p = 1;
+        if (!reduce) {
+          var r = steps.getBoundingClientRect();
+          p = Math.min(1, Math.max(0, (vh * 0.82 - r.top) / (vh * 0.45 + r.height * 0.6)));
+        }
+        steps.style.setProperty('--lp', p.toFixed(4));
+        var n = stepItems.length - 1;
+        stepItems.forEach(function (li, i) { li.classList.toggle('on', p >= (i === 0 ? 0.01 : i / n - 0.03)); });
+      }
+    };
+    var request = function () { if (!ticking) { ticking = true; raf(update); } };
+    on(doc, 'scroll', function (e) {
+      var t = e.target;
+      if (t && t.nodeType === 1) { if (t.contains(root) && t.scrollHeight > t.clientHeight + 4) scroller = t; }
+      else scroller = null;
+      request();
+    }, { capture: true, passive: true });
+    on(win, 'resize', request, { passive: true });
+    update();
+
+    /* --- Effets souris (ordinateur uniquement) --- */
+    var fine = false;
+    try { fine = win.matchMedia('(hover: hover) and (pointer: fine)').matches; } catch (e) {}
+    if (fine && !reduce) {
+      root.classList.add('fx-on');
+      var ring = root.querySelector('.cur-ring');
+      var mx = -100, my = -100, rx = -100, ry = -100, rafId = 0, pending = null, tiltEl = null, magEl = null;
+      var resetTilt = function () { if (tiltEl) { tiltEl.classList.remove('tilting'); tiltEl.style.transform = ''; tiltEl = null; } };
+      var resetMag = function () { if (magEl) { magEl.style.transform = ''; magEl = null; } };
+      var applyPointer = function (pe) {
+        var t = pe.t && pe.t.closest ? pe.t : null;
+        root.classList.add('cur-visible');
+        root.classList.toggle('cur-hot', !!(t && t.closest('a, button, summary, input, textarea, label, [data-tilt]')));
+        var te = t ? t.closest('[data-tilt]') : null;
+        if (te !== tiltEl) { resetTilt(); if (te) { tiltEl = te; te.classList.add('tilting'); } }
+        if (te) {
+          var r = te.getBoundingClientRect();
+          var px = (pe.x - r.left) / r.width, py = (pe.y - r.top) / r.height;
+          te.style.transform = 'perspective(1000px) rotateX(' + ((0.5 - py) * 6).toFixed(2) + 'deg) rotateY(' + ((px - 0.5) * 8).toFixed(2) + 'deg)';
+          te.style.setProperty('--gx', (px * 100).toFixed(1) + '%');
+          te.style.setProperty('--gy', (py * 100).toFixed(1) + '%');
+        }
+        var me = t ? t.closest('[data-magnet]') : null;
+        if (me !== magEl) { resetMag(); magEl = me; }
+        if (me) {
+          var b = me.getBoundingClientRect();
+          var k = b.width > 360 ? 0.06 : 0.22;
+          me.style.transform = 'translate3d(' + ((pe.x - (b.left + b.width / 2)) * k).toFixed(1) + 'px,' + ((pe.y - (b.top + b.height / 2)) * 0.3).toFixed(1) + 'px,0)';
+        }
+        if (hero) {
+          var h = hero.getBoundingClientRect();
+          if (pe.y < h.bottom && pe.y > h.top) {
+            hero.style.setProperty('--mx', (((pe.x - h.left) / h.width - 0.5) * 2).toFixed(3));
+            hero.style.setProperty('--my', (((pe.y - h.top) / h.height - 0.5) * 2).toFixed(3));
+          }
+        }
+      };
+      var frame = function () {
+        rafId = 0;
+        if (pending) { applyPointer(pending); pending = null; }
+        rx += (mx - rx) * 0.18; ry += (my - ry) * 0.18;
+        if (ring) ring.style.transform = 'translate3d(' + rx.toFixed(1) + 'px,' + ry.toFixed(1) + 'px,0)';
+        if (Math.abs(mx - rx) > 0.2 || Math.abs(my - ry) > 0.2) rafId = raf(frame);
+      };
+      on(doc, 'pointermove', function (e) {
+        if (e.pointerType && e.pointerType !== 'mouse') return;
+        if (rx < -50) { rx = e.clientX; ry = e.clientY; }
+        mx = e.clientX; my = e.clientY;
+        pending = { x: e.clientX, y: e.clientY, t: e.target };
+        if (!rafId) rafId = raf(frame);
+      }, { passive: true });
+      on(doc.documentElement, 'mouseleave', function () {
+        root.classList.remove('cur-visible');
+        resetTilt(); resetMag();
+        if (hero) { hero.style.setProperty('--mx', '0'); hero.style.setProperty('--my', '0'); }
+      });
+      self.cleanups.push(function () { if (rafId) win.cancelAnimationFrame(rafId); });
+    }
+  }
+
+  componentWillUnmount() {
+    (this.cleanups || []).forEach(function (f) { try { f(); } catch (e) {} });
+    this.cleanups = [];
+    if (this.timers) { this.timers.forEach(function (id) { clearTimeout(id); }); this.timers.clear(); }
+  }
+
+  renderVals() {
+    const open = !!this.state.menuOpen;
+    const st = this.state.sendState;
+    return {
+      loader: !!this.state.loader,
+      loaderClass: this.loaderShown ? 'with-loader' : '',
+      menuOpen: open,
+      menuClosed: !open,
+      menuExpanded: open ? 'true' : 'false',
+      menuLabel: open ? 'Fermer le menu' : 'Ouvrir le menu',
+      toggleMenu: () => this.setState({ menuOpen: !this.state.menuOpen }),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      svcWebClass: this.state.svcOpen === 'web' ? 'is-open' : '',
+      svcWebExpanded: this.state.svcOpen === 'web' ? 'true' : 'false',
+      svcWebHidden: this.state.svcOpen === 'web' ? 'false' : 'true',
+      svcWebLabel: this.state.svcOpen === 'web' ? 'Réduire' : 'En savoir plus',
+      svcWebToggle: () => this.setState({ svcOpen: this.state.svcOpen === 'web' ? null : 'web' }),
+      svcAutoClass: this.state.svcOpen === 'auto' ? 'is-open' : '',
+      svcAutoExpanded: this.state.svcOpen === 'auto' ? 'true' : 'false',
+      svcAutoHidden: this.state.svcOpen === 'auto' ? 'false' : 'true',
+      svcAutoLabel: this.state.svcOpen === 'auto' ? 'Réduire' : 'En savoir plus',
+      svcAutoToggle: () => this.setState({ svcOpen: this.state.svcOpen === 'auto' ? null : 'auto' }),
+      mxMenuOpen: !!this.state.mxMenuOpen,
+      mxMenuClosed: !this.state.mxMenuOpen,
+      mxMenuExpanded: this.state.mxMenuOpen ? 'true' : 'false',
+      mxMenuLabel: this.state.mxMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu',
+      mxToggleMenu: () => { if (this.embBox) this.embBox.scrollTop = 0; this.setState({ mxMenuOpen: !this.state.mxMenuOpen }); },
+      mxCloseMenu: () => this.setState({ mxMenuOpen: false }),
+      mxTypes: [['ext', 'Extension'], ['reno', 'Rénovation'], ['terr', 'Terrasse'], ['mur', 'Mur / clôture'], ['fac', 'Façade'], ['autre', 'Autre']].map(([id, label]) => ({ label, pressed: this.state.mxType === id ? 'true' : 'false', pick: () => this.setState({ mxType: id }) })),
+      mxBaMove: (e) => {
+        var el = e && e.currentTarget;
+        var box = el && el.closest ? el.closest('[data-ba]') : null;
+        if (box) box.style.setProperty('--pos', el.value + '%');
+      },
+      mxSent: !!this.state.mxSent,
+      mxNotSent: !this.state.mxSent,
+      mxSend: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ mxSent: true }); },
+      embPressed: this.state.embFull ? 'true' : 'false',
+      embLabel: this.state.embFull ? 'Réduire' : 'Plein écran',
+      embToggle: () => {
+        var emb = this.embEl; if (!emb) return;
+        var full = !this.state.embFull;
+        emb.classList.toggle('is-full', full);
+        this.setState({ embFull: full });
+        if (this.fitEmb) { this.fitEmb(); this.later(this.fitEmb, 60); }
+      },
+      embFocus: (e) => {
+        if (e && e.preventDefault) e.preventDefault();
+        var emb = this.embEl; if (!emb) return;
+        emb.scrollIntoView({ behavior: this.reduce ? 'auto' : 'smooth', block: 'center' });
+      },
+      sendClass: st === 'sending' ? 'is-sending' : '',
+      sendBusy: st === 'sending' ? 'true' : 'false',
+      sendStatus: st === 'sending' ? 'Envoi en cours…' : (st === 'error' ? 'L\'envoi n\'a pas fonctionné. Écrivez-moi directement à contact@agence-oxalis.fr.' : ''),
+      formOpen: st !== 'done',
+      formSent: st === 'done',
+      send: (e) => {
+        /* Envoi réel via Netlify Forms, sans recharger la page */
+        if (e && e.preventDefault) e.preventDefault();
+        if (this.state.sendState === 'sending' || this.state.sendState === 'done') return;
+        var form = e && (e.currentTarget || e.target);
+        if (!form || !form.elements) return;
+        var tel = form.elements['telephone'], mail = form.elements['email'];
+        var clear = function () { mail.setCustomValidity(''); };
+        clear();
+        if (!String(tel.value || '').trim() && !String(mail.value || '').trim()) {
+          mail.setCustomValidity('Indiquez un téléphone ou un e-mail pour qu\'on puisse vous répondre.');
+          mail.reportValidity();
+          tel.addEventListener('input', clear, { once: true }); mail.addEventListener('input', clear, { once: true });
+          return;
+        }
+        var btn = form.querySelector('button[type="submit"]');
+        if (btn) btn.disabled = true;
+        this.setState({ sendState: 'sending' });
+        var bes = form.elements['besoins'];
+        if (bes) bes.value = Array.prototype.slice.call(form.querySelectorAll('[data-besoin]:checked')).map(function (c) { return c.value; }).join(', ');
+        var data = new URLSearchParams(new FormData(form));
+        if (!data.has('form-name')) data.set('form-name', 'devis');
+        fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: data.toString() })
+          .then((r) => { if (!r.ok) throw new Error('HTTP ' + r.status); this.setState({ sendState: 'done' }); })
+          .catch(() => { if (btn) btn.disabled = false; this.setState({ sendState: 'error' }); });
+      }
+    };
+  }
+}
+</script>
+<!-- ===== FOND EN VAGUES DOUCES : canvas fixe derrière tout le contenu, réglages dans les variables --wave-* ===== -->
+<canvas class="ox-waves" aria-hidden="true"></canvas>
+<script>
+(function(){
+  var cv=document.querySelector('canvas.ox-waves'); if(!cv||!cv.getContext) return;
+  var ctx=cv.getContext('2d');
+  // Le dessin est fait en basse résolution (1/4) puis agrandi : invisible grâce au flou, et très léger pour le processeur.
+  var RES=0.25, W=1600, H=1000;
+  // 4 vagues en forme de rubans de soie : ligne médiane y (5 points de gauche à droite), épaisseur h variable,
+  // k = facteur d'opacité, p = durée relative de l'ondulation, ph = décalage, v = variable de couleur.
+  var X=[-250,300,800,1300,1850];
+  var waves=[
+    {y:[150, 60,210,120, 30], h:[110,150,120,170,110], k:0.90, p:0.81, ph:3.1, v:'--wave-3'},
+    {y:[420,300,500,360,260], h:[150,190,140,200,150], k:1.00, p:1.00, ph:0.0, v:'--wave-1'},
+    {y:[700,580,770,620,560], h:[140,180,150,190,140], k:1.15, p:1.19, ph:1.7, v:'--wave-2'},
+    {y:[940,850,990,880,820], h:[170,210,170,220,170], k:0.80, p:1.06, ph:4.4, v:'--wave-4'}
+  ];
+  var cfg={}, reduce=window.matchMedia('(prefers-reduced-motion: reduce)');
+  function readCfg(){
+    var cs=getComputedStyle(document.documentElement);
+    function g(n,d){var v=cs.getPropertyValue(n).trim();return v||d;}
+    cfg.base=g('--wave-base','#0b1220'); cfg.light=g('--wave-light','#c9d6e8'); cfg.shadow=g('--wave-shadow','#000000');
+    cfg.op=parseFloat(g('--wave-opacity','.06')); cfg.speed=parseFloat(g('--wave-speed','32s'))*1000;
+    cfg.blur=parseFloat(g('--wave-blur','36px'));
+    waves.forEach(function(w){w.c=g(w.v,'#5c7aa6');});
+  }
+  var sw,sh,s,ox,oy;
+  function resize(){
+    var vw=window.innerWidth, vh=window.innerHeight;
+    cv.width=Math.max(1,Math.round(vw*RES)); cv.height=Math.max(1,Math.round(vh*RES));
+    // Recadrage « cover » centré : sur mobile (écran en hauteur) les vagues paraissent plus grandes, même effet discret.
+    s=Math.max(cv.width/W, cv.height/H); ox=(cv.width-W*s)/2; oy=(cv.height-H*s)/2;
+  }
+  function draw(t){
+    ctx.setTransform(1,0,0,1,0,0); ctx.filter='none'; ctx.globalAlpha=1;
+    ctx.fillStyle=cfg.base; ctx.fillRect(0,0,cv.width,cv.height);
+    ctx.setTransform(s,0,0,s,ox,oy);
+    ctx.filter='blur('+(cfg.blur*RES/s)+'px)';
+    waves.forEach(function(w){
+      var a=t/(cfg.speed*w.p)*Math.PI*2+w.ph, sway=Math.sin(a)*22, dx=Math.cos(a*0.7)*40;
+      var y=w.y.map(function(v,i){return v+Math.sin(a+i*1.3)*30+sway;});
+      var hh=w.h.map(function(v,i){return v*(1+Math.sin(a*0.8+i)*0.12);}), xs=X.map(function(x){return x+dx;});
+      var top=Math.min.apply(null,y)-hh[0]/2, bot=Math.max.apply(null,y)+Math.max.apply(null,hh)/2;
+      var gr=ctx.createLinearGradient(0,top,0,bot);
+      gr.addColorStop(0,cfg.light); gr.addColorStop(.3,w.c); gr.addColorStop(.7,w.c); gr.addColorStop(1,cfg.shadow);
+      var up=y.map(function(v,i){return v-hh[i]/2;}), dn=y.map(function(v,i){return v+hh[i]/2;});
+      ctx.beginPath(); ctx.moveTo(xs[0],up[0]); curve(xs,up,1);
+      ctx.lineTo(xs[4],dn[4]); curve(xs,dn,-1); ctx.closePath();
+      ctx.globalAlpha=Math.min(1,cfg.op*w.k); ctx.fillStyle=gr; ctx.fill();
+    });
+  }
+  // Courbe lisse (Bézier cubiques) passant par les 5 points, dans un sens (1) ou dans l'autre (-1).
+  function curve(xs,ys,dir){
+    var n=xs.length, idx=[]; for(var i=0;i<n;i++) idx.push(dir>0?i:n-1-i);
+    for(var k=0;k<n-1;k++){
+      var i0=idx[Math.max(0,k-1)], i1=idx[k], i2=idx[k+1], i3=idx[Math.min(n-1,k+2)];
+      ctx.bezierCurveTo(xs[i1]+(xs[i2]-xs[i0])/6, ys[i1]+(ys[i2]-ys[i0])/6, xs[i2]-(xs[i3]-xs[i1])/6, ys[i2]-(ys[i3]-ys[i1])/6, xs[i2], ys[i2]);
+    }
+  }
+  var raf=0, last=-1e9, t0=performance.now();
+  function loop(now){
+    raf=requestAnimationFrame(loop);
+    if(now-last<66) return; // ~15 images/s : le mouvement est si lent que c'est imperceptible
+    last=now; draw(now-t0);
+  }
+  function start(){
+    cancelAnimationFrame(raf); readCfg(); resize();
+    if(reduce.matches||document.hidden){ draw(0); return; } // « réduire les animations » : fond fixe
+    raf=requestAnimationFrame(loop);
+  }
+  window.addEventListener('resize',function(){resize();draw(performance.now()-t0);});
+  document.addEventListener('visibilitychange',start);
+  if(reduce.addEventListener) reduce.addEventListener('change',start);
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',start); else start();
+  window.addEventListener('load',start);
+})();
+</script>
+<!-- ===== PANNEAU MENTIONS LÉGALES (coller juste avant </body>) ===== -->
+<style>
+  .ml-voile {
+    position: fixed; inset: 0; z-index: 9998;
+    background: rgba(5, 10, 20, .55);
+    opacity: 0; visibility: hidden;
+    transition: opacity .3s ease, visibility .3s ease;
+  }
+  .ml-panneau {
+    position: fixed; top: 0; right: 0; z-index: 9999; visibility: hidden;
+    width: min(520px, 100%); height: 100%;
+    background: #0f1726; color: #e4e8ef;
+    border-left: 1px solid #26324d;
+    box-shadow: -20px 0 40px rgba(0,0,0,.35);
+    transform: translateX(100%);
+    transition: transform .35s ease, visibility .35s ease;
+    display: flex; flex-direction: column;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.65;
+  }
+  .ml-ouvert .ml-voile { opacity: 1; visibility: visible; }
+  .ml-ouvert .ml-panneau { transform: translateX(0); visibility: visible; }
+  .ml-entete {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 1.5rem; border-bottom: 1px solid #26324d;
+  }
+  .ml-entete h2 { margin: 0; font-size: 1.3rem; }
+  .ml-fermer {
+    background: none; border: 1px solid #26324d; color: #e4e8ef;
+    width: 36px; height: 36px; border-radius: 6px; cursor: pointer; font-size: 1.2rem;
+  }
+  .ml-fermer:hover { border-color: #7fa38a; }
+  .ml-fermer:focus-visible, .ml-panneau a:focus-visible { outline: 2px solid #7fa38a; outline-offset: 3px; }
+  .ml-contenu { padding: 1.5rem; overflow-y: auto; }
+  .ml-contenu h3 {
+    font-size: 1.05rem; margin: 2rem 0 .6rem;
+    padding-left: .75rem; border-left: 3px solid #7fa38a;
+  }
+  .ml-contenu h3:first-of-type { margin-top: 0; }
+  .ml-contenu p { margin: 0 0 .8rem; }
+  .ml-contenu a { color: #7fa38a; }
+  .ml-bloc {
+    background: #16213a; border: 1px solid #26324d; border-radius: 6px;
+    padding: .9rem 1.1rem;
+  }
+  .ml-bloc p { margin: .15rem 0; }
+  .ml-label { color: #9aa5b8; }
+  .ml-maj { color: #9aa5b8; font-size: .9rem; margin-top: 2rem; }
+  @media (prefers-reduced-motion: reduce) {
+    .ml-voile, .ml-panneau { transition: none; }
+  }
+</style>
+
+<div class="ml-voile" data-ml-fermer></div>
+<aside class="ml-panneau" role="dialog" aria-modal="true" aria-labelledby="ml-titre" aria-hidden="true" inert>
+  <div class="ml-entete">
+    <h2 id="ml-titre">Mentions légales</h2>
+    <button class="ml-fermer" type="button" aria-label="Fermer" data-ml-fermer>✕</button>
+  </div>
+  <div class="ml-contenu">
+    <h3>Éditeur du site</h3>
+    <div class="ml-bloc">
+      <p><span class="ml-label">Nom commercial :</span> Oxalis</p>
+      <p><span class="ml-label">Responsable :</span> Adrien Eloy, entrepreneur individuel (micro-entreprise)</p>
+      <p><span class="ml-label">Adresse :</span> 24 rue Jane Addams, 51430 Bezannes</p>
+      <p><span class="ml-label">SIRET :</span> 130 950 876 00016</p>
+      <p><span class="ml-label">E-mail :</span> <a href="mailto:contact@agence-oxalis.fr">contact@agence-oxalis.fr</a></p>
+      <p><span class="ml-label">Téléphone :</span> <a href="tel:+33667864885">06 67 86 48 85</a></p>
+      <p><span class="ml-label">TVA :</span> TVA non applicable, art. 293 B du CGI</p>
+    </div>
+
+    <h3>Directeur de la publication</h3>
+    <p>Adrien Eloy.</p>
+
+    <h3>Hébergeur</h3>
+    <div class="ml-bloc">
+      <p>Netlify, Inc.</p>
+      <p>101 2nd Street, San Francisco, CA 94105, États-Unis</p>
+      <p><a href="https://www.netlify.com" rel="noopener" target="_blank">www.netlify.com</a></p>
+    </div>
+
+    <h3>Propriété intellectuelle</h3>
+    <p>L'ensemble des contenus de ce site (textes, logo, visuels, mise en page) est la propriété d'Oxalis, sauf mention contraire. Toute reproduction ou réutilisation, totale ou partielle, sans autorisation écrite préalable est interdite.</p>
+
+    <h3 id="ml-donnees" tabindex="-1">Données personnelles</h3>
+    <p><span class="ml-label">Responsable du traitement :</span> Adrien Eloy (Oxalis), 24 rue Jane Addams, 51430 Bezannes — <a href="mailto:contact@agence-oxalis.fr">contact@agence-oxalis.fr</a>.</p>
+    <p><span class="ml-label">Données collectées :</span> uniquement celles que vous nous transmettez via le formulaire de devis ou par e-mail (nom, entreprise, métier, taille de l'entreprise, commune, téléphone, e-mail, besoins, site actuel, délai souhaité, préférence de contact, message). Sont obligatoires : le nom, le message, et un téléphone ou un e-mail.</p>
+    <p><span class="ml-label">Utilisation :</span> répondre à votre demande et vous établir un devis. Base légale : les mesures précontractuelles prises à votre demande (article 6.1.b du RGPD).</p>
+    <p><span class="ml-label">Destinataires :</span> Oxalis uniquement, ainsi que notre hébergeur Netlify, qui reçoit et conserve les demandes envoyées par le formulaire, et notre prestataire de messagerie. Vos données ne sont ni vendues, ni louées, ni utilisées pour de la publicité.</p>
+    <p><span class="ml-label">Durée de conservation :</span> 3 ans maximum après notre dernier échange, puis suppression.</p>
+    <p><span class="ml-label">Vos droits :</span> vous pouvez accéder à vos données, les rectifier, les faire supprimer, vous opposer à leur utilisation, en limiter l'usage ou en demander une copie. Pour toute demande, y compris de suppression, écrivez à <a href="mailto:contact@agence-oxalis.fr">contact@agence-oxalis.fr</a> : nous répondons sous un mois maximum. Vous pouvez aussi adresser une réclamation à la <a href="https://www.cnil.fr" rel="noopener" target="_blank">CNIL</a>.</p>
+
+    <h3>Cookies</h3>
+    <p>Ce site n'utilise aucun cookie ni aucun autre traceur (pas de mesure d'audience, pas de publicité, pas de réseaux sociaux intégrés), et n'enregistre rien dans votre navigateur. Les polices de caractères sont hébergées sur ce site. Aucun bandeau de consentement n'est donc nécessaire.</p>
+
+    <h3>Crédits</h3>
+    <p>Polices Sora, Geist, Geist Mono, Bricolage Grotesque et Figtree, sous licence SIL Open Font License. Pictogrammes d'après la bibliothèque Lucide, sous licence ISC.</p>
+
+    <p class="ml-maj">Dernière mise à jour : octobre 2026</p>
+  </div>
+</aside>
+
+<script>
+  (function () {
+    var racine = document.documentElement;
+    var panneau = document.querySelector('.ml-panneau');
+    var dernierFocus = null;
+    if (!panneau) return;
+
+    function ouvrir(e) {
+      if (e) e.preventDefault();
+      dernierFocus = document.activeElement;
+      racine.classList.add('ml-ouvert');
+      panneau.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      panneau.inert = false;
+      var site = document.querySelector('.ox-site'); if (site) site.inert = true; // le clavier reste dans le panneau
+      var cible = e && e.target && e.target.closest && e.target.closest('a[href*="mentions-legales-donnees"]') ? panneau.querySelector('#ml-donnees') : null;
+      if (!cible) panneau.querySelector('.ml-contenu').scrollTop = 0;
+      setTimeout(function () { if (cible) { cible.scrollIntoView({ block: 'start' }); cible.focus({ preventScroll: true }); } else { panneau.querySelector('.ml-fermer').focus(); } }, 40);
+    }
+    function fermer() {
+      racine.classList.remove('ml-ouvert');
+      panneau.setAttribute('aria-hidden', 'true');
+      panneau.inert = true;
+      var site = document.querySelector('.ox-site'); if (site) site.inert = false;
+      document.body.style.overflow = '';
+      if (dernierFocus) dernierFocus.focus();
+    }
+
+    // Tous les liens "Mentions légales" du site ouvrent le panneau
+    // (écoute au niveau de la page : le site est affiché après ce script, les liens n'existent pas encore ici)
+    document.addEventListener('click', function (e) {
+      var lien = e.target.closest && e.target.closest('a[href*="mentions-legales"]');
+      if (lien) ouvrir(e);
+    });
+    document.querySelectorAll('[data-ml-fermer]').forEach(function (el) {
+      el.addEventListener('click', fermer);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && racine.classList.contains('ml-ouvert')) fermer();
+    });
+  })();
+</script>
+<!-- ===== FIN PANNEAU MENTIONS LÉGALES ===== -->
+</body>
+</html>

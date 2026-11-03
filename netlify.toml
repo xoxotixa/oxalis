@@ -1,0 +1,13 @@
+# Site statique : on publie le dossier tel quel, sans étape de build.
+[build]
+  publish = "."
+
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"

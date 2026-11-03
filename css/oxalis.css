@@ -1,0 +1,155 @@
+/* Oxalis — composants (CSS seul, aucune dépendance JS). Thème sombre par défaut, thème clair via data-theme="light".
+   Polices : charger Google Fonts dans le <head> :
+   https://fonts.googleapis.com/css2?family=Sora:wght@500..700&family=Geist:wght@400..700&family=Geist+Mono:wght@400..600&display=swap */
+
+.ox, .ox * { box-sizing: border-box; }
+.ox { font-family: var(--font-sans); font-size: 16px; line-height: 26px; font-feature-settings: 'ss01'; color: var(--ink); background: var(--surface); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+.ox :focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+
+/* Titres — mobile d'abord */
+.ox-display, .ox-h1, .ox-h2, .ox-h3 { font-family: var(--font-display); color: var(--ink); margin: 0; font-weight: 600; text-wrap: balance; }
+.ox-display { font-size: 36px; line-height: 40px; letter-spacing: -0.035em; }
+.ox-h1 { font-size: 32px; line-height: 38px; letter-spacing: -0.03em; }
+.ox-h2 { font-size: 26px; line-height: 32px; letter-spacing: -0.025em; }
+.ox-h3 { font-size: 18px; line-height: 26px; letter-spacing: -0.015em; }
+@media (min-width: 768px) {
+  .ox-display { font-size: 56px; line-height: 60px; }
+  .ox-h1 { font-size: 40px; line-height: 46px; }
+  .ox-h2 { font-size: 30px; line-height: 36px; }
+  .ox-h3 { font-size: 20px; line-height: 28px; }
+}
+.ox-lead { font-size: 19px; line-height: 30px; color: var(--ink-muted); margin: 0; }
+.ox-small { font-size: 14px; line-height: 21px; color: var(--ink-muted); }
+.ox-overline { font: 500 12px/16px var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-text); }
+.ox-overline::before { content: "// "; opacity: .7; }
+.ox-mono { font: 400 13px/20px var(--font-mono); color: var(--ink-muted); }
+.ox-grid-bg { background-color: var(--surface); background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size: 32px 32px; background-position: -1px -1px; }
+.ox :where(a:not([class])) { color: var(--link); text-underline-offset: 3px; }
+
+/* Logo — fichier d'origine intact, toujours posé sur logo-ground. Le cadre ne fait que centrer le logo dans son fond. */
+.ox-logo { display: block; flex: none; width: 143px; height: 48px; overflow: hidden; background: var(--logo-ground); }
+.ox-logo img { display: block; height: 86px; width: auto; margin: -22px 0 0 -22px; }
+@media (min-width: 900px) {
+  .ox-logo { width: 172px; height: 56px; }
+  .ox-logo img { height: 102px; margin: -27px 0 0 -26px; }
+}
+
+/* Boutons */
+.ox-btn { white-space: nowrap; display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 12px 24px; border-radius: var(--radius-md); border: 2px solid transparent; font: 500 15px/20px var(--font-sans); text-decoration: none; cursor: pointer; transition: background-color .15s, border-color .15s, color .15s; }
+.ox-btn svg { width: 20px; height: 20px; flex: none; }
+.ox-btn--primary { background: var(--accent); color: var(--on-accent); }
+.ox-btn--primary:hover { background: var(--accent-hover); }
+.ox-btn--secondary { background: transparent; color: var(--ink); border: 1px solid var(--line-strong); padding: 13px 25px; }
+.ox-btn--secondary:hover { border-color: var(--ink); }
+.ox-btn--secondary:hover { background: var(--surface-hover); }
+.ox-btn--secondary.ox-btn--sm { padding: 9px 17px; }
+.ox-btn--link { min-height: 44px; padding: 12px 0; color: var(--accent-text); background: none; text-decoration: none; }
+.ox-btn--link svg { transition: transform .15s; }
+.ox-btn--link:hover svg { transform: translateX(3px); }
+.ox-btn--link:hover { color: var(--ink); }
+.ox-btn--sm { min-height: 40px; padding: 8px 16px; font-size: 15px; }
+.ox-btn--block { width: 100%; }
+.ox-btn:disabled, .ox-btn[aria-disabled="true"] { background: var(--surface-hover); color: var(--ink-muted); border-color: transparent; cursor: not-allowed; }
+
+/* Badges */
+.ox-badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 8px; border-radius: var(--radius-sm); font: 500 12px/16px var(--font-mono); letter-spacing: .02em; white-space: nowrap; }
+.ox-badge svg { width: 14px; height: 14px; }
+.ox-badge--featured { background: var(--accent); color: var(--on-accent); border-radius: var(--radius-pill); padding: 5px 12px; text-transform: uppercase; letter-spacing: .06em; }
+.ox-badge--neutral { background: transparent; color: var(--ink-muted); border: 1px solid var(--line); }
+.ox-badge--success { background: var(--success-soft); color: var(--success); }
+.ox-badge--error { background: var(--error-soft); color: var(--error); }
+.ox-badge--warning { background: var(--warning-soft); color: var(--warning); }
+
+/* Cartes */
+.ox-card { background: var(--surface-raised); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 24px; display: flex; flex-direction: column; gap: 12px; transition: transform .2s, border-color .2s, box-shadow .2s; }
+.ox-card--interactive:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); border-color: var(--accent); }
+.ox-card__icon { width: 48px; height: 48px; border: 1px solid var(--line); display: grid; place-items: center; background: var(--surface-tint); color: var(--accent-text); border-radius: var(--radius-leaf) var(--radius-sm) var(--radius-leaf) var(--radius-sm); }
+.ox-card__icon svg { width: 24px; height: 24px; }
+.ox-card__meta { font: 400 12px/16px var(--font-mono); letter-spacing: .06em; color: var(--ink-muted); text-transform: uppercase; }
+.ox-card__text { margin: 0; color: var(--ink-muted); }
+.ox-card__footer { margin-top: auto; }
+
+/* Carte tarif */
+.ox-price { position: relative; padding: 32px 24px; gap: 16px; }
+.ox-price__amount { font-family: var(--font-display); font-weight: 600; font-size: 40px; line-height: 44px; letter-spacing: -0.03em; color: var(--ink); white-space: nowrap; }
+.ox-price__amount small { font-family: var(--font-mono); font-size: 13px; letter-spacing: 0; font-weight: 400; color: var(--ink-muted); }
+.ox-price__amount--text { font-size: 30px; }
+.ox-price__list { list-style: none; margin: 0; padding: 16px 0 0; border-top: 1px dashed var(--line); display: grid; gap: 10px; font-size: 15px; }
+.ox-price__list li { display: flex; gap: 10px; align-items: flex-start; }
+.ox-price__list svg { width: 18px; height: 18px; flex: none; margin-top: 4px; color: var(--accent-text); }
+.ox-price--featured { border: 1px solid var(--accent); box-shadow: 0 0 0 1px var(--accent), var(--shadow-md); }
+.ox-price--featured .ox-badge--featured { position: absolute; top: -13px; left: 24px; }
+
+/* Champs */
+.ox-field { display: grid; gap: 6px; }
+.ox-field__label { font: 500 15px/20px var(--font-sans); color: var(--ink); }
+.ox-field__label span { font-weight: 400; color: var(--ink-muted); }
+.ox-input { width: 100%; min-height: 48px; padding: 12px 16px; border: 1px solid var(--line-strong); border-radius: var(--radius-md); background: var(--surface-raised); color: var(--ink); font: 400 16px/22px var(--font-sans); transition: border-color .15s, box-shadow .15s; }
+.ox-input::placeholder { color: var(--ink-muted); opacity: 1; }
+.ox-input:hover { border-color: var(--line-hover); }
+.ox-input:focus { outline: none; border-color: var(--focus-ring); box-shadow: 0 0 0 1px var(--focus-ring), 0 0 0 4px var(--accent-soft); }
+textarea.ox-input { min-height: 120px; resize: vertical; }
+.ox-field__help { margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted); display: flex; gap: 6px; align-items: center; }
+.ox-field__help svg { width: 16px; height: 16px; flex: none; }
+.ox-field--error .ox-input { border-color: var(--error); }
+.ox-field--error .ox-field__help { color: var(--error); }
+.ox-field--success .ox-input { border-color: var(--success); }
+.ox-field--success .ox-field__help { color: var(--success); }
+
+/* En-tête — bandeau logo-ground dans les deux thèmes : le logo y est chez lui */
+.ox-header { background: var(--logo-ground); color: var(--nuit); }
+.ox-header__inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 8px 16px; max-width: 1200px; margin: 0 auto; }
+.ox-header__nav { display: none; gap: 4px; }
+.ox-header__nav a { padding: 10px 12px; border-radius: var(--radius-md); color: var(--nuit); text-decoration: none; font-weight: 500; font-size: 15px; white-space: nowrap; }
+.ox-header__nav a:hover { background: rgba(48, 62, 79, 0.08); }
+.ox-header__nav a[aria-current="page"] { color: var(--foret); font-weight: 600; text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; }
+.ox-header :focus-visible { outline-color: var(--foret); }
+.ox-header__cta { display: none; background: var(--foret); color: var(--on-foret); }
+.ox-header__cta:hover { background: #24573f; }
+.ox-header__burger { width: 48px; height: 48px; display: grid; place-items: center; border: 0; background: none; color: var(--nuit); border-radius: var(--radius-md); cursor: pointer; }
+.ox-header__burger svg { width: 26px; height: 26px; }
+@media (min-width: 900px) {
+  .ox-header__inner { padding: 12px 32px; }
+  .ox-header__nav, .ox-header__cta { display: flex; }
+  .ox-header__burger { display: none; }
+}
+
+/* Pied de page */
+.ox-footer { background: var(--footer-bg); color: var(--footer-muted); font-size: 15px; line-height: 24px; }
+.ox-footer__inner { max-width: 1200px; margin: 0 auto; padding: 48px 16px 24px; display: grid; gap: 32px; }
+.ox-footer__plaque { display: inline-block; background: var(--logo-ground); border-radius: var(--radius-md); padding: 4px 12px; margin-bottom: 16px; }
+.ox-footer__brand p { margin: 0; max-width: 320px; }
+.ox-footer h4 { margin: 0 0 12px; font: 500 12px/16px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--sauge-300); }
+.ox-footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.ox-footer a { color: var(--footer-ink); text-decoration: none; }
+.ox-footer a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.ox-footer :focus-visible { outline-color: var(--footer-ink); }
+.ox-footer__bottom { grid-column: 1 / -1; border-top: 1px solid rgba(238, 241, 242, .16); padding-top: 20px; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; font: 400 13px/20px var(--font-mono); }
+@media (min-width: 768px) {
+  .ox-footer__inner { grid-template-columns: 2fr 1fr 1fr 1.2fr; padding: 64px 32px 24px; }
+}
+
+/* FAQ */
+.ox-faq { display: grid; gap: 12px; }
+.ox-faq__item { background: var(--surface-raised); border: 1px solid var(--line); border-radius: var(--radius-md); transition: border-color .2s; }
+.ox-faq__item summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 20px; min-height: 56px; font: 600 17px/26px var(--font-display); letter-spacing: -0.01em; color: var(--ink); border-radius: var(--radius-md); }
+.ox-faq__item summary::-webkit-details-marker { display: none; }
+.ox-faq__icon { width: 28px; height: 28px; flex: none; display: grid; place-items: center; border-radius: var(--radius-sm); border: 1px solid var(--line); background: var(--surface-tint); color: var(--accent-text); transition: background-color .2s; }
+.ox-faq__icon svg { width: 16px; height: 16px; transition: transform .2s; }
+.ox-faq__item[open] { border-color: var(--line-strong); }
+.ox-faq__item[open] .ox-faq__icon { border-color: transparent; }
+.ox-faq__item[open] .ox-faq__icon svg { transform: rotate(45deg); }
+.ox-faq__item[open] .ox-faq__icon { background: var(--accent); color: var(--on-accent); }
+.ox-faq__answer { padding: 0 20px 20px; color: var(--ink-muted); margin: 0; }
+
+/* Héros */
+.ox-hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); }
+.ox-hero__inner { position: relative; max-width: 1200px; margin: 0 auto; padding: 64px 16px; display: grid; gap: 24px; }
+.ox-hero__inner > * { margin: 0; }
+.ox-hero__actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.ox-hero__facts { display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 0; list-style: none; font: 400 13px/20px var(--font-mono); color: var(--ink-muted); }
+.ox-hero__facts li { display: flex; align-items: center; gap: 8px; }
+.ox-hero__facts li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+.ox-hero::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(60% 80% at 85% 0%, var(--accent-soft), transparent 70%); opacity: .9; }
+.ox-hero__inner { z-index: 1; }
+@media (min-width: 768px) { .ox-hero__inner { padding: 96px 32px; max-width: 1200px; } .ox-hero__inner > .ox-lead { max-width: 600px; } }
