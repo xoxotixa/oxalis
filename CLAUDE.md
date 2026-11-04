@@ -9,6 +9,7 @@ Tout le contenu est en **français**, avec un vouvoiement chaleureux, sans jargo
 ```
 index.html              page d'accueil (/) : balisage, CSS et JS du composant
 devis/index.html        page « Demande de devis » (/devis/) : en-tête, bouton Retour, formulaire complet, pied de page
+tarifs/index.html       page « Tarifs » (/tarifs/) : offres sans prix, devis en 3 étapes, bandeau vers /devis/
 js/runtime.js           moteur d'affichage (React intégré) — ne pas modifier
 css/oxalis.css          composants du design system Oxalis (classes ox-*)
 fonts/                  polices auto-hébergées (woff2) + fonts.css + licences OFL
@@ -64,7 +65,7 @@ Un calque fixe `.ox-grid` (un `<div>` avec un `<canvas>`) est placé derrière t
 
 ## Sections (dans l'ordre)
 
-Chargement (logo et barre verte, ≈1,5 s) → Hero `#accueil`, avec le header, le globe 3D et la maquette → Le constat `#constat` → Services `#services`, avec l'animation de workflow → Tarifs `#tarifs` → Nos services `#nos-services`, en accordéon, une seule carte ouverte à la fois → Méthode `#methode` → Réalisations `#realisations`, avec le site exemple « Maçonnerie & Rénovation » intégré, entreprise fictive → Pourquoi `#pourquoi`, avec la carte radar de zone et son bandeau → FAQ `#faq` → Contact `#contact` (bandeau avec bouton vers `/devis/`, téléphone et e-mail) → Footer. Le formulaire est sur la page `/devis/`.
+Chargement (logo et barre verte, ≈1,5 s) → Hero `#accueil`, avec le header, le globe 3D et la maquette → Le constat `#constat` → Services `#services`, avec l'animation de workflow → Nos services `#nos-services`, en accordéon, une seule carte ouverte à la fois → Méthode `#methode` → Réalisations `#realisations`, avec le site exemple « Maçonnerie & Rénovation » intégré, entreprise fictive → Pourquoi `#pourquoi`, avec la carte radar de zone et son bandeau → FAQ `#faq` → Contact `#contact` (bandeau avec bouton vers `/devis/`, téléphone et e-mail) → Footer. Le formulaire est sur la page `/devis/`.
 
 Un menu fixe (`.hdr-site`) apparaît quand le hero sort de l'écran. Tant qu'il est caché, il est `inert` et `aria-hidden`.
 
@@ -80,7 +81,8 @@ Un menu fixe (`.hdr-site`) apparaît quand le hero sort de l'écran. Tant qu'il 
 - **Contact :** contact@agence-oxalis.fr · 06 67 86 48 85 (`tel:+33667864885`) · LinkedIn https://www.linkedin.com/in/adrien-eloy-a9698928a/
 - **Éditeur :** Adrien Eloy, entrepreneur individuel, 24 rue Jane Addams, 51430 Bezannes · SIRET 130 950 876 00016 · TVA non applicable, art. 293 B du CGI
 - **Hébergeur :** Netlify, Inc., 101 2nd Street, San Francisco, CA 94105, États-Unis
-- **Prix :** site vitrine sur devis, à partir de **699 € TTC**. Maintenance **99 €/mois TTC**, 6 mois minimum, puis sans engagement.
+- **Prix :** **aucun prix affiché sur le site**, c'est le choix d'Adrien, car chaque demande est particulière. Tout est « sur devis » : site vitrine (maintenance comprise) et automatisation. Ne jamais remettre de montant, ni dans les textes, ni dans la FAQ, ni dans les balises meta.
+- **Maintenance :** 6 mois minimum, puis sans engagement.
 - **Délais :** site livré en **5 jours** · réponse aux messages sous **24 h** · devis gratuit sous **48 h**
 - **Zone :** sur place à Reims, dans la Marne et le Grand Est · à distance partout en France
 
@@ -118,7 +120,8 @@ Si une de ces informations change, mettez à jour **toutes** ses occurrences : t
 ## Pages
 
 - **`/` (index.html)** : l'accueil. La section `#contact` est un bandeau avec un bouton vers `/devis/`, le téléphone et l'e-mail. Tous les boutons « Devis » et « Contact » pointent vers `/devis/`.
+- **`/tarifs/` (tarifs/index.html)** : construite sur le même gabarit que `/devis/`, avec le même composant. Elle contient les cartes Site vitrine et Automatisation (« Sur devis »), « Un devis en 3 étapes » et un bandeau vers `/devis/`. Tous les liens « Tarifs » et « Voir les offres » y mènent. Dans le menu, le lien Tarifs y porte `aria-current="page"`.
 - **`/devis/` (devis/index.html)** : même CSS et même composant que l'accueil, sans chargement ni hero. Bouton « ← Retour » vers `/`, en-tête fixe toujours visible, liens du menu vers `/#services`, `/#tarifs`, etc. Chemins absolus (`/css/…`, `/js/…`, `/assets/…`).
 - Formulaire complet en 3 blocs (Vous / Votre entreprise / Votre projet) : `nom`, `telephone`, `email`, `preference_contact`, `entreprise`, `metier`, `taille`, `commune`, `besoins` (champ caché rempli en JS), `site_actuel`, `site_url`, `delai`, `message`.
 - **Souris :** rond vert `.cur-ring`, cartes qui s'inclinent (`data-tilt`) et boutons aimantés (`data-magnet`). Les formes du haut de page suivent légèrement la souris (effet de profondeur, variables `--mx` / `--my` sur le hero). Pas de grille lumineuse ni de traînée : Adrien a choisi de ne pas les garder.
-- Modifier une partie commune (en-tête, pied de page, CSS, composant) : le faire **dans les deux fichiers**.
+- Modifier une partie commune (en-tête, pied de page, CSS, composant) : le faire **dans les trois fichiers** (`index.html`, `devis/index.html`, `tarifs/index.html`).

@@ -6,7 +6,7 @@
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <title>Création site internet artisan Reims · Oxalis, agence web Marne &amp; Grand Est</title>
-<meta name="description" content="Création de sites internet pour artisans et TPE à Reims, dans la Marne et le Grand Est. Sur devis dès 699 € TTC, devis gratuit sous 48 h.">
+<meta name="description" content="Création de sites internet pour artisans et TPE à Reims, dans la Marne et le Grand Est. Sites sur devis, devis gratuit sous 48 h.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="Oxalis">
@@ -111,6 +111,8 @@ a{color:#8fd0aa}a:hover{color:#eef1f2}
 .hdr .ox-header__nav a:hover,.hdr .ox-header__nav a.is-active{color:#eef1f2;background:transparent}
 .hdr .ox-header__nav a::after{content:"";position:absolute;left:12px;right:12px;bottom:5px;height:2px;border-radius:2px;background:#7cc79b;transform:scaleX(0);transform-origin:left center;transition:transform .45s var(--ease)}
 .hdr .ox-header__nav a:hover::after,.hdr .ox-header__nav a:focus-visible::after,.hdr .ox-header__nav a.is-active::after{transform:scaleX(1)}
+.hdr .ox-header__nav a[aria-current="page"]{color:#eef1f2}
+.hdr .ox-header__nav a[aria-current="page"]::after{transform:scaleX(1)}
 .hdr .ox-header__cta{background:#7cc79b;color:#102018}
 .hdr .ox-header__cta:hover{background:#96d6b0}
 .hdr :focus-visible{outline-color:#8fd0aa}
@@ -1066,7 +1068,7 @@ main > section[id]{scroll-margin-top:72px}
 <a class="lg" href="#accueil"><img class="lg-img" src="assets/oxalis-logo.png" alt="Oxalis — accueil" width="190" height="40"></a>
 <nav class="ox-header__nav" aria-label="Principale">
 <a href="#services">Services</a>
-<a href="#tarifs">Tarifs</a>
+<a href="/tarifs/">Tarifs</a>
 <a href="#realisations">Réalisations</a>
 <a href="#faq">FAQ</a>
 <a href="/devis/">Contact</a>
@@ -1145,7 +1147,7 @@ main > section[id]{scroll-margin-top:72px}
 <p class="ox-lead tw hin" style="max-width: 560px; --t: 130ms"><span class="tw-base">On crée votre site, on l'entretient et on automatise vos tâches répétitives. Vous, vous restez sur vos chantiers.</span><span class="tw-over" aria-hidden="true"><span class="tw-typed"></span><span class="tw-caret"></span></span></p>
 <div class="ox-hero__actions hin" style="--t: 260ms">
 <a class="ox-btn ox-btn--primary glow-pulse" href="/devis/" data-magnet="">Demander mon devis gratuit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></a>
-<a class="ox-btn ox-btn--secondary" href="#tarifs">Voir les offres</a>
+<a class="ox-btn ox-btn--secondary" href="/tarifs/">Voir les offres</a>
 </div>
 <ul class="ox-hero__facts hin" style="margin: 0; --t: 390ms">
 <li>Devis gratuit sous 48 h</li>
@@ -1205,7 +1207,7 @@ main > section[id]{scroll-margin-top:72px}
 <a class="lg" href="#accueil"><img class="lg-img" src="assets/oxalis-logo.png" alt="Oxalis — accueil" width="190" height="40"></a>
 <nav class="ox-header__nav" aria-label="Principale (menu fixe)">
 <a href="#services">Services</a>
-<a href="#tarifs">Tarifs</a>
+<a href="/tarifs/">Tarifs</a>
 <a href="#realisations">Réalisations</a>
 <a href="#faq">FAQ</a>
 <a href="/devis/">Contact</a>
@@ -1226,7 +1228,7 @@ main > section[id]{scroll-margin-top:72px}
 <sc-if value="{{menuOpen}}" hint-placeholder-val="{{false}}">
 <nav class="mob-menu" aria-label="Menu mobile">
 <a class="mlink" href="#services" onClick="{{closeMenu}}">Services</a>
-<a class="mlink" href="#tarifs" onClick="{{closeMenu}}">Tarifs</a>
+<a class="mlink" href="/tarifs/" onClick="{{closeMenu}}">Tarifs</a>
 <a class="mlink" href="#realisations" onClick="{{closeMenu}}">Réalisations</a>
 <a class="mlink" href="#faq" onClick="{{closeMenu}}">FAQ</a>
 <a class="mlink" href="/devis/" onClick="{{closeMenu}}">Contact</a>
@@ -1314,48 +1316,6 @@ main > section[id]{scroll-margin-top:72px}
 </div>
 </div>
 <div class="wf-foot" aria-hidden="true"><span>// Exemple d'automatisation</span><span class="wf-zoom"><i>−</i><i>100 %</i><i>+</i></span></div>
-</div>
-</div>
-</section>
-
-<!-- 4. OFFRES & TARIFS -->
-<section id="tarifs" class="sec" style="background: #121820; border-top: 1px solid #354253; border-bottom: 1px solid #354253">
-<div class="wrap" style="display: flex; flex-direction: column; gap: 40px">
-<div class="sec-head">
-<span class="sec-load" data-reveal="load" aria-hidden="true"></span>
-<p class="ox-overline" data-reveal="" style="margin: 0; --d: 2">Tarifs</p>
-<h2 class="ox-h2 mtitle" data-reveal="mask" style="--d: 3">Des prix clairs, sans mauvaise surprise</h2>
-</div>
-<div class="g-price">
-<article class="ox-card ox-price ox-price--featured price-run" data-reveal="" data-tilt="" style="--d: 1">
-<span class="skel" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
-<span class="ox-badge ox-badge--featured" style="z-index: 5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 4 2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 16.4 7.2 18.9l.9-5.4-3.9-3.8 5.4-.8Z"></path></svg> Notre offre phare</span>
-<h3 class="ox-h3">Site vitrine</h3>
-<div style="display: flex; flex-direction: column; gap: 4px">
-<p class="ox-mono" style="margin: 0; font-size: 13px; color: #aab5c1">Sur devis, à partir de</p>
-<div class="ox-price__amount"><span data-count="699">699</span> € <small>TTC</small></div>
-<p class="ox-mono price-sub" style="margin: 0; font-size: 14px; color: #eef1f2">puis <strong style="color: #8fd0aa; font-weight: 600"><span data-count="99">99</span> €/mois TTC</strong> de maintenance, 6 mois minimum</p>
-</div>
-<ul class="ox-price__list">
-<li style="--i: 0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" pathLength="1"></path></svg><span>Design sur mesure</span></li>
-<li style="--i: 1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" pathLength="1"></path></svg><span>Adapté mobile</span></li>
-<li style="--i: 2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" pathLength="1"></path></svg><span>Référencement local Google</span></li>
-<li style="--i: 3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" pathLength="1"></path></svg><span>Formulaire de contact</span></li>
-<li style="--i: 4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" pathLength="1"></path></svg><span>Hébergement</span></li>
-<li style="--i: 5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" pathLength="1"></path></svg><span>Mises à jour &amp; sécurité</span></li>
-<li style="--i: 6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" pathLength="1"></path></svg><span>Modifications sur demande</span></li>
-</ul>
-<div class="ox-card__footer" style="padding-top: 8px; position: relative; z-index: 3"><a class="ox-btn ox-btn--primary ox-btn--block" href="/devis/">Je veux mon site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></a></div>
-</article>
-
-<article class="ox-card ox-price" data-reveal="" data-tilt="" style="--d: 2">
-<span class="skel" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-<div class="viz viz-brain" aria-hidden="true"><canvas data-viz="brain"></canvas></div>
-<h3 class="ox-h3">Automatisation</h3>
-<div class="ox-price__amount ox-price__amount--text">Sur devis</div>
-<p class="ox-card__text">Une solution adaptée à votre activité, après un échange gratuit pour identifier ce qui vous fait perdre le plus de temps.</p>
-<div class="ox-card__footer" style="padding-top: 8px; position: relative; z-index: 3"><a class="ox-btn ox-btn--secondary ox-btn--block" href="/devis/">En parler ensemble</a></div>
-</article>
 </div>
 </div>
 </section>
@@ -1843,7 +1803,7 @@ main > section[id]{scroll-margin-top:72px}
 <div class="ox-faq">
 <details class="ox-faq__item" name="faq" data-reveal="" style="--d: 1"><summary>Combien de temps pour créer mon site ?<span class="ox-faq__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></span></summary><p class="ox-faq__answer">En général, votre site est en ligne en 5 jours. On commence par un appel pour comprendre votre métier et vos clients, puis on vous présente une première version du site. Vous nous dites ce qui vous plaît ou non, on ajuste, et on publie dès que vous validez. Le délai dépend surtout de la rapidité de vos retours, et il est indiqué clairement dans votre devis.</p></details>
 <details class="ox-faq__item" name="faq" data-reveal="" style="--d: 1.6"><summary>Je n'ai pas de photos ni de textes, c'est un problème ?<span class="ox-faq__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></span></summary><p class="ox-faq__answer">Pas du tout, c'est même le cas le plus courant. Pour les textes, il suffit d'un échange : vous nous parlez de votre métier, de vos services et de votre zone d'intervention, et on s'occupe de la rédaction. Vous relisez et vous validez. Pour les photos, on utilise des visuels de qualité, libres de droits, en attendant les vôtres. On vous donne aussi quelques conseils pour photographier vos chantiers avec votre téléphone, et on les ajoute au site dès que vous les envoyez.</p></details>
-<details class="ox-faq__item" name="faq" data-reveal="" style="--d: 2.2"><summary>Qu'est-ce qui est compris dans les 99 €/mois ?<span class="ox-faq__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></span></summary><p class="ox-faq__answer">L'hébergement de votre site, sa sécurité et ses mises à jour, pour qu'il reste rapide et fiable sans que vous ayez à vous en occuper. Vos demandes de modifications courantes sont aussi comprises : changer un texte, une photo, vos horaires ou ajouter une nouvelle réalisation. Un simple message suffit, on s'en charge.</p></details>
+<details class="ox-faq__item" name="faq" data-reveal="" style="--d: 2.2"><summary>Qu'est-ce qui est compris dans la maintenance ?<span class="ox-faq__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></span></summary><p class="ox-faq__answer">L'hébergement de votre site, sa sécurité et ses mises à jour, pour qu'il reste rapide et fiable sans que vous ayez à vous en occuper. Vos demandes de modifications courantes sont aussi comprises : changer un texte, une photo, vos horaires ou ajouter une nouvelle réalisation. Un simple message suffit, on s'en charge.</p></details>
 <details class="ox-faq__item" name="faq" data-reveal="" style="--d: 2.8"><summary>Est-ce que je suis engagé sur la durée ?<span class="ox-faq__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></span></summary><p class="ox-faq__answer"><strong style="color: #eef1f2; font-weight: 600">Engagement court.</strong> La maintenance est souscrite pour 6 mois minimum. Ce délai laisse le temps à votre site de se faire connaître et de commencer à apporter des demandes. Ensuite, elle devient sans engagement : vous pouvez l'arrêter à tout moment, en nous prévenant simplement. Tout est écrit noir sur blanc dans votre devis, avant de commencer.</p></details>
 <details class="ox-faq__item" name="faq" data-reveal="" style="--d: 3.4"><summary>Est-ce que mon site sera visible sur Google ?<span class="ox-faq__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></span></summary><p class="ox-faq__answer">Oui, il est optimisé pour apparaître quand on cherche votre métier dans votre ville. On soigne ce qui compte pour le référencement local : des textes qui parlent de vos services et de votre zone d'intervention, un site rapide et bien adapté au téléphone. Le classement dépend ensuite de Google et de la concurrence locale : personne ne peut garantir une première place, et il faut en général quelques semaines pour que Google prenne en compte un nouveau site.</p></details>
 <details class="ox-faq__item" name="faq" data-reveal="" style="--d: 4"><summary>L'automatisation, c'est compliqué ?<span class="ox-faq__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></span></summary><p class="ox-faq__answer">Non. On commence par regarder avec vous comment vous travaillez au quotidien, et on repère les tâches répétitives qui vous prennent du temps : relances de devis, rappels de rendez-vous, réponses aux demandes de contact. On met tout en place pour vous et on vous explique simplement comment ça fonctionne. Vous n'avez rien à installer ni à programmer : vous constatez simplement le temps gagné.</p></details>
@@ -1883,7 +1843,7 @@ main > section[id]{scroll-margin-top:72px}
 <h4 role="heading" aria-level="2">Navigation</h4>
 <ul>
 <li data-reveal="slide" style="--d: 1"><a href="#services">Services</a></li>
-<li data-reveal="slide" style="--d: 1.5"><a href="#tarifs">Tarifs</a></li>
+<li data-reveal="slide" style="--d: 1.5"><a href="/tarifs/">Tarifs</a></li>
 <li data-reveal="slide" style="--d: 2"><a href="#realisations">Réalisations</a></li>
 <li data-reveal="slide" style="--d: 2.5"><a href="#faq">FAQ</a></li>
 <li data-reveal="slide" style="--d: 3"><a href="/devis/">Contact</a></li>
