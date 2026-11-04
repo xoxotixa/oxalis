@@ -23,18 +23,16 @@
 <style>
 @property --ang{syntax:'<angle>';initial-value:0deg;inherits:false}
 @property --pct{syntax:'<integer>';initial-value:0;inherits:true}
-/* ===== Fond en vagues douces : réglages (styles en fin de cette balise style ; dessin et animation dans le script « FOND EN VAGUES DOUCES » juste avant le panneau Mentions légales) ===== */
+/* ===== Fond en grille lumineuse : réglages (styles en fin de cette balise style ; dessin et animation dans le script « FOND EN GRILLE LUMINEUSE » juste avant le panneau Mentions légales) ===== */
 :root{
---wave-base:#0b1220;          /* couleur de fond sous les vagues (bleu nuit très foncé) */
---wave-opacity:.06;           /* visibilité générale des vagues : .03 = presque invisible, .08 = un peu plus marqué (réglage principal) */
---wave-1:#5c7aa6;             /* teinte de la vague 1 (bleu), mélangée au fond à --wave-opacity : donne ≈ #0e1627 */
---wave-2:#6886b0;             /* teinte de la vague 2 (bleu-gris) : donne ≈ #0f1829 */
---wave-3:#5f8f7c;             /* teinte de la vague 3, la seule nuance vert sauge : donne ≈ #0e1a1f */
---wave-4:#53709a;             /* teinte de la vague 4 (bleu profond) : donne ≈ #0d1526 */
---wave-light:#c9d6e8;         /* reflet en haut de chaque vague (relief 3D) */
---wave-shadow:#000000;        /* ombre en bas de chaque vague (relief 3D) */
---wave-speed:32s;             /* durée d'une ondulation complète (les 4 vagues varient de 26 à 38 s) */
---wave-blur:36px;             /* flou des bords, en pixels d'écran : plus haut = plus doux */
+--grid-base:#0b1220;            /* couleur du fond, sous la grille (bleu nuit très foncé) */
+--grid-cell:32px;               /* taille d'une case, en pixels */
+--grid-line:rgba(238,241,242,.05); /* traits de la grille : .03 = presque invisibles, .08 = plus marqués */
+--grid-greens:#2fb872,#45c584,#5fd096,#7ddaa9,#9be4bd; /* nuances de vert des cases allumées, de la plus profonde à la plus claire */
+--grid-fill:.45;                /* opacité maximale du fond d'une case allumée */
+--grid-edge:.9;                 /* opacité maximale du contour d'une case allumée */
+--grid-reach:2.6;               /* portée autour de la souris, en cases */
+--grid-ambient:2;               /* cases qui s'allument seules à chaque battement (≈ toutes les 2 s) */
 }
 :root{
 --nuit:#303e4f;--foret:#2f6b4f;--on-foret:#ffffff;--sauge:#7f9a84;--logo-ground:#eef1f2;
@@ -970,10 +968,15 @@ html{scroll-behavior:auto}
 .ox-faq__item[open] .ox-faq__answer{animation:none}
 .send-btn .sb-track span{animation:none !important;transform:none}
 }
-/* ===== Fond en vagues douces (réglages : variables --wave-* en haut de cette balise style) ===== */
-html{background:var(--wave-base)}
-body{background:transparent}  /* le fond de body masquerait le calque des vagues placé en z-index négatif */
-.ox-waves{position:fixed;inset:0;z-index:-1;display:block;width:100%;height:100%;pointer-events:none;background:var(--wave-base)}
+/* ===== Fond en grille lumineuse (réglages : variables --grid-* en haut de cette balise style) ===== */
+html{background:var(--grid-base)}
+body{background:transparent}  /* le fond de body masquerait le calque de la grille placé en z-index négatif */
+.ox-grid{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;background-color:var(--grid-base);background-image:linear-gradient(to right, var(--grid-line) 1px, transparent 1px),linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);background-size:var(--grid-cell) var(--grid-cell)}
+/* Léger vignettage : la grille s'efface doucement vers les bords de l'écran. */
+.ox-grid::after{content:"";position:absolute;inset:0;background:radial-gradient(130% 95% at 50% 40%, transparent 55%, var(--grid-base) 100%)}
+.ox-grid canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+/* La grille du site remplace l'ancienne grille du hero et ses cases clignotantes. */
+.hero-grid,.hero-bg .px{display:none !important}
 
 /* Sections qui avaient leur propre fond uni : transparentes, ou légèrement voilées
    (Le constat, Tarifs, Réalisations, FAQ, pied de page) pour garder l'alternance. */
@@ -981,7 +984,7 @@ body{background:transparent}  /* le fond de body masquerait le calque des vagues
 .site-hero > .hdr-hero:not(.is-scrolled){background:transparent}
 #constat,#tarifs,#realisations,#faq{background:rgba(5,9,16,.35) !important}
 .ox-footer{background:rgba(5,9,16,.5)}
-/* ===== fin du fond en vagues ===== */
+/* ===== fin du fond en grille lumineuse ===== */
 
 /* ---------- Bandeau contact (accueil) + page devis ---------- */
 .cta-band{display:grid;gap:24px;padding:32px 24px;border-radius:var(--radius-lg);border:1px solid #354253;background:radial-gradient(70% 120% at 100% 0%, rgba(124,199,155,.14), transparent 60%),#18202a}
@@ -1851,81 +1854,159 @@ class Component extends DCLogic {
   }
 }
 </script>
-<!-- ===== FOND EN VAGUES DOUCES : canvas fixe derrière tout le contenu, réglages dans les variables --wave-* ===== -->
-<canvas class="ox-waves" aria-hidden="true"></canvas>
+<!-- ===== FOND EN GRILLE LUMINEUSE : calque fixe derrière tout le contenu, réglages dans les variables --grid-* ===== -->
+<div class="ox-grid" aria-hidden="true"><canvas></canvas></div>
 <script>
 (function(){
-  var cv=document.querySelector('canvas.ox-waves'); if(!cv||!cv.getContext) return;
-  var ctx=cv.getContext('2d');
-  // Le dessin est fait en basse résolution (1/4) puis agrandi : invisible grâce au flou, et très léger pour le processeur.
-  var RES=0.25, W=1600, H=1000;
-  // 4 vagues en forme de rubans de soie : ligne médiane y (5 points de gauche à droite), épaisseur h variable,
-  // k = facteur d'opacité, p = durée relative de l'ondulation, ph = décalage, v = variable de couleur.
-  var X=[-250,300,800,1300,1850];
-  var waves=[
-    {y:[150, 60,210,120, 30], h:[110,150,120,170,110], k:0.90, p:0.81, ph:3.1, v:'--wave-3'},
-    {y:[420,300,500,360,260], h:[150,190,140,200,150], k:1.00, p:1.00, ph:0.0, v:'--wave-1'},
-    {y:[700,580,770,620,560], h:[140,180,150,190,140], k:1.15, p:1.19, ph:1.7, v:'--wave-2'},
-    {y:[940,850,990,880,820], h:[170,210,170,220,170], k:0.80, p:1.06, ph:4.4, v:'--wave-4'}
-  ];
-  var cfg={}, reduce=window.matchMedia('(prefers-reduced-motion: reduce)');
+  // Une grille fine derrière tout le site. Les cases s'allument en vert là où passe la souris
+  // et s'éteignent un instant plus tard ; quelques cases s'allument seules pour que la grille vive
+  // aussi sur mobile. Décor uniquement : invisible pour les lecteurs d'écran, ne capte pas la souris,
+  // un seul canvas qui dort dès qu'aucune case n'est allumée, et immobile si l'utilisateur demande
+  // de réduire les animations. Aucun cookie, aucun stockage.
+  var box=document.querySelector('.ox-grid'); if(!box) return;
+  var cv=box.querySelector('canvas'); var ctx=cv&&cv.getContext&&cv.getContext('2d'); if(!ctx) return;
+  var mm=function(q){try{return window.matchMedia(q);}catch(e){return {matches:false};}};
+  var reduce=mm('(prefers-reduced-motion: reduce)'), fine=mm('(hover: hover) and (pointer: fine)');
+
+  var FAINT=0.12;      // intensité d'une case juste derrière une ligne de texte
+  var FADE=2.2;        // nombre de cases pour retrouver toute son intensité en s'éloignant du texte
+  var PAD=6;           // marge gardée autour de chaque ligne de texte, en pixels
+  var FADE_IN=180, FADE_OUT=900, MAX_LIT=180;
+  // Textes posés directement sur le fond : la lumière s'efface derrière eux pour qu'ils restent lisibles.
+  // Les textes dans les cartes, les en-têtes ou la maquette sont déjà sur un fond opaque.
+  var AVOID='h1,h2,h3,p,li,dt,dd,label,.ox-overline,[data-grid-avoid]';
+  var SKIP='.ox-card,.ox-faq__item,.ox-price,.emb,.mk,.hdr,.cta-band,.wf,.pl,.ml-panneau,.mob-menu,.sticky-cta,.ox-input,.globe-wrap';
+
+  var cfg={}, cols=1, rows=1, W=0, H=0, cells={}, count=0;
   function readCfg(){
     var cs=getComputedStyle(document.documentElement);
-    function g(n,d){var v=cs.getPropertyValue(n).trim();return v||d;}
-    cfg.base=g('--wave-base','#0b1220'); cfg.light=g('--wave-light','#c9d6e8'); cfg.shadow=g('--wave-shadow','#000000');
-    cfg.op=parseFloat(g('--wave-opacity','.06')); cfg.speed=parseFloat(g('--wave-speed','32s'))*1000;
-    cfg.blur=parseFloat(g('--wave-blur','36px'));
-    waves.forEach(function(w){w.c=g(w.v,'#5c7aa6');});
+    var g=function(n,d){var v=cs.getPropertyValue(n).trim();return v||d;};
+    cfg.cell=parseFloat(g('--grid-cell','32'))||32;
+    cfg.fill=parseFloat(g('--grid-fill','.45'));
+    cfg.edge=parseFloat(g('--grid-edge','.9'));
+    cfg.reach=parseFloat(g('--grid-reach','2.6'))||2.6;
+    cfg.ambient=Math.round(parseFloat(g('--grid-ambient','2')));
+    cfg.greens=g('--grid-greens','#2fb872,#45c584,#5fd096,#7ddaa9,#9be4bd').split(',').map(function(c){return c.trim();});
   }
-  var sw,sh,s,ox,oy;
-  function resize(){
-    var vw=window.innerWidth, vh=window.innerHeight;
-    cv.width=Math.max(1,Math.round(vw*RES)); cv.height=Math.max(1,Math.round(vh*RES));
-    // Recadrage « cover » centré : sur mobile (écran en hauteur) les vagues paraissent plus grandes, même effet discret.
-    s=Math.max(cv.width/W, cv.height/H); ox=(cv.width-W*s)/2; oy=(cv.height-H*s)/2;
+  function size(){
+    W=window.innerWidth; H=window.innerHeight;
+    cols=Math.max(1,Math.ceil(W/cfg.cell)); rows=Math.max(1,Math.ceil(H/cfg.cell));
+    var dpr=Math.min(window.devicePixelRatio||1,2);
+    cv.width=Math.round(W*dpr); cv.height=Math.round(H*dpr);
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    stamp=0; wake();
   }
-  function draw(t){
-    ctx.setTransform(1,0,0,1,0,0); ctx.filter='none'; ctx.globalAlpha=1;
-    ctx.fillStyle=cfg.base; ctx.fillRect(0,0,cv.width,cv.height);
-    ctx.setTransform(s,0,0,s,ox,oy);
-    ctx.filter='blur('+(cfg.blur*RES/s)+'px)';
-    waves.forEach(function(w){
-      var a=t/(cfg.speed*w.p)*Math.PI*2+w.ph, sway=Math.sin(a)*22, dx=Math.cos(a*0.7)*40;
-      var y=w.y.map(function(v,i){return v+Math.sin(a+i*1.3)*30+sway;});
-      var hh=w.h.map(function(v,i){return v*(1+Math.sin(a*0.8+i)*0.12);}), xs=X.map(function(x){return x+dx;});
-      var top=Math.min.apply(null,y)-hh[0]/2, bot=Math.max.apply(null,y)+Math.max.apply(null,hh)/2;
-      var gr=ctx.createLinearGradient(0,top,0,bot);
-      gr.addColorStop(0,cfg.light); gr.addColorStop(.3,w.c); gr.addColorStop(.7,w.c); gr.addColorStop(1,cfg.shadow);
-      var up=y.map(function(v,i){return v-hh[i]/2;}), dn=y.map(function(v,i){return v+hh[i]/2;});
-      ctx.beginPath(); ctx.moveTo(xs[0],up[0]); curve(xs,up,1);
-      ctx.lineTo(xs[4],dn[4]); curve(xs,dn,-1); ctx.closePath();
-      ctx.globalAlpha=Math.min(1,cfg.op*w.k); ctx.fillStyle=gr; ctx.fill();
-    });
-  }
-  // Courbe lisse (Bézier cubiques) passant par les 5 points, dans un sens (1) ou dans l'autre (-1).
-  function curve(xs,ys,dir){
-    var n=xs.length, idx=[]; for(var i=0;i<n;i++) idx.push(dir>0?i:n-1-i);
-    for(var k=0;k<n-1;k++){
-      var i0=idx[Math.max(0,k-1)], i1=idx[k], i2=idx[k+1], i3=idx[Math.min(n-1,k+2)];
-      ctx.bezierCurveTo(xs[i1]+(xs[i2]-xs[i0])/6, ys[i1]+(ys[i2]-ys[i0])/6, xs[i2]-(xs[i3]-xs[i1])/6, ys[i2]-(ys[i3]-ys[i1])/6, xs[i2], ys[i2]);
+
+  // Lignes de texte visibles à l'écran, mesurées à la demande (après un défilement, ou au plus
+  // toutes les 250 ms), pas les blocs qui les contiennent : la dernière ligne courte d'un paragraphe
+  // ne garde pas une bande de cases éteintes là où il n'y a rien à lire.
+  var clear=[], stamp=0, sy=null;
+  function measureText(now){
+    stamp=now; sy=window.scrollY; clear=[];
+    var nodes=document.querySelectorAll(AVOID), range=document.createRange();
+    for(var i=0;i<nodes.length;i++){
+      var n=nodes[i], b=n.getBoundingClientRect();
+      if(!b.width||!b.height||b.bottom<-PAD*4||b.top>H+PAD*4||b.right<0||b.left>W) continue;
+      if(n.closest(SKIP)) continue;
+      range.selectNodeContents(n);
+      var rs=range.getClientRects(), any=false;
+      for(var j=0;j<rs.length;j++){
+        var r=rs[j]; if(!r.width||!r.height) continue; any=true;
+        clear.push([r.left-PAD,r.top-PAD,r.right+PAD,r.bottom+PAD]);
+      }
+      if(!any) clear.push([b.left-PAD,b.top-PAD,b.right+PAD,b.bottom+PAD]);
     }
   }
-  var raf=0, last=-1e9, t0=performance.now();
-  function loop(now){
-    raf=requestAnimationFrame(loop);
-    if(now-last<66) return; // ~15 images/s : le mouvement est si lent que c'est imperceptible
-    last=now; draw(now-t0);
+  function brightness(col,row,now){
+    if(now-stamp>250||window.scrollY!==sy) measureText(now);
+    var x=col*cfg.cell+cfg.cell/2, y=row*cfg.cell+cfg.cell/2, near=Infinity;
+    for(var i=0;i<clear.length;i++){
+      var r=clear[i];
+      var d=Math.hypot(Math.max(r[0]-x,0,x-r[2]),Math.max(r[1]-y,0,y-r[3]));
+      if(d<near){near=d; if(!d) break;}
+    }
+    if(near===Infinity) return 1;
+    return FAINT+(1-FAINT)*Math.min(1,near/(FADE*cfg.cell));
   }
+
+  var easeOut=function(t){return 1-(1-t)*(1-t);}, easeIn=function(t){return t*t;};
+  var frame=0;
+  function draw(now){
+    frame=0; ctx.clearRect(0,0,W,H);
+    var c=cfg.cell, k, cl, a, t;
+    for(k in cells){
+      cl=cells[k];
+      if(now<cl.until){ a=easeOut(Math.min(1,(now-cl.born)/FADE_IN)); }
+      else { t=(now-cl.until)/FADE_OUT; if(t>=1){ delete cells[k]; count--; continue; } a=1-easeIn(t); }
+      a*=cl.dim;
+      ctx.fillStyle=ctx.strokeStyle=cl.colour;
+      // Légèrement en retrait du trait de la grille, pour qu'elle reste visible entre deux cases allumées.
+      ctx.globalAlpha=a*cfg.fill; ctx.fillRect(cl.col*c+1,cl.row*c+1,c-1,c-1);
+      ctx.globalAlpha=a*cfg.edge; ctx.strokeRect(cl.col*c+1.5,cl.row*c+1.5,c-2,c-2);
+    }
+    ctx.globalAlpha=1;
+    if(count>0) frame=requestAnimationFrame(draw);
+  }
+  function wake(){ if(!frame&&count>0) frame=requestAnimationFrame(draw); }
+
+  // Allume une case. near (0 à 1) : 1 au plus près de la souris, où le vert est plus clair et plus franc.
+  function light(cx,cy,hold,near){
+    if(cx<0||cy<0||cx>=cols||cy>=rows||count>=MAX_LIT) return;
+    var key=cx+','+cy, now=performance.now(), lit=cells[key];
+    if(lit&&now<lit.until) return;
+    var born=now;
+    if(lit){ // une case rattrapée pendant qu'elle s'éteint repart d'où elle en était, sans clignoter
+      var faded=1-easeIn(Math.min(1,(now-lit.until)/FADE_OUT));
+      born=now-(1-Math.sqrt(1-faded))*FADE_IN;
+    } else count++;
+    var g=cfg.greens, idx=Math.round(near*(g.length-1)+(Math.random()-0.5)*1.6);
+    idx=Math.max(0,Math.min(g.length-1,idx));
+    cells[key]={col:cx,row:cy,colour:lit?lit.colour:g[idx],dim:brightness(cx,cy,now)*(0.55+0.45*near),born:born,until:now+hold};
+    wake();
+  }
+
+  // La souris peint. Plus une case est loin, moins elle a de chances de s'allumer :
+  // le bord de la traînée s'effrite au lieu de bouger d'un bloc.
+  var pending=0, at=null;
+  function paint(){
+    pending=0; if(!at) return;
+    var c=cfg.cell, R=cfg.reach, cx=Math.floor(at.x/c), cy=Math.floor(at.y/c), span=Math.ceil(R);
+    for(var dy=-span;dy<=span;dy++) for(var dx=-span;dx<=span;dx++){
+      var away=Math.hypot(dx,dy); if(away>R) continue;
+      if(Math.random()>1-away/(R+0.6)) continue;
+      light(cx+dx,cy+dy,260+Math.random()*900,1-away/R);
+    }
+  }
+  function onMove(e){
+    if(e.pointerType&&e.pointerType!=='mouse'&&e.pointerType!=='pen') return;
+    at={x:e.clientX,y:e.clientY};
+    if(!pending) pending=requestAnimationFrame(paint);
+  }
+
+  // Quelques cases s'allument seules, plus discrètes : la grille vit dès l'arrivée, même sans souris.
+  var beat=0;
+  function drift(){
+    beat=setTimeout(drift,1400+Math.random()*1800);
+    if(document.hidden) return;
+    for(var i=0;i<cfg.ambient;i++) light(Math.floor(Math.random()*cols),Math.floor(Math.random()*rows),900+Math.random()*1600,0.35+Math.random()*0.35);
+  }
+
+  var on=false;
   function start(){
-    cancelAnimationFrame(raf); readCfg(); resize();
-    if(reduce.matches||document.hidden){ draw(0); return; } // « réduire les animations » : fond fixe
-    raf=requestAnimationFrame(loop);
+    if(on||reduce.matches) return; on=true;
+    readCfg(); size();
+    if(fine.matches) window.addEventListener('pointermove',onMove,{passive:true});
+    beat=setTimeout(drift,1200);
   }
-  window.addEventListener('resize',function(){resize();draw(performance.now()-t0);});
-  document.addEventListener('visibilitychange',start);
-  if(reduce.addEventListener) reduce.addEventListener('change',start);
+  function stop(){
+    on=false; clearTimeout(beat); cancelAnimationFrame(frame); cancelAnimationFrame(pending);
+    frame=pending=0; cells={}; count=0; ctx.clearRect(0,0,W,H);
+    window.removeEventListener('pointermove',onMove);
+  }
+  window.addEventListener('resize',function(){ if(on) size(); });
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(function(){stamp=0;}).catch(function(){});
+  if(reduce.addEventListener) reduce.addEventListener('change',function(){ if(reduce.matches) stop(); else start(); });
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',start); else start();
-  window.addEventListener('load',start);
 })();
 </script>
 <!-- ===== PANNEAU MENTIONS LÉGALES (coller juste avant </body>) ===== -->

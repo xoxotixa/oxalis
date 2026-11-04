@@ -44,6 +44,15 @@ La page n'est pas du HTML « classique ». `js/runtime.js` lit deux blocs et les
 
 Après `</script>`, juste avant `</body>`, se trouve le **panneau Mentions légales**. C'est du HTML, du CSS et du JS ordinaires, en dehors du moteur.
 
+### Fond du site : grille lumineuse (les deux pages)
+
+Un calque fixe `.ox-grid` (un `<div>` avec un `<canvas>`) est placé derrière tout le contenu, juste avant le panneau Mentions légales, avec son script « FOND EN GRILLE LUMINEUSE ». Il dessine une grille fine de 32 px sur le fond bleu nuit. Les cases s'allument en vert là où passe la souris (pointeur fin uniquement), et quelques cases s'allument seules toutes les 2 s environ. Derrière les lignes de texte posées directement sur le fond, les cases restent très faibles pour garder le texte lisible. Les textes dans les cartes, les en-têtes et la maquette sont ignorés (sélecteur `SKIP` du script).
+
+- **Réglages :** variables `--grid-*` en haut de la balise `<style>` : couleur du fond, taille des cases, traits, nuances de vert, opacités, portée autour de la souris, cases allumées seules.
+- **Réduire les animations :** la grille reste visible, mais aucune case ne s'allume.
+- Elle remplace l'ancien fond en vagues, ainsi que la grille et les cases clignotantes du hero (`.hero-grid` et `.px`, masquées en CSS).
+- Pour qu'un texte posé sur le fond soit protégé alors qu'il n'est pas un titre, un paragraphe ou un élément de liste, ajoutez-lui l'attribut `data-grid-avoid`.
+
 ### Pièges connus (déjà rencontrés)
 
 - **Ne jamais mettre une classe dynamique (`class="… {{x}}"`) sur un élément qui a `data-reveal`.** Le nouveau rendu efface la classe `in` ajoutée par l'IntersectionObserver, et l'élément redevient invisible. Pour un état, on utilise un attribut à part, par exemple `data-open="{{…}}"`, et le CSS cible `[data-open="true"]`. C'est le cas des cartes « Nos services ».
