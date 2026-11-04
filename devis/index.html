@@ -336,15 +336,31 @@ a{color:#8fd0aa}a:hover{color:#eef1f2}
 .anim-on [data-mock] .mock-win{opacity:0;transition:opacity .8s var(--ease-r) calc(var(--d,0) * 100ms + 200ms)}
 .anim-on [data-mock].in .mock-win{opacity:1}
 
-/* ---------- FAQ ---------- */
-.ox-faq__item{transition:border-color .3s, background-color .3s}
-.ox-faq__item:hover{border-color:#7a8899}
-.ox-faq__item::details-content{block-size:0;overflow:hidden;transition:block-size .5s var(--ease), content-visibility .5s allow-discrete}
+/* ---------- FAQ : accordéon néo-brutaliste aux couleurs Oxalis ----------
+   Bordure épaisse et ombre franche décalée, question sur fond vert sauge, réponse sur fond de carte.
+   Une seule question ouverte à la fois (attribut name="faq" sur chaque <details>). */
+.ox-faq{
+--faq-main:var(--accent);          /* fond de la question : vert sauge Oxalis */
+--faq-mtext:var(--on-accent);      /* texte de la question */
+--faq-bw:var(--surface-raised);    /* fond de la réponse */
+--faq-text:var(--ink);             /* texte de la réponse */
+--faq-border:#000;                 /* bordure et ombre */
+--faq-radius:5px;
+--faq-shadow:4px 4px 0 0 var(--faq-border);
+gap:20px;padding:0 4px 4px 0}
+.ox-faq .ox-faq__item{border:2px solid var(--faq-border);border-radius:var(--faq-radius);box-shadow:var(--faq-shadow);background:var(--faq-bw);overflow:hidden;transition:none}
+.ox-faq .ox-faq__item[open]{border-color:var(--faq-border)}
+.ox-faq .ox-faq__item summary{min-height:0;padding:16px;gap:16px;background:var(--faq-main);color:var(--faq-mtext);font:700 17px/26px var(--font-display);letter-spacing:-0.01em;border-bottom:0 solid var(--faq-border)}
+.ox-faq .ox-faq__item[open] summary{border-bottom-width:2px}
+.ox-faq .ox-faq__item summary:focus-visible{outline:2px solid var(--faq-text);outline-offset:-6px;border-radius:2px}
+.ox-faq .ox-faq__icon{width:20px;height:20px;border:0;border-radius:0;background:none;color:currentColor}
+.ox-faq .ox-faq__item[open] .ox-faq__icon{background:none;color:currentColor}
+.ox-faq .ox-faq__icon svg{width:20px;height:20px;transition:transform .2s}
+.ox-faq .ox-faq__item[open] .ox-faq__icon svg{transform:rotate(180deg)}
+.ox-faq .ox-faq__answer{padding:16px;color:var(--faq-text);font-size:14px;line-height:22px;font-weight:500}
+/* Ouverture et fermeture en 0,2 s, comme l'accordéon d'origine (accordion-down / accordion-up) */
+.ox-faq__item::details-content{block-size:0;overflow:hidden;transition:block-size .2s ease-out, content-visibility .2s ease-out allow-discrete}
 .ox-faq__item[open]::details-content{block-size:auto}
-.ox-faq__item[open] .ox-faq__answer{animation:faqIn .5s var(--ease)}
-.ox-faq .ox-faq__icon svg{transition:transform .45s var(--ease)}
-.ox-faq .ox-faq__icon{transition:background-color .35s, color .35s, border-color .35s}
-@keyframes faqIn{from{opacity:0;transform:translateY(-6px)}}
 
 /* ---------- Contact ---------- */
 .ox-field__label{transition:color .3s}
@@ -966,6 +982,7 @@ html{scroll-behavior:auto}
 .mk-check{opacity:1;transform:none}
 .ox-faq__item::details-content{transition:none}
 .ox-faq__item[open] .ox-faq__answer{animation:none}
+.ox-faq .ox-faq__icon svg{transition:none}
 .send-btn .sb-track span{animation:none !important;transform:none}
 }
 /* ===== Fond en grille lumineuse (réglages : variables --grid-* en haut de cette balise style) ===== */
