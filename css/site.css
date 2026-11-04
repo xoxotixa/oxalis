@@ -18,7 +18,7 @@
 --font-mono:"Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
 --radius-sm:4px; --radius-md:8px; --radius-lg:12px; --radius-pill:999px;
 --ease:cubic-bezier(.16,1,.3,1); --ease-io:cubic-bezier(.65,0,.35,1); --ease-r:cubic-bezier(.22,1,.36,1);
---gutter:20px; --hd:72px;
+--gutter:20px; --hd:72px; --bounce:cubic-bezier(.22,1,.36,1);
 interpolate-size:allow-keywords;
 }
 @media (min-width:900px){:root{--gutter:40px; --hd:80px}}
@@ -35,7 +35,7 @@ a:hover{color:var(--ink)}
 main section[id]{scroll-margin-top:var(--hd)}
 
 /* Grain très léger sur tout le site : donne de la matière au fond sombre. */
-body::after{content:"";position:fixed;inset:0;z-index:300;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+body::after{content:"";position:fixed;inset:0;z-index:300;pointer-events:none;opacity:.035;mix-blend-mode:overlay;
 background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 
 .skip{position:absolute;left:12px;top:-60px;z-index:400;padding:10px 16px;border-radius:8px;background:var(--accent);color:var(--on-accent);font-weight:600;text-decoration:none;transition:top .2s}
@@ -342,9 +342,9 @@ display:grid;gap:20px;padding:0 4px 4px 0;max-width:900px}
 
 /* Offres (/tarifs/) */
 .plans{display:grid;gap:24px}
-.plan{position:relative;display:grid;gap:24px;align-content:start;padding:32px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(180deg, rgba(34,44,56,.7), rgba(24,32,42,.5));overflow:hidden;transition:border-color .5s var(--ease), transform .7s var(--ease)}
+.plan{position:relative;display:grid;gap:24px;align-content:start;padding:32px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(180deg, rgba(34,44,56,.97), rgba(24,32,42,.96));overflow:hidden;transition:border-color .5s var(--ease), transform .7s var(--ease)}
 .plan:hover{border-color:rgba(124,199,155,.6)}
-.plan--feat{border-color:rgba(124,199,155,.55);background:radial-gradient(90% 60% at 100% 0%, rgba(124,199,155,.16), transparent 60%), linear-gradient(180deg, rgba(34,44,56,.8), rgba(24,32,42,.6))}
+.plan--feat{border-color:rgba(124,199,155,.55);background:radial-gradient(90% 60% at 100% 0%, rgba(124,199,155,.16), transparent 60%), linear-gradient(180deg, rgba(34,44,56,.97), rgba(24,32,42,.96))}
 .plan__tag{justify-self:start;display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:var(--radius-pill);background:var(--accent);color:var(--on-accent);font:500 11px/1 var(--font-mono);letter-spacing:.1em;text-transform:uppercase}
 .plan .plan__price{margin:0;font:600 clamp(44px,5vw,64px)/1 var(--font-display);letter-spacing:-.05em;color:var(--ink)}
 .plan > p{margin:0;color:var(--ink-muted)}
@@ -406,8 +406,8 @@ textarea.ox-input{min-height:140px;resize:vertical}
 .send-btn.is-sending{cursor:default}
 .send-btn.is-sending .sb-label{opacity:0;transform:translateY(-8px)}
 .send-btn.is-sending .sb-load{opacity:1;transform:none}
-.send-btn.is-sending .sb-track span{animation:fill 1.4s var(--ease-io) forwards}
-@keyframes fill{to{transform:scaleX(.92)}}
+.send-btn.is-sending .sb-track span{animation:sbFill 1.4s var(--ease-io) forwards}
+@keyframes sbFill{to{transform:scaleX(.92)}}
 .contact-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:20px}
 
 /* ---------- Réduire les animations : tout est visible et immobile ---------- */
@@ -417,3 +417,60 @@ textarea.ox-input{min-height:140px;resize:vertical}
 }
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 @media (max-width:420px){.btn{white-space:normal;text-align:center;padding-left:20px;padding-right:20px}}
+
+/* ===== Fond en grille lumineuse : réglages (dessin et animation dans js/grid.js) ===== */
+:root{
+--grid-base:#0b1220;            /* couleur du fond, sous la grille (bleu nuit très foncé) */
+--grid-cell:32px;               /* taille d'une case, en pixels */
+--grid-line:rgba(238,241,242,.05); /* traits de la grille : .03 = presque invisibles, .08 = plus marqués */
+--grid-greens:#2fb872,#45c584,#5fd096,#7ddaa9,#9be4bd; /* nuances de vert des cases allumées, de la plus profonde à la plus claire */
+--grid-fill:.45;                /* opacité maximale du fond d'une case allumée */
+--grid-edge:.9;                 /* opacité maximale du contour d'une case allumée */
+--grid-reach:1.8;               /* portée de la traînée autour de la souris, en cases */
+--grid-trail:.6;                /* densité de la traînée : 1 = toutes les cases à portée, .3 = très clairsemée */
+--grid-ripple-reach:13;         /* rayon de l'onde au clic, en cases */
+--grid-ripple-speed:42;         /* vitesse de l'onde : millisecondes pour avancer d'une case */
+--grid-ripple-scale:1.1;        /* grossissement des cases au passage de l'onde */
+--grid-ambient:2;               /* cases qui s'allument seules à chaque battement (≈ toutes les 2 s) */
+}
+/* ===== Fond en grille lumineuse (réglages : variables --grid-* ci-dessus) ===== */
+html{background:var(--grid-base)}
+body{background:transparent}  /* le fond de body masquerait le calque de la grille placé en z-index négatif */
+.ox-grid{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;background-color:var(--grid-base);background-image:linear-gradient(to right, var(--grid-line) 1px, transparent 1px),linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);background-size:var(--grid-cell) var(--grid-cell)}
+/* Léger vignettage : la grille s'efface doucement vers les bords de l'écran. */
+.ox-grid::after{content:"";position:absolute;inset:0;background:radial-gradient(130% 95% at 50% 40%, transparent 55%, var(--grid-base) 100%)}
+.ox-grid canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+
+/* ===== Version fusionnée : hero en deux colonnes avec globe et maquette ===== */
+.hero__grid{display:grid;gap:48px;align-items:center}
+.hero__copy{display:grid;gap:28px;align-content:center}
+.hero .display{font-size:clamp(44px,min(10.5vw,13vh),112px)}
+.hero__visual{position:relative;max-width:560px;width:100%;margin:0 auto}
+.anim .hero__visual{animation:fadeUp 1.4s var(--ease) both;animation-delay:.5s}
+.hero__copy .hero__actions{margin-top:4px}
+.hero__copy .hero__facts{justify-content:flex-start}
+@media (min-width:1100px){
+  .hero{justify-content:center}
+  .hero__grid{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:24px}
+  .hero .display{font-size:clamp(44px,min(5.6vw,11vh),100px)}
+  .hero__visual{max-width:none;margin:0}
+}
+
+/* Cartes (mini-sites des autres métiers) */
+.g3{display:grid;gap:24px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:768px){.g3{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.others-head{margin:72px 0 28px}
+.ox-card{position:relative;display:flex;flex-direction:column;gap:12px;padding:24px;border:1px solid var(--line);border-radius:16px;background:var(--surface-raised);transition:border-color .35s, box-shadow .35s}
+.ox-card__meta{font:500 12px/16px var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent-text)}
+.ox-card__footer{margin-top:auto}
+.ox-btn--link{min-height:44px;padding:10px 0;background:none;color:var(--accent-text);text-decoration:none}
+.ox-btn--link:hover{color:var(--ink)}
+.ox-card--interactive:hover{border-color:rgba(124,199,155,.6)}
+
+/* Cartes qui s'inclinent sous la souris (data-tilt), avec un reflet vert */
+[data-tilt]{transform-style:preserve-3d}
+[data-tilt]::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .4s;background:radial-gradient(420px circle at var(--gx,50%) var(--gy,50%), rgba(124,199,155,.14), transparent 60%);z-index:1}
+[data-tilt].tilting::before{opacity:1}
+[data-tilt].tilting{border-color:rgba(124,199,155,.7);box-shadow:0 22px 48px rgba(0,0,0,.42), 0 0 40px rgba(124,199,155,.12)}
+.plan .viz{margin-bottom:4px}
+.contact-aside .viz{margin-top:28px}

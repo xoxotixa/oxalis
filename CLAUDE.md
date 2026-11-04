@@ -12,7 +12,10 @@ tarifs/index.html       page « Tarifs » (/tarifs/) : offres « Sur devis », d
 devis/index.html        page « Demande de devis » (/devis/) : formulaire complet + coordonnées
 css/site.css            tout le design commun aux trois pages (variables en haut du fichier)
 css/exemple.css         styles du site exemple intégré (classes mx-) et de sa fenêtre (classes emb-), accueil seulement
-js/site.js              toutes les animations et interactions des trois pages
+css/visuels.css         maquette qui se construit (mk-), globe 3D, cerveau et réseau (viz-), mini-sites des autres métiers (ms-)
+js/site.js              animations et interactions des trois pages (apparitions, en-tête, menu, services, site exemple, formulaire…)
+js/visuels.js           maquette qui se construit, globe numérique 3D (data-globe), cerveau et réseau de nœuds (data-viz)
+js/grid.js              fond en grille lumineuse : traînée verte sous la souris, onde ronde au clic
 fonts/                  polices auto-hébergées (woff2) + fonts.css + licences OFL
 assets/                 logo blanc/vert transparent + 3 photos du site exemple (webp)
 favicon.png, apple-touch-icon.png
@@ -31,16 +34,22 @@ python3 -m http.server 8080      # puis http://localhost:8080
 
 Le formulaire ne peut pas envoyer en local : il affiche son message d'erreur, c'est normal. Seul Netlify reçoit les envois.
 
-## Design « éditorial épuré »
+## Design : « éditorial épuré » + effets de la première version
 
-Très grande typographie, beaucoup d'espace, de fins traits de séparation (`.hair`), des étiquettes numérotées (`.label` avec `<b>01</b>`). Le fond est uni bleu nuit, avec un léger grain.
+C'est un mélange voulu par Adrien. La mise en page est éditoriale : très grande typographie, beaucoup d'espace, de fins traits de séparation (`.hair`), des étiquettes numérotées (`.label` avec `<b>01</b>`). Les effets marquants viennent de la première version :
+- le **fond en grille lumineuse** (`js/grid.js`, réglages `--grid-*` dans `css/site.css`) : cases vertes sous la souris, onde ronde au clic, cases qui s'allument seules. Derrière les textes posés sur le fond, les cases restent faibles. Les blocs listés dans `SKIP` sont ignorés ;
+- le **globe 3D** et la **maquette qui se construit** dans le hero, à droite sur ordinateur, sous le texte sur mobile ;
+- les **mini-sites des autres métiers** sous le site exemple, avec une page qui défile au survol ;
+- le **cerveau** dans la carte Automatisation de `/tarifs/` et le **réseau** dans la colonne contact de `/devis/` ;
+- les **cartes qui s'inclinent** sous la souris (`data-tilt`).
 
 **Animations** (`js/site.js`) :
 - La classe `.anim` est posée sur `<html>` seulement si « réduire les animations » n'est pas demandé. Sans elle, tout est visible et immobile.
+- `[data-tilt]` : carte qui s'incline sous la souris, avec un reflet vert.
 - `[data-rv]` : apparition au défilement (`data-rv="line"` pour un trait qui se dessine). `--d` règle le décalage.
 - `[data-split]` : titre découpé en mots qui montent un à un.
 - `[data-scrub]` : texte qui s'éclaire mot à mot au fil du défilement (le constat).
-- Hero : lignes du titre qui montent au chargement, titre qui remonte et s'estompe au défilement, lueur verte qui suit doucement la souris.
+- Hero : lignes du titre qui montent au chargement, titre qui remonte et s'estompe au défilement, lueur verte qui suit doucement la souris. À droite : globe 3D et maquette « votre-site.fr » qui se construit en boucle.
 - Bandeau défilant (`.marquee`) qui accélère quand on fait défiler la page.
 - Services : colonne de gauche fixe, compteur 01/03 et barre de progression. Le grand numéro du bloc actif se remplit de vert.
 - Exemple d'automatisation (`[data-flow]`) : la ligne se remplit et les étapes s'allument au fil du défilement.
@@ -59,7 +68,7 @@ Très grande typographie, beaucoup d'espace, de fins traits de séparation (`.ha
 
 ## Sections de l'accueil (dans l'ordre)
 
-Hero → bandeau défilant → Le constat `#constat` → Services `#services` → Nos services `#nos-services` (Sites internet / Automatisations + exemple d'automatisation) → Méthode `#methode` → Réalisations `#realisations` (site exemple « Maçonnerie & Rénovation », entreprise fictive) → Pourquoi `#pourquoi` (4 raisons + zone d'intervention) → FAQ `#faq` (accordéon néo-brutaliste, une seule question ouverte à la fois grâce à `name="faq"`) → Contact `#contact` → pied de page. Le formulaire est sur `/devis/`, les offres sur `/tarifs/`.
+Hero (titre + globe + maquette) → bandeau défilant → Le constat `#constat` → Services `#services` → Nos services `#nos-services` (Sites internet / Automatisations + exemple d'automatisation) → Méthode `#methode` → Réalisations `#realisations` (site exemple « Maçonnerie & Rénovation », entreprise fictive, puis les mini-sites « Autres métiers ») → Pourquoi `#pourquoi` (4 raisons + zone d'intervention) → FAQ `#faq` (accordéon néo-brutaliste, une seule question ouverte à la fois grâce à `name="faq"`) → Contact `#contact` → pied de page. Le formulaire est sur `/devis/`, les offres sur `/tarifs/`.
 
 ## Formulaire de devis (Netlify Forms) — sur la page /devis/
 

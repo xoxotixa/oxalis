@@ -16,6 +16,7 @@
 <link rel="preload" href="/fonts/sora-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fonts/fonts.css">
 <link rel="stylesheet" href="/css/site.css">
+<link rel="stylesheet" href="/css/visuels.css">
 </head>
 <body id="top">
 <a class="skip" href="#contenu">Aller au contenu</a>
@@ -123,6 +124,7 @@
 <span style="color: #aab5c1">Reims, Marne &amp; Grand Est, et partout en France à distance</span>
 </li>
 </ul>
+<div class="viz viz-net" aria-hidden="true"><canvas data-viz="net"></canvas><span class="viz-tag">// Réponse sous 24 h</span></div>
 </aside>
 </div>
 </section>
@@ -169,7 +171,11 @@
 
 <div class="sticky-cta"><a class="btn btn--primary btn--block" href="/devis/">Demander mon devis gratuit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></a></div>
 
+<!-- Fond en grille lumineuse : calque fixe derrière tout le contenu (js/grid.js) -->
+<div class="ox-grid" aria-hidden="true"><canvas></canvas></div>
 <script src="/js/site.js" defer></script>
+<script src="/js/visuels.js" defer></script>
+<script src="/js/grid.js" defer></script>
 <!-- ===== PANNEAU MENTIONS LÉGALES (coller juste avant </body>) ===== -->
 <style>
   .ml-voile {

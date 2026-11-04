@@ -175,6 +175,24 @@
     });
   }
 
+  /* --- Cartes qui s'inclinent sous la souris (data-tilt), ordinateur uniquement --- */
+  if (fine && !reduce) {
+    $$('[data-tilt]').forEach(function (card) {
+      card.addEventListener('pointermove', function (e) {
+        var r = card.getBoundingClientRect(), px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+        card.classList.add('tilting');
+        card.style.transition = 'transform .14s linear, border-color .35s, box-shadow .35s';
+        card.style.transform = 'perspective(900px) rotateX(' + ((0.5 - py) * 6).toFixed(2) + 'deg) rotateY(' + ((px - 0.5) * 8).toFixed(2) + 'deg) translateY(-4px)';
+        card.style.setProperty('--gx', (px * 100).toFixed(1) + '%'); card.style.setProperty('--gy', (py * 100).toFixed(1) + '%');
+      });
+      card.addEventListener('pointerleave', function () {
+        card.classList.remove('tilting');
+        card.style.transition = 'transform .7s cubic-bezier(.16,1,.3,1), border-color .35s, box-shadow .35s';
+        card.style.transform = '';
+      });
+    });
+  }
+
   /* --- Site exemple intégré (Maçonnerie & Rénovation, entreprise fictive) --- */
   var emb = $('[data-embed]');
   if (emb) {
