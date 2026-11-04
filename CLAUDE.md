@@ -17,7 +17,7 @@ js/site.js              animations et interactions des trois pages (apparitions,
 js/visuels.js           maquette qui se construit, globe numérique 3D (data-globe), cerveau et réseau de nœuds (data-viz)
 js/grid.js              fond en grille lumineuse : traînée verte sous la souris, onde ronde au clic
 fonts/                  polices auto-hébergées (woff2) + fonts.css + licences OFL
-assets/                 logo blanc/vert transparent + 3 photos du site exemple (webp)
+assets/                 logo blanc/vert (mode nuit), logo foncé oxalis-logo-sombre.png (mode jour), 3 photos du site exemple (webp)
 favicon.png, apple-touch-icon.png
 netlify.toml            publication du dossier tel quel, en-têtes de cache
 ```
@@ -43,12 +43,21 @@ C'est un mélange voulu par Adrien. La mise en page est éditoriale : très gran
 - le **cerveau** dans la carte Automatisation de `/tarifs/` et le **réseau** dans la colonne contact de `/devis/` ;
 - les **cartes qui s'inclinent** sous la souris (`data-tilt`).
 
+**Mode jour / mode nuit :**
+- Le bouton rond soleil / lune de l'en-tête (`[data-theme-toggle]`) change le thème.
+- Un petit script dans `<head>` pose `data-theme="dark"` ou `"light"` sur `<html>` avant l'affichage : choix enregistré, sinon réglage de l'appareil.
+- Les couleurs du mode jour sont dans le bloc « Mode jour » à la fin de `css/site.css` (variables redéfinies sous `:root[data-theme="light"]`, puis quelques retouches).
+- `--accent-big` est la couleur des grands textes verts : vert sauge la nuit, vert plus foncé le jour pour rester lisible.
+- Le logo existe en deux versions (`.logo-d` la nuit, `.logo-l` le jour). Le globe change de couleurs selon le thème (`js/visuels.js`). La maquette, le site exemple et les visuels cerveau et réseau restent sombres, comme des écrans.
+- Tout nouvel élément doit être vérifié dans les deux thèmes.
+
 **Animations** (`js/site.js`) :
 - La classe `.anim` est posée sur `<html>` seulement si « réduire les animations » n'est pas demandé. Sans elle, tout est visible et immobile.
 - `[data-tilt]` : carte qui s'incline sous la souris, avec un reflet vert.
 - `[data-rv]` : apparition au défilement (`data-rv="line"` pour un trait qui se dessine). `--d` règle le décalage.
 - `[data-split]` : titre découpé en mots qui montent un à un.
 - `[data-scrub]` : texte qui s'éclaire mot à mot au fil du défilement (le constat).
+- Le constat : la phrase à gauche (fixe pendant le défilement sur ordinateur), et à droite les 3 cartes de la première version avec leurs icônes animées (horloge, loupe, papiers).
 - Hero : lignes du titre qui montent au chargement, titre qui remonte et s'estompe au défilement, lueur verte qui suit doucement la souris. À droite : globe 3D et maquette « votre-site.fr » qui se construit en boucle.
 - Bandeau défilant (`.marquee`) qui accélère quand on fait défiler la page.
 - Services : colonne de gauche fixe, compteur 01/03 et barre de progression. Le grand numéro du bloc actif se remplit de vert.
@@ -95,7 +104,7 @@ Si une de ces informations change, mettez à jour **toutes** ses occurrences : t
   - Ne jamais dire que l'agence est récente.
   - N'inventer aucun chiffre, aucun avis client, aucun logo client et aucune réalisation présentée comme réelle. Le site exemple est indiqué comme fictif.
   - Ne faire aucune promesse non prouvée, par exemple « première place Google ».
-- **RGPD et cookies :** le site n'utilise **aucun cookie, aucun traceur et aucun stockage navigateur** (`localStorage`, etc.), et **aucun service tiers**, puisque les polices sont hébergées sur le site. Les mentions légales l'affirment. Ajouter un outil tiers (statistiques, Google Fonts, carte, vidéo…) oblige à mettre à jour la partie Données personnelles ou Cookies, et parfois à ajouter un bandeau de consentement.
+- **RGPD et cookies :** le site n'utilise **aucun cookie, aucun traceur et aucun service tiers**, puisque les polices sont hébergées sur le site. Seule exception, voulue par Adrien : le choix jour / nuit, enregistré dans `localStorage` sous la clé `oxalis-theme`, et seulement quand le visiteur utilise le bouton. Les mentions légales (partie Cookies) le disent. Aucun autre stockage navigateur n'est permis. Ajouter un outil tiers (statistiques, Google Fonts, carte, vidéo…) oblige à mettre à jour la partie Données personnelles ou Cookies, et parfois à ajouter un bandeau de consentement.
 - **Accessibilité :**
   - Textes alternatifs sur les images (`alt=""` si l'image est décorative), contrastes AA, navigation au clavier, lien « Aller au contenu ».
   - Vrais `<button>` avec `aria-expanded` / `aria-controls` pour tout ce qui s'ouvre et se ferme.

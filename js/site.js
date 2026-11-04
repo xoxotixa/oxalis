@@ -15,6 +15,33 @@
   var clamp = function (v, a, b) { return Math.max(a, Math.min(b, v)); };
   if (!reduce) root.classList.add('anim');
 
+  /* --- Mode jour / mode nuit ---
+     Le thème est posé avant l'affichage par un petit script dans <head>.
+     Le bouton le change et le mémorise dans « oxalis-theme » (seul réglage enregistré
+     dans le navigateur, et seulement si le visiteur utilise le bouton). */
+  var themeMeta = $('meta[name="theme-color"]');
+  function applyTheme(t, save) {
+    if (!reduce) { root.classList.add('theme-switch'); setTimeout(function () { root.classList.remove('theme-switch'); }, 500); }
+    root.setAttribute('data-theme', t);
+    if (themeMeta) themeMeta.setAttribute('content', t === 'light' ? '#f3f5f4' : '#0b1220');
+    $$('[data-theme-toggle]').forEach(function (b) {
+      b.setAttribute('aria-label', t === 'light' ? 'Passer en mode nuit' : 'Passer en mode jour');
+      b.setAttribute('title', t === 'light' ? 'Mode nuit' : 'Mode jour');
+    });
+    if (save) { try { localStorage.setItem('oxalis-theme', t); } catch (e) {} }
+  }
+  applyTheme(root.getAttribute('data-theme') === 'light' ? 'light' : 'dark', false);
+  root.classList.remove('theme-switch');
+  $$('[data-theme-toggle]').forEach(function (b) {
+    b.addEventListener('click', function () { applyTheme(root.getAttribute('data-theme') === 'light' ? 'dark' : 'light', true); });
+  });
+  // Sans choix enregistré, le site suit le réglage de l'appareil s'il change.
+  var schemeMq = mq('(prefers-color-scheme: light)');
+  if (schemeMq.addEventListener) schemeMq.addEventListener('change', function (e) {
+    var saved = null; try { saved = localStorage.getItem('oxalis-theme'); } catch (err) {}
+    if (saved !== 'light' && saved !== 'dark') applyTheme(e.matches ? 'light' : 'dark', false);
+  });
+
   /* --- Découpage des titres en mots (pour l'apparition mot à mot) --- */
   function splitWords(el, cls) {
     var walker = doc.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), nodes = [], n, i = 0;

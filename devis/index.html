@@ -13,6 +13,13 @@
 <meta property="og:title" content="Demande de devis gratuit · Oxalis">
 <meta property="og:description" content="Oxalis crée, entretient et automatise le site internet des artisans, TPE et PME à Reims, dans la Marne et le Grand Est.">
 <meta name="theme-color" content="#0b1220">
+<script>
+/* Thème jour / nuit : choix du visiteur (mémorisé dans « oxalis-theme »), sinon réglage de l'appareil. */
+(function () { var t; try { t = localStorage.getItem('oxalis-theme'); } catch (e) {}
+if (t !== 'light' && t !== 'dark') t = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+document.documentElement.setAttribute('data-theme', t);
+if (t === 'light') document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f3f5f4'); })();
+</script>
 <link rel="preload" href="/fonts/sora-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fonts/fonts.css">
 <link rel="stylesheet" href="/css/site.css">
@@ -22,7 +29,7 @@
 <a class="skip" href="#contenu">Aller au contenu</a>
 <header class="hd">
 <div class="wrap hd__in">
-<a class="hd__logo" href="/" aria-label="Oxalis, retour à l'accueil"><img src="/assets/oxalis-logo.png" alt="Oxalis" width="856" height="180"></a>
+<a class="hd__logo" href="/" aria-label="Oxalis, retour à l'accueil"><img class="logo-d" src="/assets/oxalis-logo.png" alt="" width="856" height="180"><img class="logo-l" src="/assets/oxalis-logo-sombre.png" alt="" width="856" height="180"></a>
 <nav class="hd__nav" aria-label="Principale">
 <a href="/#services">Services</a>
 <a href="/tarifs/">Tarifs</a>
@@ -30,6 +37,7 @@
 <a href="/#faq">FAQ</a>
 <a href="/devis/" aria-current="page">Contact</a>
 </nav>
+<button class="theme-btn" type="button" data-theme-toggle="" aria-label="Changer de thème : mode jour ou mode nuit"><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"></path></svg><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.8 6.8 0 0 0 10.7 10.7Z"></path></svg></button>
 <a class="btn btn--ghost btn--sm hd__cta" href="/devis/" data-magnet="">Demander mon devis gratuit</a>
 <button class="hd__burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu-mobile"><span></span><span></span></button>
 </div>
@@ -134,7 +142,7 @@
 <div class="wrap">
 <div class="ft__grid">
 <div class="ft__brand">
-<img src="/assets/oxalis-logo.png" alt="Oxalis" width="856" height="180" loading="lazy">
+<img class="logo-d" src="/assets/oxalis-logo.png" alt="Oxalis" loading="lazy" width="856" height="180"><img class="logo-l" src="/assets/oxalis-logo-sombre.png" alt="" loading="lazy" width="856" height="180">
 <p>Le digital, simplement.</p>
 </div>
 <div>
@@ -269,7 +277,7 @@
     <p><span class="ml-label">Vos droits :</span> vous pouvez accéder à vos données, les rectifier, les faire supprimer, vous opposer à leur utilisation, en limiter l'usage ou en demander une copie. Pour toute demande, y compris de suppression, écrivez à <a href="mailto:contact@agence-oxalis.fr">contact@agence-oxalis.fr</a> : nous répondons sous un mois maximum. Vous pouvez aussi adresser une réclamation à la <a href="https://www.cnil.fr" rel="noopener" target="_blank">CNIL</a>.</p>
 
     <h3>Cookies</h3>
-    <p>Ce site n'utilise aucun cookie ni aucun autre traceur (pas de mesure d'audience, pas de publicité, pas de réseaux sociaux intégrés), et n'enregistre rien dans votre navigateur. Les polices de caractères sont hébergées sur ce site. Aucun bandeau de consentement n'est donc nécessaire.</p>
+    <p>Ce site n'utilise aucun cookie ni aucun autre traceur (pas de mesure d'audience, pas de publicité, pas de réseaux sociaux intégrés). Il enregistre une seule information dans votre navigateur, et seulement si vous utilisez le bouton jour / nuit : votre choix de thème (« oxalis-theme »), pour l'appliquer sur toutes les pages et lors de vos prochaines visites. Ce réglage ne sert à rien d'autre, n'est transmis à personne, et vous pouvez l'effacer à tout moment depuis les réglages de votre navigateur. Les polices de caractères sont hébergées sur ce site. Aucun bandeau de consentement n'est donc nécessaire.</p>
 
     <h3>Crédits</h3>
     <p>Polices Sora, Geist, Geist Mono, Bricolage Grotesque et Figtree, sous licence SIL Open Font License. Pictogrammes d'après la bibliothèque Lucide, sous licence ISC.</p>

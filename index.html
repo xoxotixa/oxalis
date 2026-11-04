@@ -13,6 +13,13 @@
 <meta property="og:title" content="Oxalis · Création de sites internet pour artisans à Reims">
 <meta property="og:description" content="Oxalis crée, entretient et automatise le site internet des artisans, TPE et PME à Reims, dans la Marne et le Grand Est.">
 <meta name="theme-color" content="#0b1220">
+<script>
+/* Thème jour / nuit : choix du visiteur (mémorisé dans « oxalis-theme »), sinon réglage de l'appareil. */
+(function () { var t; try { t = localStorage.getItem('oxalis-theme'); } catch (e) {}
+if (t !== 'light' && t !== 'dark') t = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+document.documentElement.setAttribute('data-theme', t);
+if (t === 'light') document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f3f5f4'); })();
+</script>
 <link rel="preload" href="/fonts/sora-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fonts/fonts.css">
 <link rel="stylesheet" href="/css/site.css">
@@ -23,7 +30,7 @@
 <a class="skip" href="#contenu">Aller au contenu</a>
 <header class="hd">
 <div class="wrap hd__in">
-<a class="hd__logo" href="/" aria-label="Oxalis, retour à l'accueil"><img src="/assets/oxalis-logo.png" alt="Oxalis" width="856" height="180"></a>
+<a class="hd__logo" href="/" aria-label="Oxalis, retour à l'accueil"><img class="logo-d" src="/assets/oxalis-logo.png" alt="" width="856" height="180"><img class="logo-l" src="/assets/oxalis-logo-sombre.png" alt="" width="856" height="180"></a>
 <nav class="hd__nav" aria-label="Principale">
 <a href="/#services">Services</a>
 <a href="/tarifs/">Tarifs</a>
@@ -31,6 +38,7 @@
 <a href="/#faq">FAQ</a>
 <a href="/devis/">Contact</a>
 </nav>
+<button class="theme-btn" type="button" data-theme-toggle="" aria-label="Changer de thème : mode jour ou mode nuit"><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"></path></svg><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.8 6.8 0 0 0 10.7 10.7Z"></path></svg></button>
 <a class="btn btn--ghost btn--sm hd__cta" href="/devis/" data-magnet="">Demander mon devis gratuit</a>
 <button class="hd__burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu-mobile"><span></span><span></span></button>
 </div>
@@ -110,17 +118,26 @@
 
 <div class="marquee" aria-hidden="true"><div class="marquee__track"><div class="marquee__group"><span>Sites vitrines</span><span>Maintenance</span><span>Automatisation</span><span>Référencement local</span><span>Artisans</span><span>TPE &amp; PME</span><span>Reims</span><span>Marne</span><span>Grand Est</span></div><div class="marquee__group"><span>Sites vitrines</span><span>Maintenance</span><span>Automatisation</span><span>Référencement local</span><span>Artisans</span><span>TPE &amp; PME</span><span>Reims</span><span>Marne</span><span>Grand Est</span></div><div class="marquee__group"><span>Sites vitrines</span><span>Maintenance</span><span>Automatisation</span><span>Référencement local</span><span>Artisans</span><span>TPE &amp; PME</span><span>Reims</span><span>Marne</span><span>Grand Est</span></div></div></div>
 
-<!-- LE CONSTAT -->
-<section id="constat" class="sec">
-<div class="wrap">
-<div class="sec-head" style="margin-bottom: 40px">
+<!-- LE CONSTAT (cartes de la première version, en deux colonnes) -->
+<section id="constat" class="sec constat">
+<div class="wrap constat__grid">
+<div class="constat__head">
 <p class="label" data-rv=""><b>01</b> Le constat</p>
-</div>
 <h2 class="statement" data-scrub="">Vous êtes doué dans votre métier. Mais le reste vous prend un temps fou.</h2>
-<div class="pains">
-<div class="pain" data-rv=""><hr class="hair" data-rv="line"><span class="pain__n">01</span><h3 class="h-m">Pas le temps</h3><p>Entre les chantiers, les devis et les clients, créer un site internet passe toujours après.</p></div>
-<div class="pain" data-rv="" style="--d: 1"><hr class="hair" data-rv="line"><span class="pain__n">02</span><h3 class="h-m">Invisible sur Google</h3><p>Vos clients vous cherchent en ligne. Sans site, ils appellent un concurrent.</p></div>
-<div class="pain" data-rv="" style="--d: 2"><hr class="hair" data-rv="line"><span class="pain__n">03</span><h3 class="h-m">Trop d'administratif</h3><p>Relances, rendez-vous, devis : des heures perdues chaque semaine sur des tâches répétitives.</p></div>
+</div>
+<div class="constat__cards">
+<article class="ox-card pain-card" data-rv="" data-tilt="" style="--d: 1">
+<div class="ox-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path class="ic-hand ic-hand-m" d="M12 12V6.5"></path><path class="ic-hand ic-hand-h" d="M12 12l3.2 2"></path></svg></div>
+<div class="pain-card__body"><span class="pain__n">01</span><h3 class="h-m">Pas le temps</h3><p>Entre les chantiers, les devis et les clients, créer un site internet passe toujours après.</p></div>
+</article>
+<article class="ox-card pain-card" data-rv="" data-tilt="" style="--d: 2">
+<div class="ox-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g class="ic-lens"><circle cx="11" cy="11" r="6.5"></circle><path d="m20 20-4.2-4.2"></path></g></svg></div>
+<div class="pain-card__body"><span class="pain__n">02</span><h3 class="h-m">Invisible sur Google</h3><p>Vos clients vous cherchent en ligne. Sans site, ils appellent un concurrent.</p></div>
+</article>
+<article class="ox-card pain-card" data-rv="" data-tilt="" style="--d: 3">
+<div class="ox-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="2.5" width="12" height="15" rx="2"></rect><g class="ic-paper"><rect x="4" y="6.5" width="12" height="15" rx="2"></rect><path d="M7.5 11.5h5"></path><path d="M7.5 15h5"></path><path d="M7.5 18h3"></path></g></svg></div>
+<div class="pain-card__body"><span class="pain__n">03</span><h3 class="h-m">Trop d'administratif</h3><p>Relances, rendez-vous, devis : des heures perdues chaque semaine sur des tâches répétitives.</p></div>
+</article>
 </div>
 </div>
 </section>
@@ -636,7 +653,7 @@
 <div class="wrap">
 <div class="ft__grid">
 <div class="ft__brand">
-<img src="/assets/oxalis-logo.png" alt="Oxalis" width="856" height="180" loading="lazy">
+<img class="logo-d" src="/assets/oxalis-logo.png" alt="Oxalis" loading="lazy" width="856" height="180"><img class="logo-l" src="/assets/oxalis-logo-sombre.png" alt="" loading="lazy" width="856" height="180">
 <p>Le digital, simplement.</p>
 </div>
 <div>
@@ -771,7 +788,7 @@
     <p><span class="ml-label">Vos droits :</span> vous pouvez accéder à vos données, les rectifier, les faire supprimer, vous opposer à leur utilisation, en limiter l'usage ou en demander une copie. Pour toute demande, y compris de suppression, écrivez à <a href="mailto:contact@agence-oxalis.fr">contact@agence-oxalis.fr</a> : nous répondons sous un mois maximum. Vous pouvez aussi adresser une réclamation à la <a href="https://www.cnil.fr" rel="noopener" target="_blank">CNIL</a>.</p>
 
     <h3>Cookies</h3>
-    <p>Ce site n'utilise aucun cookie ni aucun autre traceur (pas de mesure d'audience, pas de publicité, pas de réseaux sociaux intégrés), et n'enregistre rien dans votre navigateur. Les polices de caractères sont hébergées sur ce site. Aucun bandeau de consentement n'est donc nécessaire.</p>
+    <p>Ce site n'utilise aucun cookie ni aucun autre traceur (pas de mesure d'audience, pas de publicité, pas de réseaux sociaux intégrés). Il enregistre une seule information dans votre navigateur, et seulement si vous utilisez le bouton jour / nuit : votre choix de thème (« oxalis-theme »), pour l'appliquer sur toutes les pages et lors de vos prochaines visites. Ce réglage ne sert à rien d'autre, n'est transmis à personne, et vous pouvez l'effacer à tout moment depuis les réglages de votre navigateur. Les polices de caractères sont hébergées sur ce site. Aucun bandeau de consentement n'est donc nécessaire.</p>
 
     <h3>Crédits</h3>
     <p>Polices Sora, Geist, Geist Mono, Bricolage Grotesque et Figtree, sous licence SIL Open Font License. Pictogrammes d'après la bibliothèque Lucide, sous licence ISC.</p>
