@@ -37,7 +37,7 @@ Le formulaire ne peut pas envoyer en local : il affiche son message d'erreur, c'
 ## Design : « éditorial épuré » + effets de la première version
 
 C'est un mélange voulu par Adrien. La mise en page est éditoriale : très grande typographie, beaucoup d'espace, de fins traits de séparation (`.hair`), des étiquettes numérotées (`.label` avec `<b>01</b>`). Les effets marquants viennent de la première version :
-- le **fond en grille lumineuse** (`js/grid.js`, réglages `--grid-*` dans `css/site.css`) : cases vertes sous la souris, onde ronde au clic, cases qui s'allument seules. Derrière les textes posés sur le fond, les cases restent faibles. Les blocs listés dans `SKIP` sont ignorés ;
+- le **fond en grille lumineuse** (`js/grid.js`, réglages `--grid-*` dans `css/site.css`) : cases vertes sous la souris sur ordinateur et sous le doigt sur mobile (traînée d'origine du composant : portée 2,6 cases, densité 1), onde ronde au clic ou au toucher, cases qui s'allument seules. Derrière les textes posés sur le fond, les cases restent faibles. Les blocs listés dans `SKIP` sont ignorés ;
 - le **globe 3D** et la **maquette qui se construit** dans le hero, à droite sur ordinateur, sous le texte sur mobile ;
 - les **mini-sites des autres métiers** sous le site exemple, avec une page qui défile au survol ;
 - le **cerveau** dans la carte Automatisation de `/tarifs/` et le **réseau** dans la colonne contact de `/devis/` ;

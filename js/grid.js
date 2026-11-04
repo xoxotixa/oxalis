@@ -29,8 +29,8 @@
     cfg.cell=parseFloat(g('--grid-cell','32'))||32;
     cfg.fill=parseFloat(g('--grid-fill','.45'));
     cfg.edge=parseFloat(g('--grid-edge','.9'));
-    cfg.reach=parseFloat(g('--grid-reach','1.8'))||1.8;
-    cfg.trail=parseFloat(g('--grid-trail','.6'));
+    cfg.reach=parseFloat(g('--grid-reach','2.6'))||2.6;
+    cfg.trail=parseFloat(g('--grid-trail','1'));
     cfg.rReach=parseFloat(g('--grid-ripple-reach','13'))||13;
     cfg.rSpeed=parseFloat(g('--grid-ripple-speed','42'))||42;
     cfg.rScale=parseFloat(g('--grid-ripple-scale','1.1'))||1.1;
@@ -154,12 +154,18 @@
     for(var dy=-span;dy<=span;dy++) for(var dx=-span;dx<=span;dx++){
       var away=Math.hypot(dx,dy); if(away>R) continue;
       if(Math.random()>(1-away/(R+0.6))*cfg.trail) continue;
-      light(cx+dx,cy+dy,200+Math.random()*600,1-away/R);
+      light(cx+dx,cy+dy,260+Math.random()*900,1-away/R);
     }
   }
   function onMove(e){
     if(e.pointerType&&e.pointerType!=='mouse'&&e.pointerType!=='pen') return;
     at={x:e.clientX,y:e.clientY};
+    if(!pending) pending=requestAnimationFrame(paint);
+  }
+  // Sur téléphone et tablette, les pixels suivent le doigt quand il glisse sur l'écran.
+  function onTouch(e){
+    var t=e.touches&&e.touches[0]; if(!t) return;
+    at={x:t.clientX,y:t.clientY};
     if(!pending) pending=requestAnimationFrame(paint);
   }
 
@@ -177,6 +183,8 @@
     readCfg(); size();
     if(fine.matches) window.addEventListener('pointermove',onMove,{passive:true});
     window.addEventListener('click',ripple,{passive:true});
+    window.addEventListener('touchstart',onTouch,{passive:true});
+    window.addEventListener('touchmove',onTouch,{passive:true});
     beat=setTimeout(drift,1200);
   }
   function stop(){
@@ -184,6 +192,8 @@
     frame=pending=0; cells={}; count=0; ripples=[]; ctx.clearRect(0,0,W,H);
     window.removeEventListener('pointermove',onMove);
     window.removeEventListener('click',ripple);
+    window.removeEventListener('touchstart',onTouch);
+    window.removeEventListener('touchmove',onTouch);
   }
   window.addEventListener('resize',function(){ if(on) size(); });
   if(document.fonts&&document.fonts.ready) document.fonts.ready.then(function(){stamp=0;}).catch(function(){});
