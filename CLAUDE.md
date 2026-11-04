@@ -48,6 +48,7 @@ Après `</script>`, juste avant `</body>`, se trouve le **panneau Mentions léga
 
 Un calque fixe `.ox-grid` (un `<div>` avec un `<canvas>`) est placé derrière tout le contenu, juste avant le panneau Mentions légales, avec son script « FOND EN GRILLE LUMINEUSE ». Il dessine une grille fine de 32 px sur le fond bleu nuit. Les cases s'allument en vert là où passe la souris (pointeur fin uniquement), et quelques cases s'allument seules toutes les 2 s environ. Derrière les lignes de texte posées directement sur le fond, les cases restent très faibles pour garder le texte lisible. Les textes dans les cartes, les en-têtes et la maquette sont ignorés (sélecteur `SKIP` du script).
 
+- **Clic :** une onde verte part du point cliqué et s'étend en cercle (distance réelle, pas en losange). Elle fonctionne aussi au toucher.
 - **Réglages :** variables `--grid-*` en haut de la balise `<style>` : couleur du fond, taille des cases, traits, nuances de vert, opacités, portée autour de la souris, cases allumées seules.
 - **Réduire les animations :** la grille reste visible, mais aucune case ne s'allume.
 - Elle remplace l'ancien fond en vagues, ainsi que la grille et les cases clignotantes du hero (`.hero-grid` et `.px`, masquées en CSS).
