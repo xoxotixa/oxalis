@@ -104,7 +104,14 @@ Si une de ces informations change, mettez à jour **toutes** ses occurrences : t
 
 ## Mise en ligne
 
-Glisser le dossier dans Netlify (Deploy manually), ou relier un dépôt Git : la publication se fait depuis la racine, comme l'indique `netlify.toml`. Après le premier déploiement, vérifier que le formulaire « devis » apparaît dans Forms, puis envoyer une demande de test.
+- **Projet Netlify :** `oxalis-pro` (site ID `79027017-1461-414b-b10b-e070cef2efb6`), servi sur https://agence-oxalis.fr.
+- **Le dépôt GitHub n'est pas relié à Netlify, volontairement.** Sur l'offre gratuite, Netlify bloque les déploiements d'un dépôt privé qui reçoit des commits poussés par Claude (« Build blocked: unrecognized Git contributor »). GitHub garde seulement l'historique.
+- **Pour publier :**
+  1. Pousser sur `main`, sans ligne `Co-Authored-By` dans les commits de ce dépôt.
+  2. Utiliser l'outil Netlify `deploy-site` avec ce site ID.
+  3. Lancer la commande `npx @netlify/mcp …` qu'il renvoie depuis une copie propre du dossier (`git archive HEAD`), puis vérifier que le déploiement est `ready`.
+- Toujours demander l'accord d'Adrien avant de mettre en ligne.
+- Après un changement du formulaire, vérifier que « devis » apparaît dans Forms et envoyer une demande de test.
 
 
 ## Pages
