@@ -324,7 +324,6 @@ display:grid;gap:20px;padding:0 4px 4px 0;max-width:900px}
 .ft ul a{color:var(--ink);text-decoration:none;transition:color .3s}
 .ft ul a:hover{color:var(--accent-text)}
 .ft__bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:64px;padding:24px 0;border-top:1px solid var(--hair)}
-.ft__word{display:block;margin:24px 0 -0.18em;font:700 clamp(80px,24vw,360px)/1 var(--font-display);letter-spacing:-.07em;text-align:center;color:transparent;-webkit-text-stroke:1px rgba(124,199,155,.28);user-select:none;pointer-events:none}
 @media (min-width:900px){.ft__grid{grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr))}}
 
 /* Bouton devis collant (mobile) */
@@ -540,7 +539,6 @@ color-scheme:light;
 [data-theme="light"] .zone__dot{fill:#2f8a5b}
 [data-theme="light"] .hero__glow{background:radial-gradient(38% 42% at calc(68% + var(--gx,0) * 6%) calc(32% + var(--gy,0) * 6%), rgba(124,199,155,.28), transparent 70%), radial-gradient(30% 36% at 18% 88%, rgba(124,199,155,.12), transparent 70%)}
 [data-theme="light"] .cta__glow{background:radial-gradient(closest-side, rgba(124,199,155,.24), transparent 70%)}
-[data-theme="light"] .ft__word{-webkit-text-stroke-color:rgba(47,138,91,.35)}
 [data-theme="light"] .plan{background:#fff}
 [data-theme="light"] .plan--feat{background:radial-gradient(90% 60% at 100% 0%, rgba(124,199,155,.18), transparent 60%), #fff}
 [data-theme="light"] .band{background:radial-gradient(70% 120% at 100% 0%, rgba(124,199,155,.2), transparent 60%), #fff}
@@ -566,3 +564,49 @@ color-scheme:light;
 [data-theme="light"] .ml-bloc{background:#f3f5f4;border-color:#d2dad6}
 [data-theme="light"] .ml-label,[data-theme="light"] .ml-maj{color:#4a5664}
 [data-theme="light"] .ml-voile{background:rgba(24,32,42,.35)}
+
+/* ===== Globe des avis clients (hero, js/globe-avis.js) ===== */
+.gl-wrap{touch-action:pan-y;user-select:none;-webkit-user-select:none;cursor:grab}
+.gl-wrap:active{cursor:grabbing}
+.gl-canvas{position:absolute;inset:0}
+.gl-canvas canvas,.gl-canvas > div{width:100% !important;height:100% !important}
+.gl-off .gl-canvas{inset:10%;border-radius:50%;border:1px solid var(--line);background:radial-gradient(circle at 36% 30%, rgba(124,199,155,.18), rgba(124,199,155,.04) 70%)}
+.gl-pins{position:absolute;inset:0;pointer-events:none}
+.gl-pin{position:absolute;left:0;top:0;width:40px;height:40px;padding:0;border:0;border-radius:50%;background:none;opacity:0;cursor:pointer;will-change:transform}
+.gl-pin__face{position:relative;display:grid;place-items:center;width:100%;height:100%;border-radius:50%;background:var(--surface-raised);color:var(--accent-text);font:600 13px/1 var(--font-display);box-shadow:0 0 0 2px var(--accent), 0 6px 16px rgba(0,0,0,.35);transition:scale .2s var(--ease), background-color .2s, color .2s}
+.gl-pin[data-on] .gl-pin__face{scale:1.3;background:var(--accent);color:var(--on-accent)}
+.gl-pin:focus-visible{outline:none}
+.gl-pin:focus-visible .gl-pin__face{outline:2px solid var(--ink);outline-offset:4px}
+.gl-pin__ping{position:absolute;inset:0;border-radius:50%;border:2px solid var(--accent);opacity:.35}
+.anim .gl-pin__ping{animation:glPing 3s cubic-bezier(0,0,.2,1) infinite}
+.gl-pin[data-on] .gl-pin__ping{opacity:.9}
+@keyframes glPing{75%,100%{transform:scale(2);opacity:0}}
+.avis-card{position:relative;z-index:3;display:grid;gap:14px;margin:-36px auto 0;width:min(100%,420px);padding:20px;border:1px solid var(--line);border-radius:16px;background:var(--surface-raised);box-shadow:0 24px 60px rgba(0,0,0,.35)}
+.avis-card__top{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.avis-card__src{display:inline-flex;align-items:center;gap:6px;font:500 11px/1 var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted)}
+.avis-card__src svg{width:15px;height:15px;color:var(--accent-big)}
+.avis-card__stars{display:inline-flex;gap:2px}
+.avis-card__stars svg{width:14px;height:14px;fill:var(--line)}
+.avis-card__stars svg.on{fill:#f2b84b}
+.avis-card__nav{margin-left:auto;display:inline-flex;align-items:center;gap:4px;font:500 12px/1 var(--font-mono);color:var(--ink-muted)}
+.avis-card__nav button{width:28px;height:28px;border:0;border-radius:50%;background:none;color:var(--ink-muted);font-size:18px;line-height:1;cursor:pointer}
+.avis-card__nav button:hover{background:var(--surface-hover);color:var(--ink)}
+.avis-card__q{margin:0;color:var(--ink);font-size:16px;line-height:1.55;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
+.avis-card__q p{margin:0}
+.avis-card__who{display:flex;align-items:center;gap:12px;margin:0}
+.avis-card__av{width:38px;height:38px;flex:none;display:grid;place-items:center;border-radius:50%;background:var(--accent);color:var(--on-accent);font:600 13px/1 var(--font-display)}
+.avis-card__name{display:grid;min-width:0;flex:1}
+.avis-card__name b{font-weight:600;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.avis-card__name span{font-size:13px;color:var(--ink-muted)}
+.avis-card__link,.avis-card__all{font-size:13px;font-weight:500;color:var(--accent-text);text-decoration:none;white-space:nowrap}
+.avis-card__link:hover,.avis-card__all:hover{text-decoration:underline}
+.avis-card__all{justify-self:start}
+@media (min-width:1100px){.avis-card{position:absolute;left:-14%;bottom:-4%;width:68%;margin:0}}
+.avis-card__top{gap:8px 10px}
+[data-theme="light"] .avis-card{box-shadow:0 24px 60px rgba(24,32,42,.14)}
+[data-theme="light"] .gl-pin__face{box-shadow:0 0 0 2px #2f8a5b, 0 6px 16px rgba(24,32,42,.18)}
+
+/* ===== Grand logo en pixels en bas du site (js/pixmark.js) ===== */
+.ft__pix{position:relative;display:block;height:calc(100vw * 106 / 844 * .82 + 12px);margin-top:40px;cursor:crosshair;touch-action:pan-y}
+.ft__pix canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+@media (max-width:999px){.ft{padding-bottom:0}.ft__pix{margin-bottom:76px}}

@@ -79,8 +79,8 @@ if (t === 'light') document.querySelector('meta[name="theme-color"]').setAttribu
 </div>
 <div class="hero__visual">
 <div class="hero-visual">
-<div class="globe-wrap" aria-hidden="true"><div class="globe-halo"></div><canvas class="globe" data-globe=""></canvas></div>
-<div class="pz mk-float" style="--z: 0.55">
+<div class="globe-wrap gl-wrap" data-avis-globe="" role="group" aria-label="Globe des avis clients : faites-le tourner, ou choisissez une pastille pour lire l'avis"><div class="globe-halo" aria-hidden="true"></div><div class="gl-canvas" aria-hidden="true"></div><div class="gl-pins"></div></div>
+<div class="pz mk-float" data-mk-float="" style="--z: 0.55">
 <div class="mk" data-mk="" aria-hidden="true">
 <div class="mk-bar"><i></i><i></i><i></i><span class="mk-url">votre-site.fr</span></div>
 <div class="mk-body">
@@ -111,6 +111,7 @@ if (t === 'light') document.querySelector('meta[name="theme-color"]').setAttribu
 </div>
 </div>
 </div>
+<figure class="avis-card" data-avis-card="" hidden aria-live="polite"></figure>
 </div>
 </div>
 </div>
@@ -648,6 +649,7 @@ if (t === 'light') document.querySelector('meta[name="theme-color"]').setAttribu
 </section>
 
 </main>
+<script type="module" src="/js/globe-avis.js"></script>
 
 <footer class="ft">
 <div class="wrap">
@@ -685,7 +687,7 @@ if (t === 'light') document.querySelector('meta[name="theme-color"]').setAttribu
 </div>
 <div class="ft__bottom mono"><span>© 2026 Oxalis</span><span>Reims · Marne · Grand Est</span></div>
 </div>
-<span class="ft__word" aria-hidden="true">Oxalis</span>
+<div class="ft__pix" data-pixmark="" aria-hidden="true"><canvas></canvas></div>
 </footer>
 
 <div class="sticky-cta"><a class="btn btn--primary btn--block" href="/devis/">Demander mon devis gratuit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></a></div>
@@ -695,6 +697,7 @@ if (t === 'light') document.querySelector('meta[name="theme-color"]').setAttribu
 <script src="/js/site.js" defer></script>
 <script src="/js/visuels.js" defer></script>
 <script src="/js/grid.js" defer></script>
+<script src="/js/pixmark.js" defer></script>
 <!-- ===== PANNEAU MENTIONS LÉGALES (coller juste avant </body>) ===== -->
 <style>
   .ml-voile {

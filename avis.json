@@ -1,0 +1,5 @@
+{
+  "_aide": "Avis Google affichés sur le globe de la page d'accueil. Copiez ici vos vrais avis Google, un bloc par avis (voir l'exemple dans CLAUDE.md, section « Avis Google sur le globe »). nom, ville, lat, lng et texte sont obligatoires ; note (1 à 5), pays, date et lien (adresse de l'avis sur Google) sont facultatifs. lienGoogle : adresse de votre fiche Google, pour le bouton « Tous nos avis Google ». Tant que la liste est vide, le globe affiche seulement Reims et la maquette reste visible.",
+  "lienGoogle": "",
+  "avis": []
+}

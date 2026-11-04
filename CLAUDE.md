@@ -14,8 +14,12 @@ css/site.css            tout le design commun aux trois pages (variables en haut
 css/exemple.css         styles du site exemple intégré (classes mx-) et de sa fenêtre (classes emb-), accueil seulement
 css/visuels.css         maquette qui se construit (mk-), globe 3D, cerveau et réseau (viz-), mini-sites des autres métiers (ms-)
 js/site.js              animations et interactions des trois pages (apparitions, en-tête, menu, services, site exemple, formulaire…)
-js/visuels.js           maquette qui se construit, globe numérique 3D (data-globe), cerveau et réseau de nœuds (data-viz)
+js/visuels.js           maquette qui se construit, cerveau et réseau de nœuds (data-viz) ; l'ancien globe 2D (data-globe) n'est plus utilisé
+js/globe-avis.js        globe 3D des avis clients dans le hero (module, accueil seulement), lit /avis.json
+js/vendor/cobe.esm.js   bibliothèque du globe WebGL (cobe 2.0.1, MIT), copie locale : aucun chargement extérieur
 js/grid.js              fond en grille lumineuse : traînée verte sous la souris, onde ronde au clic
+js/pixmark.js           grand logo OXALIS en pixels tout en bas du pied de page (toutes les pages)
+avis.json               les avis Google affichés sur le globe, à remplir à la main (voir plus bas)
 fonts/                  polices auto-hébergées (woff2) + fonts.css + licences OFL
 assets/                 logo blanc/vert (mode nuit), logo foncé oxalis-logo-sombre.png (mode jour), 3 photos du site exemple (webp)
 favicon.png, apple-touch-icon.png
@@ -38,7 +42,8 @@ Le formulaire ne peut pas envoyer en local : il affiche son message d'erreur, c'
 
 C'est un mélange voulu par Adrien. La mise en page est éditoriale : très grande typographie, beaucoup d'espace, de fins traits de séparation (`.hair`), des étiquettes numérotées (`.label` avec `<b>01</b>`). Les effets marquants viennent de la première version :
 - le **fond en grille lumineuse** (`js/grid.js`, réglages `--grid-*` dans `css/site.css`) : cases vertes sous la souris sur ordinateur et sous le doigt sur mobile (traînée d'origine du composant : portée 2,6 cases, densité 1), onde ronde au clic ou au toucher, cases qui s'allument seules. Derrière les textes posés sur le fond, les cases restent faibles. Les blocs listés dans `SKIP` sont ignorés ;
-- le **globe 3D** et la **maquette qui se construit** dans le hero, à droite sur ordinateur, sous le texte sur mobile ;
+- le **globe 3D des avis** (cobe) dans le hero, à droite sur ordinateur, sous le texte sur mobile. Sans avis, la **maquette qui se construit** flotte devant ; avec des avis, la carte de l'avis la remplace ;
+- le **grand logo OXALIS en pixels** tout en bas du pied de page (`js/pixmark.js`). Les carrés sont lus dans `assets/oxalis-logo.png`. Sous la souris ou le doigt, ils s'écartent, passent au vert et « buguent » avec des bandes décalées ; un clic envoie une onde de choc ;
 - les **mini-sites des autres métiers** sous le site exemple, avec une page qui défile au survol ;
 - le **cerveau** dans la carte Automatisation de `/tarifs/` et le **réseau** dans la colonne contact de `/devis/` ;
 - les **cartes qui s'inclinent** sous la souris (`data-tilt`).
@@ -58,7 +63,7 @@ C'est un mélange voulu par Adrien. La mise en page est éditoriale : très gran
 - `[data-split]` : titre découpé en mots qui montent un à un.
 - `[data-scrub]` : texte qui s'éclaire mot à mot au fil du défilement (le constat).
 - Le constat : la phrase à gauche (fixe pendant le défilement sur ordinateur), et à droite les 3 cartes de la première version avec leurs icônes animées (horloge, loupe, papiers).
-- Hero : lignes du titre qui montent au chargement, titre qui remonte et s'estompe au défilement, lueur verte qui suit doucement la souris. À droite : globe 3D et maquette « votre-site.fr » qui se construit en boucle.
+- Hero : lignes du titre qui montent au chargement, titre qui remonte et s'estompe au défilement, lueur verte qui suit doucement la souris. À droite : globe 3D des avis (`js/globe-avis.js`) et maquette « votre-site.fr » qui se construit en boucle, ou la carte de l'avis s'il y a des avis.
 - Bandeau défilant (`.marquee`) qui accélère quand on fait défiler la page.
 - Services : colonne de gauche fixe, compteur 01/03 et barre de progression. Le grand numéro du bloc actif se remplit de vert.
 - Exemple d'automatisation (`[data-flow]`) : la ligne se remplit et les étapes s'allument au fil du défilement.
@@ -78,6 +83,35 @@ C'est un mélange voulu par Adrien. La mise en page est éditoriale : très gran
 ## Sections de l'accueil (dans l'ordre)
 
 Hero (titre + globe + maquette) → bandeau défilant → Le constat `#constat` → Services `#services` → Nos services `#nos-services` (Sites internet / Automatisations + exemple d'automatisation) → Méthode `#methode` → Réalisations `#realisations` (site exemple « Maçonnerie & Rénovation », entreprise fictive, puis les mini-sites « Autres métiers ») → Pourquoi `#pourquoi` (4 raisons + zone d'intervention) → FAQ `#faq` (accordéon néo-brutaliste, une seule question ouverte à la fois grâce à `name="faq"`) → Contact `#contact` → pied de page. Le formulaire est sur `/devis/`, les offres sur `/tarifs/`.
+
+## Avis Google sur le globe (avis.json)
+
+Google ne donne pas la ville des auteurs d'avis, et son API demanderait une clé et un service tiers : les avis sont donc **copiés à la main** dans `avis.json`, à la racine du site. Il ne faut **jamais inventer d'avis** : seulement de vrais avis Google d'Adrien, avec l'accord implicite de leur publication publique sur Google.
+
+```json
+{
+  "lienGoogle": "https://g.page/r/…",
+  "avis": [
+    {
+      "nom": "Prénom N.",
+      "ville": "Reims",
+      "pays": "FR",
+      "lat": 49.26,
+      "lng": 4.03,
+      "note": 5,
+      "texte": "Le texte de l'avis, tel qu'il est sur Google.",
+      "date": "2026-11",
+      "lien": "https://…lien vers l'avis sur Google (facultatif)"
+    }
+  ]
+}
+```
+
+- `nom`, `ville`, `lat`, `lng` et `texte` sont obligatoires. Un avis incomplet est ignoré.
+- Coordonnées de quelques villes : Reims 49.26 / 4.03, Épernay 49.04 / 3.96, Châlons-en-Champagne 48.96 / 4.36, Charleville-Mézières 49.77 / 4.72, Troyes 48.30 / 4.08, Paris 48.86 / 2.35.
+- Le globe affiche Reims en vert, une pastille avec les initiales de chaque client (pas de photo, pour ne rien charger depuis Google), et la carte de l'avis mis en avant. Le défilement est automatique toutes les ~5 s ; survol, clic, flèches ‹ › et glisser pour tourner.
+- `lienGoogle` (fiche Google d'Adrien) ajoute le lien « Tous nos avis Google ».
+- Pour tester sans publier, intercepter `/avis.json` dans le navigateur de test : ne jamais pousser d'avis d'essai.
 
 ## Formulaire de devis (Netlify Forms) — sur la page /devis/
 
