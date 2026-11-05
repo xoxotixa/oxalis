@@ -42,7 +42,7 @@ Le formulaire ne peut pas envoyer en local : il affiche son message d'erreur, c'
 
 C'est un mélange voulu par Adrien. La mise en page est éditoriale : très grande typographie, beaucoup d'espace, de fins traits de séparation (`.hair`), des étiquettes numérotées (`.label` avec `<b>01</b>`). Les effets marquants viennent de la première version :
 - le **fond en grille lumineuse** (`js/grid.js`, réglages `--grid-*` dans `css/site.css`) : cases vertes sous la souris sur ordinateur et sous le doigt sur mobile (traînée d'origine du composant : portée 2,6 cases, densité 1), onde ronde au clic ou au toucher, cases qui s'allument seules. Derrière les textes posés sur le fond, les cases restent faibles. Les blocs listés dans `SKIP` sont ignorés ;
-- le **globe 3D des avis** (cobe) dans le hero, à droite sur ordinateur, sous le texte sur mobile. Sans avis, la **maquette qui se construit** flotte devant ; avec des avis, la carte de l'avis la remplace ;
+- le **globe 3D des avis** (cobe) dans la section « Pourquoi choisir Oxalis », à la place de l'ancien schéma de zone. La carte de l'avis s'affiche dessous quand `avis.json` contient des avis ;
 - le **grand logo OXALIS en pixels** tout en bas du pied de page (`js/pixmark.js`). Les carrés sont lus dans `assets/oxalis-logo.png`. Sous la souris ou le doigt, ils s'écartent, passent au vert et « buguent » avec des bandes décalées ; un clic envoie une onde de choc ;
 - les **mini-sites des autres métiers** sous le site exemple, avec une page qui défile au survol ;
 - le **cerveau** dans la carte Automatisation de `/tarifs/` et le **réseau** dans la colonne contact de `/devis/` ;
@@ -63,7 +63,7 @@ C'est un mélange voulu par Adrien. La mise en page est éditoriale : très gran
 - `[data-split]` : titre découpé en mots qui montent un à un.
 - `[data-scrub]` : texte qui s'éclaire mot à mot au fil du défilement (le constat).
 - Le constat : la phrase à gauche (fixe pendant le défilement sur ordinateur), et à droite les 3 cartes de la première version avec leurs icônes animées (horloge, loupe, papiers).
-- Hero : lignes du titre qui montent au chargement, titre qui remonte et s'estompe au défilement, lueur verte qui suit doucement la souris. À droite : globe 3D des avis (`js/globe-avis.js`) et maquette « votre-site.fr » qui se construit en boucle, ou la carte de l'avis s'il y a des avis.
+- Hero « site en vitrine » : titre centré sur deux phrases (la seconde en vert), phrase, boutons et 3 garanties, puis un **portable** (`.lap`, `[data-vitrine]`) dont l'écran montre le site exemple « Maçonnerie & Rénovation » (image `assets/vitrine-maconnerie.webp`, page entière capturée depuis le site exemple). Le portable arrive incliné et se redresse au défilement. La page défile lentement dans l'écran, et s'arrête au survol. Une ligne sous le portable précise que l'entreprise est fictive. Si le site exemple change, refaire la capture.
 - Bandeau défilant (`.marquee`) qui accélère quand on fait défiler la page.
 - Services : colonne de gauche fixe, compteur 01/03 et barre de progression. Le grand numéro du bloc actif se remplit de vert.
 - Exemple d'automatisation (`[data-flow]`) : la ligne se remplit et les étapes s'allument au fil du défilement.
@@ -82,7 +82,7 @@ C'est un mélange voulu par Adrien. La mise en page est éditoriale : très gran
 
 ## Sections de l'accueil (dans l'ordre)
 
-Hero (titre + globe + maquette) → bandeau défilant → Le constat `#constat` → Services `#services` → Nos services `#nos-services` (Sites internet / Automatisations + exemple d'automatisation) → Méthode `#methode` → Réalisations `#realisations` (site exemple « Maçonnerie & Rénovation », entreprise fictive, puis les mini-sites « Autres métiers ») → Pourquoi `#pourquoi` (4 raisons + zone d'intervention) → FAQ `#faq` (accordéon néo-brutaliste, une seule question ouverte à la fois grâce à `name="faq"`) → Contact `#contact` → pied de page. Le formulaire est sur `/devis/`, les offres sur `/tarifs/`.
+Hero (titre centré + portable) → bandeau défilant → Le constat `#constat` → Services `#services` → Nos services `#nos-services` (Sites internet / Automatisations + exemple d'automatisation) → Méthode `#methode` → Réalisations `#realisations` (site exemple « Maçonnerie & Rénovation », entreprise fictive, puis les mini-sites « Autres métiers ») → Pourquoi `#pourquoi` (4 raisons + zone d'intervention avec le globe des avis) → FAQ `#faq` (accordéon néo-brutaliste, une seule question ouverte à la fois grâce à `name="faq"`) → Contact `#contact` → pied de page. Le formulaire est sur `/devis/`, les offres sur `/tarifs/`.
 
 ## Avis Google sur le globe (avis.json)
 

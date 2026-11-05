@@ -112,6 +112,7 @@
   var svcItems = $$('.svc-item'), svcCount = $('.svc__count b'), svcBar = $('.svc__bar');
   var flow = $('[data-flow]'), flowSteps = flow ? $$('.flow__step', flow) : [];
   var stage = $('.emb-stage');
+  var vitrine = $('[data-vitrine] .lap');
   var ticking = false;
   function onScroll() {
     onHeader();
@@ -146,6 +147,14 @@
       var fp = clamp((vh * 0.8 - fr.top) / (fr.height + vh * 0.25), 0, 1);
       flow.style.setProperty('--fp', fp.toFixed(3));
       flowSteps.forEach(function (s, i) { s.classList.toggle('is-on', fp >= (i / (flowSteps.length - 1)) * 0.98); });
+    }
+    // Hero : le portable arrive incliné vers l'arrière et se redresse au défilement
+    if (vitrine) {
+      var lr = vitrine.getBoundingClientRect();
+      var lp = clamp((vh - lr.top) / (vh * 0.85), 0, 1), le = 1 - Math.pow(1 - lp, 2);
+      vitrine.style.setProperty('--lt', ((1 - le) * 26).toFixed(2) + 'deg');
+      vitrine.style.setProperty('--ls', (0.9 + le * 0.1).toFixed(4));
+      vitrine.style.setProperty('--ly', ((1 - le) * 40).toFixed(1) + 'px');
     }
     // Réalisations : la fenêtre du site exemple se redresse en arrivant
     if (stage) {

@@ -601,7 +601,7 @@ color-scheme:light;
 .avis-card__link,.avis-card__all{font-size:13px;font-weight:500;color:var(--accent-text);text-decoration:none;white-space:nowrap}
 .avis-card__link:hover,.avis-card__all:hover{text-decoration:underline}
 .avis-card__all{justify-self:start}
-@media (min-width:1100px){.avis-card{position:absolute;left:-14%;bottom:-4%;width:68%;margin:0}}
+
 .avis-card__top{gap:8px 10px}
 [data-theme="light"] .avis-card{box-shadow:0 24px 60px rgba(24,32,42,.14)}
 [data-theme="light"] .gl-pin__face{box-shadow:0 0 0 2px #2f8a5b, 0 6px 16px rgba(24,32,42,.18)}
@@ -610,3 +610,40 @@ color-scheme:light;
 .ft__pix{position:relative;display:block;height:calc(100vw * 106 / 844 * .82 + 12px);margin-top:40px;cursor:crosshair;touch-action:pan-y}
 .ft__pix canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
 @media (max-width:999px){.ft{padding-bottom:0}.ft__pix{margin-bottom:76px}}
+
+/* ===== Hero « site en vitrine » : titre centré + portable qui montre un site d'artisan ===== */
+.hero--vitrine{min-height:0;display:block;padding:calc(var(--hd) + clamp(20px,4.5vh,64px)) 0 clamp(64px,10vw,140px);overflow:hidden;overflow:clip}
+.hero__center{display:grid;justify-items:center;gap:22px;text-align:center}
+.hero--vitrine .display{font-size:clamp(38px,min(5.3vw,8.6vh),88px);line-height:1;margin:0 auto}
+.hero--vitrine .display .ln > span{text-wrap:balance;max-width:100%}
+.hero--vitrine .lead{margin:0 auto;max-width:52ch}
+.hero--vitrine .hero__actions{justify-content:center}
+.hero--vitrine .hero__facts{justify-content:center}
+.hero--vitrine .hero__glow{inset:-10% -20% auto;height:120%}
+/* Le portable : il arrive incliné et se redresse au défilement (js/site.js, data-vitrine) */
+.vitrine{margin-top:clamp(36px,5vw,64px);perspective:1600px}
+.lap{width:min(1080px,100%);margin:0 auto;transform:rotateX(var(--lt,0deg)) scale(var(--ls,1)) translateY(var(--ly,0px));transform-origin:50% 100%;will-change:transform}
+.lap__screen{position:relative;padding:12px 12px 16px;border-radius:20px 20px 8px 8px;background:linear-gradient(180deg,#1c232d,#10151c);border:1px solid #2c3644;box-shadow:0 0 0 1px rgba(255,255,255,.03) inset, 0 50px 120px rgba(0,0,0,.55), 0 0 90px rgba(124,199,155,.12)}
+.lap__cam{position:absolute;left:50%;top:4px;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:#2c3644}
+.lap__display{position:relative;display:flex;flex-direction:column;aspect-ratio:16/10;overflow:hidden;border-radius:8px;background:#f6f2eb}
+.lap__bar{display:flex;align-items:center;gap:6px;flex:none;padding:8px 12px;background:#ece6dc;border-bottom:1px solid #ddd3c4}
+.lap__bar i{width:9px;height:9px;border-radius:50%;background:#d6cbb9}
+.lap__url{margin-left:10px;min-width:0;white-space:nowrap;overflow:hidden;display:inline-flex;align-items:center;gap:8px;padding:3px 12px;border-radius:6px;background:#f6f2eb;color:#6d6357;font:500 11px/16px var(--font-mono)}
+.lap__url em{font-style:normal;padding:0 5px;border:1px solid #c8a98f;border-radius:4px;color:#a5532b;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase}
+.lap__view{position:relative;flex:1;min-height:0;overflow:hidden}
+.lap__page{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 0}
+/* La page défile lentement dans l'écran, comme si on la parcourait */
+.anim .lap__page{animation:lapScroll 30s ease-in-out 2.5s infinite alternate}
+.lap:hover .lap__page{animation-play-state:paused}
+@keyframes lapScroll{0%,6%{object-position:50% 0}94%,100%{object-position:50% 100%}}
+.lap__base{position:relative;height:clamp(12px,1.8vw,22px);width:112%;margin-left:-6%;border-radius:2px 2px 18px 18px;background:linear-gradient(180deg,#3a4452 0%,#232a34 45%,#151a21 100%);box-shadow:0 30px 60px rgba(0,0,0,.45)}
+.lap__base span{position:absolute;left:50%;top:0;width:16%;height:40%;translate:-50% 0;border-radius:0 0 10px 10px;background:#151a21}
+.vitrine__note{margin:28px 0 0;text-align:center}
+.vitrine__note a{color:var(--accent-text)}
+[data-theme="light"] .lap__screen{box-shadow:0 0 0 1px rgba(255,255,255,.04) inset, 0 50px 120px rgba(24,32,42,.28), 0 0 90px rgba(124,199,155,.18)}
+[data-theme="light"] .lap__base{box-shadow:0 30px 60px rgba(24,32,42,.22)}
+
+/* Globe des avis dans « Pourquoi choisir Oxalis » */
+.zone__globe{position:relative;width:100%;max-width:520px;margin:0 auto}
+.zone__globe .globe-wrap{margin:0 auto;max-width:520px}
+@media (max-width:520px){.lap__url em{display:none}.lap__screen{padding:7px 7px 10px;border-radius:14px 14px 6px 6px}.lap__bar{padding:6px 8px}}

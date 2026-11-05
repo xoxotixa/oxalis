@@ -60,13 +60,12 @@ if (t === 'light') document.querySelector('meta[name="theme-color"]').setAttribu
 
 <main id="contenu">
 
-<!-- HERO -->
-<section class="hero" aria-label="Accueil">
+<!-- HERO : titre centré, puis un portable qui montre un site d'artisan (exemple, entreprise fictive) -->
+<section class="hero hero--vitrine" aria-label="Accueil">
 <div class="hero__glow" aria-hidden="true"></div>
-<div class="wrap hero__grid">
-<div class="hero__copy">
+<div class="wrap hero__center">
 <p class="label hero__fadein" style="--i: 0">Agence web pour artisans · Reims &amp; Grand Est</p>
-<h1 class="display"><span class="ln"><span style="--i: 0">Votre métier,</span></span> <span class="ln"><span style="--i: 1">c'est votre</span></span> <span class="ln"><span style="--i: 2">passion.</span></span> <span class="ln"><span style="--i: 3">Le digital,</span></span> <span class="ln ln--accent"><span style="--i: 4">c'est le nôtre.</span></span></h1>
+<h1 class="display hero__title"><span class="ln"><span style="--i: 0">Votre métier, c'est votre passion.</span></span> <span class="ln ln--accent"><span style="--i: 1">Le digital, c'est le nôtre.</span></span></h1>
 <p class="lead hero__fadein" style="--i: 2">On crée votre site, on l'entretient et on automatise vos tâches répétitives. Vous, vous restez sur vos chantiers.</p>
 <div class="hero__actions hero__fadein" style="--i: 3">
 <a class="btn btn--primary" href="/devis/" data-magnet="">Demander mon devis gratuit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></a>
@@ -75,44 +74,22 @@ if (t === 'light') document.querySelector('meta[name="theme-color"]').setAttribu
 <ul class="hero__facts mono hero__fadein" style="--i: 4">
 <li>Devis gratuit sous 48 h</li>
 <li>Sans engagement</li>
+<li>Site en ligne en 5 jours</li>
 </ul>
 </div>
-<div class="hero__visual">
-<div class="hero-visual">
-<div class="globe-wrap gl-wrap" data-avis-globe="" role="group" aria-label="Globe des avis clients : faites-le tourner, ou choisissez une pastille pour lire l'avis"><div class="globe-halo" aria-hidden="true"></div><div class="gl-canvas" aria-hidden="true"></div><div class="gl-pins"></div></div>
-<div class="pz mk-float" data-mk-float="" style="--z: 0.55">
-<div class="mk" data-mk="" aria-hidden="true">
-<div class="mk-bar"><i></i><i></i><i></i><span class="mk-url">votre-site.fr</span></div>
-<div class="mk-body">
-<div class="mk-nav">
-<span class="mk-logo sk p1"><span class="mk-logo-ic"></span>Votre logo</span>
-<span class="mk-links"><span class="sk p1"></span><span class="sk p1"></span><span class="sk p1"></span></span>
-<span class="mk-navbtn sk p1">Devis</span>
-</div>
-<div class="mk-hero sk p2">
-<svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="m15 12-8.5 8.5a2.12 2.12 0 0 1-3-3L12 9"></path><path d="M17.64 15 22 10.64"></path><path d="m20.91 11.7-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.86L16.01 4.6a5.56 5.56 0 0 0-3.94-1.64H9l.92.82A6.18 6.18 0 0 1 12 8.4v1.56l2 2h2.47l2.26 1.91"></path></svg>
-<svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"></path><path d="m14.5 12.5 2-2"></path><path d="m11.5 9.5 2-2"></path><path d="m8.5 6.5 2-2"></path><path d="m17.5 15.5 2-2"></path></svg>
-<svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
-</div>
-<div class="mk-text">
-<span class="mk-h sk p3">Votre artisan menuisier</span>
-<span class="mk-p sk p3">Fabrication et pose sur mesure.</span>
-<span class="mk-cta sk p4">Demander un devis</span>
-</div>
-<div class="mk-tiles">
-<span class="mk-tile sk p4"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="1"></rect><path d="M3 12h18"></path><path d="M12 4v16"></path></svg><i></i></span>
-<span class="mk-tile sk p4"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"></path><path d="M5 21V8l7-5 7 5v13"></path></svg><i></i></span>
-<span class="mk-tile sk p4"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m12 4 2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 16.4 7.2 18.9l.9-5.4-3.9-3.8 5.4-.8Z"></path></svg><i></i></span>
+<div class="wrap">
+<div class="vitrine" data-vitrine="">
+<div class="lap">
+<div class="lap__screen">
+<span class="lap__cam" aria-hidden="true"></span>
+<div class="lap__display">
+<div class="lap__bar" aria-hidden="true"><i></i><i></i><i></i><span class="lap__url">maconnerie-renovation.fr<em>exemple</em></span></div>
+<div class="lap__view"><img class="lap__page" src="/assets/vitrine-maconnerie.webp" alt="Exemple de site créé pour un artisan maçon : « Maçonnerie et rénovation, du sol au toit », avec un bouton de demande de devis. Entreprise fictive." width="1280" height="5209" fetchpriority="high"></div>
 </div>
 </div>
-<div class="mk-up">
-<div class="mk-up-row"><span class="mk-live">Mise en ligne…</span><span class="mk-up-pct"><b></b><span class="mk-check"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span></span></div>
-<div class="mk-up-bar"><span></span></div>
+<div class="lap__base" aria-hidden="true"><span></span></div>
 </div>
-</div>
-</div>
-<figure class="avis-card" data-avis-card="" hidden aria-live="polite"></figure>
-</div>
+<p class="vitrine__note mono">Exemple de site pour un artisan du bâtiment · entreprise fictive · <a href="#realisations">le parcourir en entier</a></p>
 </div>
 </div>
 </section>
@@ -585,21 +562,9 @@ if (t === 'light') document.querySelector('meta[name="theme-color"]').setAttribu
 </ul>
 <div class="zone">
 <p class="label" style="color: var(--ink-muted)">Zone d'intervention</p>
-<div class="zone__map" role="img" aria-label="Zone d'intervention : Reims au centre, puis la Marne, le Grand Est, et partout en France à distance.">
-<svg viewBox="0 0 400 400" aria-hidden="true">
-<g class="zone__spin"><circle class="zone__ring zone__ring--far" cx="200" cy="200" r="190"></circle></g>
-<circle class="zone__ring" cx="200" cy="200" r="140" pathLength="1" style="--i: 2"></circle>
-<circle class="zone__ring" cx="200" cy="200" r="92" pathLength="1" style="--i: 1"></circle>
-<circle class="zone__ring" cx="200" cy="200" r="46" pathLength="1" style="--i: 0"></circle>
-<circle class="zone__wave" cx="200" cy="200" r="140"></circle>
-<circle class="zone__wave" cx="200" cy="200" r="140" style="--t: 1.3s"></circle>
-<circle class="zone__wave" cx="200" cy="200" r="140" style="--t: 2.6s"></circle>
-<circle class="zone__dot" cx="200" cy="200" r="6"></circle>
-<text class="zone__lbl zone__lbl--main" x="200" y="230" text-anchor="middle">Reims</text>
-<text class="zone__lbl" x="200" y="100" text-anchor="middle">Marne</text>
-<text class="zone__lbl" x="200" y="52" text-anchor="middle">Grand Est</text>
-<text class="zone__lbl" x="200" y="388" text-anchor="middle">Partout en France · à distance</text>
-</svg>
+<div class="zone__globe">
+<div class="globe-wrap gl-wrap" data-avis-globe="" role="group" aria-label="Globe des avis clients : faites-le tourner, ou choisissez une pastille pour lire l'avis"><div class="globe-halo" aria-hidden="true"></div><div class="gl-canvas" aria-hidden="true"></div><div class="gl-pins"></div></div>
+<figure class="avis-card" data-avis-card="" hidden aria-live="polite"></figure>
 </div>
 <ul class="zone__txt">
 <li><strong>Sur place :</strong> Reims, la Marne et le Grand Est. On se déplace pour vous rencontrer.</li>
