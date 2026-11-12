@@ -49,7 +49,7 @@
   function applyTheme(t, save) {
     if (!reduce) { root.classList.add('theme-switch'); setTimeout(function () { root.classList.remove('theme-switch'); }, 500); }
     root.setAttribute('data-theme', t);
-    if (themeMeta) themeMeta.setAttribute('content', t === 'light' ? '#f3f5f4' : '#0b1220');
+    if (themeMeta) themeMeta.setAttribute('content', t === 'light' ? '#f3f5f4' : '#050608');
     $$('[data-theme-toggle]').forEach(function (b) {
       b.setAttribute('aria-label', t === 'light' ? 'Passer en mode nuit' : 'Passer en mode jour');
       b.setAttribute('title', t === 'light' ? 'Mode nuit' : 'Mode jour');
