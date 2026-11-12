@@ -147,7 +147,7 @@ transition:background-position 1s}
 .hero h1{will-change:transform}
 .hero h1 .ln{display:block;overflow:hidden;padding-bottom:.06em;margin-bottom:-.06em}
 .hero h1 .ln > span{display:inline-block}
-.anim .hero h1 .ln > span{animation:lnUp 1.3s var(--ease) both;animation-delay:calc(.15s + var(--i,0) * .11s)}
+.anim .hero h1 .ln > span{animation:lnUp 1.3s var(--ease) both;animation-delay:calc(var(--intro-d,0s) + .15s + var(--i,0) * .11s)}
 @keyframes lnUp{from{transform:translateY(105%)}to{transform:none}}
 .hero h1 .ln--accent{color:var(--accent-big)}
 .hero__foot{display:grid;gap:32px;margin-top:clamp(32px,6vh,72px);padding-top:28px;border-top:1px solid var(--hair)}
@@ -157,7 +157,7 @@ transition:background-position 1s}
 .hero__facts li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 rgba(124,199,155,.5)}
 .anim .hero__facts li::before{animation:ping 2.6s ease-out infinite}
 @keyframes ping{0%{box-shadow:0 0 0 0 rgba(124,199,155,.55)}70%,100%{box-shadow:0 0 0 9px rgba(124,199,155,0)}}
-.anim .hero__fadein{animation:fadeUp 1.2s var(--ease) both;animation-delay:calc(.75s + var(--i,0) * .1s)}
+.anim .hero__fadein{animation:fadeUp 1.2s var(--ease) both;animation-delay:calc(var(--intro-d,0s) + .75s + var(--i,0) * .1s)}
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 .scroll-cue{display:none;align-items:center;gap:12px;color:var(--ink-muted);text-decoration:none}
 .scroll-cue i{position:relative;width:1px;height:44px;background:var(--hair);overflow:hidden}
@@ -650,3 +650,28 @@ color-scheme:light;
 /* Haut de page sans portable : le texte centré occupe tout le premier écran */
 .hero--vitrine{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding-bottom:clamp(56px,9vh,110px)}
 .hero--vitrine .display{font-size:clamp(40px,min(6.4vw,11vh),108px)}
+
+/* ===== Intro de l'accueil (inspirée de King River) =====
+   Écran bleu nuit ; les lettres d'OXALIS (découpées dans le logo par masque) montent depuis le centre,
+   le fin trait se remplit comme un chargement, les lettres redescendent, puis l'écran se lève comme un rideau.
+   La classe .has-intro est posée sur <html> par un petit script dans <head> (arrivée depuis l'extérieur seulement). */
+.intro{position:fixed;inset:0;z-index:500;display:none;flex-direction:column;align-items:center;justify-content:center;gap:clamp(20px,3vw,34px);background:#0b1220;will-change:transform}
+html.has-intro .intro{display:flex;animation:introLift .9s cubic-bezier(.76,0,.24,1) 2.3s forwards}
+html.has-intro.intro-done .intro{display:none}
+html.has-intro{--intro-d:2.55s}
+.intro__word{--u:calc(clamp(34px,7vw,88px) / 106);display:flex;align-items:flex-end}
+.intro__l{display:block;flex:none;overflow:hidden;width:calc(var(--w) * var(--u));height:calc(108 * var(--u));margin-left:calc(var(--g) * var(--u))}
+.intro__l i{display:block;width:100%;height:100%;background:#7cc79b;
+-webkit-mask:url(/assets/oxalis-logo.png) no-repeat;mask:url(/assets/oxalis-logo.png) no-repeat;
+-webkit-mask-size:calc(856 * var(--u)) auto;mask-size:calc(856 * var(--u)) auto;
+-webkit-mask-position:calc(var(--x) * var(--u) * -1) calc(-5 * var(--u));mask-position:calc(var(--x) * var(--u) * -1) calc(-5 * var(--u));
+transform:translateY(105%);
+animation:introIn .85s cubic-bezier(.16,1,.3,1) calc(.25s + var(--o) * .09s) forwards, introOut .5s cubic-bezier(.7,0,.84,0) calc(1.8s + var(--o) * .07s) forwards}
+.intro__bar{position:relative;width:clamp(80px,9vw,120px);height:1px;background:rgba(124,199,155,.2);overflow:hidden;animation:introFade .3s ease 2.05s forwards}
+.intro__bar i{position:absolute;inset:0;background:#7cc79b;transform:scaleX(0);transform-origin:left;animation:introBar 1.4s cubic-bezier(.65,0,.35,1) .35s forwards}
+@keyframes introIn{to{transform:none}}
+@keyframes introOut{from{transform:none}to{transform:translateY(105%)}}
+@keyframes introBar{to{transform:scaleX(1)}}
+@keyframes introFade{to{opacity:0}}
+@keyframes introLift{to{transform:translateY(-100%);visibility:hidden}}
+@media (prefers-reduced-motion: reduce){.intro{display:none !important}html.has-intro{--intro-d:0s}}

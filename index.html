@@ -25,8 +25,18 @@ if (t === 'light') document.querySelector('meta[name="theme-color"]').setAttribu
 <link rel="stylesheet" href="/css/site.css">
 <link rel="stylesheet" href="/css/visuels.css">
 <link rel="stylesheet" href="/css/exemple.css">
+<script>
+/* Intro de l'accueil : seulement à l'arrivée depuis l'extérieur, sans ancre, et si les animations ne sont pas réduites. Rien n'est enregistré. */
+(function () { try {
+var same = document.referrer && new URL(document.referrer).origin === location.origin;
+if (!same && !location.hash && !matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('has-intro');
+} catch (e) {} })();
+</script>
 </head>
 <body id="top">
+<!-- Intro (accueil) : les lettres d'OXALIS montent, le trait se remplit, puis l'écran se lève comme un rideau.
+     Jouée seulement à l'arrivée depuis un autre site (pas en revenant d'une page d'Oxalis), jamais avec « réduire les animations ». -->
+<div class="intro" aria-hidden="true"><div class="intro__word"><span class="intro__l" style="--x: 6; --w: 136; --g: 0; --o: 2"><i></i></span><span class="intro__l" style="--x: 165; --w: 138; --g: 23; --o: 1"><i></i></span><span class="intro__l" style="--x: 323; --w: 156; --g: 20; --o: 0"><i></i></span><span class="intro__l" style="--x: 499; --w: 137; --g: 20; --o: 0"><i></i></span><span class="intro__l" style="--x: 664; --w: 21; --g: 28; --o: 1"><i></i></span><span class="intro__l" style="--x: 713; --w: 137; --g: 28; --o: 2"><i></i></span></div><span class="intro__bar"><i></i></span></div>
 <a class="skip" href="#contenu">Aller au contenu</a>
 <header class="hd">
 <div class="wrap hd__in">

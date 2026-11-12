@@ -14,6 +14,8 @@
   var $$ = function (s, r) { return Array.prototype.slice.call((r || doc).querySelectorAll(s)); };
   var clamp = function (v, a, b) { return Math.max(a, Math.min(b, v)); };
   if (!reduce) root.classList.add('anim');
+  // Intro de l'accueil : une fois le rideau levé, le calque est retiré.
+  if (root.classList.contains('has-intro')) setTimeout(function () { root.classList.add('intro-done'); }, 3300);
 
   /* --- Mode jour / mode nuit ---
      Le thème est posé avant l'affichage par un petit script dans <head>.
