@@ -63,7 +63,7 @@ C'est un mélange voulu par Adrien. La mise en page est éditoriale : très gran
 - `[data-split]` : titre découpé en mots qui montent un à un.
 - `[data-scrub]` : texte qui s'éclaire mot à mot au fil du défilement (le constat).
 - Le constat : la phrase à gauche (fixe pendant le défilement sur ordinateur), et à droite les 3 cartes de la première version avec leurs icônes animées (horloge, loupe, papiers).
-- Hero « site en vitrine » : titre centré sur deux phrases (la seconde en vert), phrase, boutons et 3 garanties, puis un **portable** (`.lap`, `[data-vitrine]`) dont l'écran montre le site exemple « Maçonnerie & Rénovation » (image `assets/vitrine-maconnerie.webp`, page entière capturée depuis le site exemple). Le portable arrive incliné et se redresse au défilement. La page défile lentement dans l'écran, et s'arrête au survol. Une ligne sous le portable précise que l'entreprise est fictive. Si le site exemple change, refaire la capture.
+- Hero : titre centré sur deux phrases (la seconde en vert), phrase, boutons et 3 garanties, sur toute la hauteur du premier écran. Adrien ne veut pas qu'un site d'exemple soit la première chose vue (le portable qui le montrait a été retiré). Il va envoyer des sites modèles pour retravailler ce haut de page.
 - Bandeau défilant (`.marquee`) qui accélère quand on fait défiler la page.
 - Services : colonne de gauche fixe, compteur 01/03 et barre de progression. Le grand numéro du bloc actif se remplit de vert.
 - Exemple d'automatisation (`[data-flow]`) : la ligne se remplit et les étapes s'allument au fil du défilement.
@@ -82,7 +82,7 @@ C'est un mélange voulu par Adrien. La mise en page est éditoriale : très gran
 
 ## Sections de l'accueil (dans l'ordre)
 
-Hero (titre centré + portable) → bandeau défilant → Le constat `#constat` → Services `#services` → Nos services `#nos-services` (Sites internet / Automatisations + exemple d'automatisation) → Méthode `#methode` → Réalisations `#realisations` (site exemple « Maçonnerie & Rénovation », entreprise fictive, puis les mini-sites « Autres métiers ») → Pourquoi `#pourquoi` (4 raisons + zone d'intervention avec le globe des avis) → FAQ `#faq` (accordéon néo-brutaliste, une seule question ouverte à la fois grâce à `name="faq"`) → Contact `#contact` → pied de page. Le formulaire est sur `/devis/`, les offres sur `/tarifs/`.
+Hero (titre centré) → bandeau défilant → Le constat `#constat` → Services `#services` → Nos services `#nos-services` (Sites internet / Automatisations + exemple d'automatisation) → Méthode `#methode` → Réalisations `#realisations` (site exemple « Maçonnerie & Rénovation », entreprise fictive, puis les mini-sites « Autres métiers ») → Pourquoi `#pourquoi` (4 raisons + zone d'intervention avec le globe des avis) → FAQ `#faq` (accordéon néo-brutaliste, une seule question ouverte à la fois grâce à `name="faq"`) → Contact `#contact` → pied de page. Le formulaire est sur `/devis/`, les offres sur `/tarifs/`.
 
 ## Avis Google sur le globe (avis.json)
 

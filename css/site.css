@@ -647,3 +647,6 @@ color-scheme:light;
 .zone__globe{position:relative;width:100%;max-width:520px;margin:0 auto}
 .zone__globe .globe-wrap{margin:0 auto;max-width:520px}
 @media (max-width:520px){.lap__url em{display:none}.lap__screen{padding:7px 7px 10px;border-radius:14px 14px 6px 6px}.lap__bar{padding:6px 8px}}
+/* Haut de page sans portable : le texte centré occupe tout le premier écran */
+.hero--vitrine{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding-bottom:clamp(56px,9vh,110px)}
+.hero--vitrine .display{font-size:clamp(40px,min(6.4vw,11vh),108px)}
