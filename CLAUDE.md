@@ -159,4 +159,5 @@ Si une de ces informations change, mettez à jour **toutes** ses occurrences : t
   2. Utiliser l'outil Netlify `deploy-site` avec ce site ID.
   3. Lancer la commande `npx @netlify/mcp …` qu'il renvoie depuis une copie propre du dossier (`git archive HEAD`), puis vérifier que le déploiement est `ready`.
 - Toujours demander l'accord d'Adrien avant de mettre en ligne.
+- Après chaque modification visible, envoyer à Adrien une courte vidéo du rendu (enregistrement Playwright `recordVideo`, converti en MP4 avec ffmpeg), sur ordinateur et, si utile, sur mobile.
 - Après un changement du formulaire, vérifier que « devis » apparaît dans Forms et envoyer une demande de test.
