@@ -34,9 +34,16 @@ if (!same && !location.hash && !matchMedia('(prefers-reduced-motion: reduce)').m
 </script>
 </head>
 <body id="top">
-<!-- Intro (accueil) : les lettres d'OXALIS montent, le trait se remplit, puis l'écran se lève comme un rideau.
-     Jouée seulement à l'arrivée depuis un autre site (pas en revenant d'une page d'Oxalis), jamais avec « réduire les animations ». -->
-<div class="intro" aria-hidden="true"><div class="intro__word"><span class="intro__l" style="--x: 6; --w: 136; --g: 0; --o: 2"><i></i></span><span class="intro__l" style="--x: 165; --w: 138; --g: 23; --o: 1"><i></i></span><span class="intro__l" style="--x: 323; --w: 156; --g: 20; --o: 0"><i></i></span><span class="intro__l" style="--x: 499; --w: 137; --g: 20; --o: 0"><i></i></span><span class="intro__l" style="--x: 664; --w: 21; --g: 28; --o: 1"><i></i></span><span class="intro__l" style="--x: 713; --w: 137; --g: 28; --o: 2"><i></i></span></div><span class="intro__bar"><i></i></span></div>
+<!-- Intro (accueil) : version « futuriste » inspirée de King River. Les lettres d'OXALIS arrivent des côtés avec un dédoublement de couleurs,
+     buguent, une ligne de terminal compte jusqu'à 100 %, puis l'écran se découpe en bandes qui glissent pour découvrir le site.
+     Jouée seulement à l'arrivée depuis un autre site, jamais avec « réduire les animations ». -->
+<div class="intro" aria-hidden="true">
+<div class="intro__strips"><span style="--s: 0; --sd: 1"></span><span style="--s: 1; --sd: -1"></span><span style="--s: 2; --sd: 1"></span><span style="--s: 3; --sd: -1"></span><span style="--s: 4; --sd: 1"></span><span style="--s: 5; --sd: -1"></span><span style="--s: 6; --sd: 1"></span><span style="--s: 7; --sd: -1"></span><span style="--s: 8; --sd: 1"></span><span style="--s: 9; --sd: -1"></span></div>
+<div class="intro__stage"><span class="intro__grid"></span><span class="intro__scan"></span>
+<div class="intro__word"><span class="intro__l" style="--x: 6; --w: 136; --g: 0; --dir: -1; --o: 0"><i class="c1"></i><i class="c2"></i><i></i></span><span class="intro__l" style="--x: 165; --w: 138; --g: 23; --dir: -1; --o: 1"><i class="c1"></i><i class="c2"></i><i></i></span><span class="intro__l" style="--x: 323; --w: 156; --g: 20; --dir: -1; --o: 2"><i class="c1"></i><i class="c2"></i><i></i></span><span class="intro__l" style="--x: 499; --w: 137; --g: 20; --dir: 1; --o: 2"><i class="c1"></i><i class="c2"></i><i></i></span><span class="intro__l" style="--x: 664; --w: 21; --g: 28; --dir: 1; --o: 1"><i class="c1"></i><i class="c2"></i><i></i></span><span class="intro__l" style="--x: 713; --w: 137; --g: 28; --dir: 1; --o: 0"><i class="c1"></i><i class="c2"></i><i></i></span></div>
+<div class="intro__term"><span class="intro__bar"><i></i></span><span class="intro__line"><b data-intro-text>&gt; initialisation</b><em data-intro-pct>000 %</em></span></div>
+</div>
+</div>
 <a class="skip" href="#contenu">Aller au contenu</a>
 <header class="hd">
 <div class="wrap hd__in">
