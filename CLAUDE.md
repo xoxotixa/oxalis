@@ -7,7 +7,7 @@ Tout le contenu est en **français**, avec un vouvoiement chaleureux, sans jargo
 ## Structure
 
 ```
-index.html              accueil (/) : hero, bandeau défilant, constat, services, ce qu'on fait pour vous, méthode, réalisations, pourquoi, FAQ, contact
+index.html              accueil (/) : hero, constat, services, ce qu'on fait pour vous, méthode, réalisations, pourquoi, FAQ, contact
 tarifs/index.html       page « Tarifs » (/tarifs/) : offres « Sur devis », devis en 3 étapes, bandeau vers /devis/
 devis/index.html        page « Demande de devis » (/devis/) : formulaire complet + coordonnées
 css/site.css            tout le design commun aux trois pages (variables en haut du fichier)
@@ -64,7 +64,6 @@ C'est un mélange voulu par Adrien. La mise en page est éditoriale : très gran
 - Le constat : la phrase à gauche (fixe pendant le défilement sur ordinateur), et à droite les 3 cartes de la première version avec leurs icônes animées (horloge, loupe, papiers).
 - Hero : surtitre, puis le **logo OXALIS géant en pixels** (`.hero__pix`, `data-pixmark data-tone="accent" data-assemble`), puis le titre sur deux phrases (la seconde en vert), la phrase, les boutons et 3 garanties, centrés sur le premier écran. Les pixels arrivent des côtés et s'assemblent juste quand le rideau de l'intro s'ouvre (≈ 4,7 s, ou tout de suite sans intro) ; ensuite ils réagissent à la souris et au doigt comme le logo du pied de page. Adrien ne veut pas qu'un site d'exemple soit la première chose vue.
 - **Intro de l'accueil** (inspirée du site King River, version « futuriste ») : grille discrète (pas de ligne de balayage : Adrien la veut sobre) ; les lettres d'OXALIS (découpées dans `assets/oxalis-logo.png` par masque CSS, 3 calques chacune) arrivent des côtés en « traînée lumineuse » (étirées, floues, avec une traînée verte, puis un éclair vert au verrouillage ; variante T01 choisie par Adrien parmi 15 propositions), puis restent nettes : aucun bug ni tressaillement sur le mot (Adrien les trouvait de trop) ; un écran de chargement compte de 000 à 100 % par à-coups, avec de petites pauses comme un vrai chargement (texte, pourcentage et barre pilotés par `js/site.js`) ; les lettres repartent sur les côtés, puis l'écran se découpe en 10 bandes qui glissent à gauche et à droite (≈ 5,5 s). Un script dans le `<head>` de l'accueil pose `has-intro` sur `<html>` seulement à l'arrivée depuis un autre site, sans ancre dans l'adresse, et sans « réduire les animations » ; rien n'est enregistré. Les animations du hero attendent la fin (`--intro-d`). Ne jamais nommer la classe de `<html>` comme celle du calque (`.intro`), sinon toute la page est masquée.
-- Bandeau défilant (`.marquee`) qui accélère quand on fait défiler la page.
 - Services : colonne de gauche fixe, compteur 01/03 et barre de progression. Le grand numéro du bloc actif se remplit de vert.
 - Exemple d'automatisation (`[data-flow]`) : la ligne se remplit et les étapes s'allument au fil du défilement.
 - Méthode : barres qui se remplissent l'une après l'autre.
@@ -82,7 +81,7 @@ C'est un mélange voulu par Adrien. La mise en page est éditoriale : très gran
 
 ## Sections de l'accueil (dans l'ordre)
 
-Hero (logo en pixels + titre centré) → bandeau défilant → Le constat `#constat` → Services `#services` → Nos services `#nos-services` (Sites internet / Automatisations + exemple d'automatisation) → Méthode `#methode` → Réalisations `#realisations` (site exemple « Maçonnerie & Rénovation », entreprise fictive, puis les mini-sites « Autres métiers ») → Pourquoi `#pourquoi` (4 raisons + zone d'intervention avec le globe des avis) → FAQ `#faq` (accordéon néo-brutaliste, une seule question ouverte à la fois grâce à `name="faq"`) → Contact `#contact` → pied de page. Le formulaire est sur `/devis/`, les offres sur `/tarifs/`.
+Hero (logo en pixels + titre centré) → Le constat (le bandeau défilant a été retiré à la demande d'Adrien) `#constat` → Services `#services` → Nos services `#nos-services` (Sites internet / Automatisations + exemple d'automatisation) → Méthode `#methode` → Réalisations `#realisations` (site exemple « Maçonnerie & Rénovation », entreprise fictive, puis les mini-sites « Autres métiers ») → Pourquoi `#pourquoi` (4 raisons + zone d'intervention avec le globe des avis) → FAQ `#faq` (accordéon néo-brutaliste, une seule question ouverte à la fois grâce à `name="faq"`) → Contact `#contact` → pied de page. Le formulaire est sur `/devis/`, les offres sur `/tarifs/`.
 
 ## Avis Google sur le globe (avis.json)
 
