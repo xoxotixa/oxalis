@@ -755,7 +755,7 @@ html:not(.anim) .cv-pulse{display:none}
 .gantt{margin-top:64px;padding-top:28px;border-top:1px solid var(--hair)}
 .gantt__head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:22px}
 .gantt__head .mono{font:500 12px/16px var(--font-mono);color:var(--ink-dim)}
-.gantt__grid{display:grid;grid-template-columns:minmax(92px,1.3fr) repeat(6,minmax(0,1fr));gap:10px 6px;align-items:center}
+.gantt__grid{display:grid;grid-template-columns:minmax(92px,1.3fr) repeat(5,minmax(0,1fr));gap:10px 6px;align-items:center}
 .gantt__d{font:500 11px/16px var(--font-mono);letter-spacing:.08em;color:var(--ink-dim);text-align:center;padding-bottom:6px;border-bottom:1px solid var(--hair)}
 .gantt__r{grid-column:1;font-size:14px;line-height:18px;color:var(--ink-muted)}
 .gantt__bar{position:relative;height:26px;border-radius:6px;background:var(--hair);overflow:hidden}
@@ -779,3 +779,7 @@ html:not(.anim) .cv-pulse{display:none}
 .anim .delays.is-in .delays__bar i{transform:scaleX(var(--w));transition:transform 1s var(--ease-io) calc(.4s + var(--i) * .3s)}
 .cv-leg{opacity:var(--op,1)}
 .svc-viz__g{max-height:28vh}
+.delays__bar i{min-width:10px}
+.delays__bar--range::after{content:"";position:absolute;top:0;bottom:0;left:75%;right:0;border-radius:0 99px 99px 0;background:repeating-linear-gradient(90deg,var(--chart) 0 4px,transparent 4px 8px);opacity:.45}
+.anim .delays__bar--range::after{opacity:0;transition:opacity .6s var(--ease) 1.6s}
+.anim .delays.is-in .delays__bar--range::after{opacity:.45}
