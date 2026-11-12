@@ -136,6 +136,8 @@
   var heroTitle = $('.hero h1'), heroEl = $('.hero');
   var scrubs = $$('[data-scrub]');
   var svcItems = $$('.svc-item'), svcCount = $('.svc__count b'), svcBar = $('.svc__bar');
+  var svcViz = $('[data-svc-viz]'), svcGraphs = svcViz ? $$('.svc-viz__g', svcViz) : [], svcVizT = $('[data-svc-viz-t]'), svcVizAct = 0;
+  if (svcGraphs.length && !reduce) { svcGraphs[0].classList.remove('is-on'); svcVizAct = -1; }
   var flow = $('[data-flow]'), flowSteps = flow ? $$('.flow__step', flow) : [];
   var stage = $('.emb-stage');
   var vitrine = $('[data-vitrine] .lap');
@@ -166,6 +168,15 @@
       svcItems.forEach(function (it, i) { it.classList.toggle('is-active', i === act); });
       if (svcCount) svcCount.textContent = String(act + 1).padStart(2, '0');
       if (svcBar) svcBar.style.setProperty('--p', ((act + 1) / svcItems.length).toFixed(3));
+      // Schéma de la colonne de gauche : il suit le bloc actif
+      if (svcGraphs.length) {
+        var vizOn = svcViz.getBoundingClientRect().top < vh * 0.9 ? act : -1;
+        if (vizOn !== svcVizAct) {
+          svcVizAct = vizOn;
+          svcGraphs.forEach(function (g, i) { g.classList.toggle('is-on', i === vizOn); });
+          if (vizOn > -1 && svcVizT) svcVizT.textContent = svcGraphs[vizOn].getAttribute('data-t');
+        }
+      }
     }
     // Exemple d'automatisation : la ligne se remplit et les étapes s'allument
     if (flow) {

@@ -131,6 +131,45 @@ if (!same && !location.hash && !matchMedia('(prefers-reduced-motion: reduce)').m
 <h2 class="h-xl" data-split="">Tout ce qu'il vous faut, au même endroit</h2>
 <div class="svc__count" aria-hidden="true"><b>01</b> / 03</div>
 <div class="svc__bar" aria-hidden="true"><i></i></div>
+<figure class="svc-viz" data-svc-viz="" aria-hidden="true">
+<figcaption class="svc-viz__cap"><span>Schéma</span><span data-svc-viz-t>Le parcours de vos clients</span></figcaption>
+<div class="svc-viz__stage">
+<svg class="svc-viz__g is-on" viewBox="0 0 480 196" data-t="Le parcours de vos clients">
+<path class="cv-ln" pathLength="1" d="M108 78 H204"/><path class="cv-ln" pathLength="1" d="M276 78 H372" style="--k: 1"/>
+<path class="cv-ar" d="M196 72 L206 78 L196 84 M364 72 L374 78 L364 84"/>
+<circle class="cv-n" cx="70" cy="78" r="36"/><circle class="cv-n" cx="240" cy="78" r="36" style="--k: 1"/><circle class="cv-n cv-n--on" cx="410" cy="78" r="36" style="--k: 2"/>
+<circle class="cv-ic" cx="66" cy="74" r="10"/><path class="cv-ic" d="M73 81 L82 90"/>
+<rect class="cv-ic" x="222" y="64" width="36" height="26" rx="3"/><path class="cv-ic" d="M222 71 H258 M234 97 H246"/>
+<rect class="cv-ic cv-ic--on" x="400" y="60" width="20" height="36" rx="4"/><path class="cv-ic cv-ic--on" d="M407 90 H413"/>
+<circle class="cv-ring" cx="410" cy="78" r="36"/>
+<text class="cv-t" x="70" y="146">Recherche Google</text><text class="cv-t" x="240" y="146">Votre site</text><text class="cv-t" x="410" y="146">Appel ou devis</text>
+<text class="cv-s" x="70" y="168">« maçon Reims »</text><text class="cv-s" x="240" y="168">clair et rapide</text><text class="cv-s" x="410" y="168">le téléphone sonne</text>
+</svg>
+<svg class="svc-viz__g" viewBox="0 0 480 196" data-t="Ce qu'on fait chaque mois">
+<g transform="rotate(-90 120 98)">
+<circle class="cv-trk" cx="120" cy="98" r="66"/>
+<circle class="cv-arc" cx="120" cy="98" r="66" pathLength="100" style="--k: 0; --o: 0"/>
+<circle class="cv-arc" cx="120" cy="98" r="66" pathLength="100" style="--k: 1; --o: -25; opacity: .78"/>
+<circle class="cv-arc" cx="120" cy="98" r="66" pathLength="100" style="--k: 2; --o: -50; opacity: .56"/>
+<circle class="cv-arc" cx="120" cy="98" r="66" pathLength="100" style="--k: 3; --o: -75; opacity: .36"/>
+</g>
+<text class="cv-c" x="120" y="94">Chaque</text><text class="cv-c" x="120" y="116">mois</text>
+<g class="cv-leg"><rect x="250" y="42" width="12" height="12" rx="2"/><text x="274" y="53">Sauvegardes</text></g>
+<g class="cv-leg" style="--k: 1; --op: .78"><rect x="250" y="76" width="12" height="12" rx="2"/><text x="274" y="87">Mises à jour</text></g>
+<g class="cv-leg" style="--k: 2; --op: .56"><rect x="250" y="110" width="12" height="12" rx="2"/><text x="274" y="121">Sécurité</text></g>
+<g class="cv-leg" style="--k: 3; --op: .36"><rect x="250" y="144" width="12" height="12" rx="2"/><text x="274" y="155">Petites modifications</text></g>
+</svg>
+<svg class="svc-viz__g" viewBox="0 0 480 196" data-t="Une automatisation, étape par étape">
+<path class="cv-trk2" d="M50 70 H430"/>
+<path class="cv-ln" pathLength="1" d="M50 70 H430" style="--dur: 1.4s"/>
+<path class="cv-pulse" pathLength="100" d="M50 70 H430"/>
+<circle class="cv-dot" cx="50" cy="70" r="9"/><circle class="cv-dot" cx="177" cy="70" r="9" style="--k: 1"/><circle class="cv-dot" cx="303" cy="70" r="9" style="--k: 2"/><circle class="cv-dot cv-dot--end" cx="430" cy="70" r="11" style="--k: 3"/>
+<text class="cv-t" x="50" y="112">Demande</text><text class="cv-t" x="177" y="112">Devis envoyé</text><text class="cv-t" x="303" y="112">Relance J+3</text><text class="cv-t" x="430" y="112">Rendez-vous</text>
+<path class="cv-br" d="M50 140 V152 H430 V140"/>
+<text class="cv-s" x="240" y="178">tout se déclenche seul, sans vous</text>
+</svg>
+</div>
+</figure>
 </div>
 <div class="svc__list">
 <article class="svc-item is-active"><span class="svc-item__n" aria-hidden="true">01</span><h3 class="h-l">Site vitrine clé en main</h3><p>Un site moderne, rapide et adapté au mobile, qui présente votre savoir-faire et donne envie de vous appeler. On s'occupe des textes, des photos et de la mise en ligne.</p></article>
@@ -204,6 +243,17 @@ if (!same && !location.hash && !matchMedia('(prefers-reduced-motion: reduce)').m
 <li class="step" style="--i: 2"><span class="step__bar" aria-hidden="true"><i></i></span><span class="step__n" aria-hidden="true">03</span><h3 class="h-m">On met en ligne</h3><p>Votre site est publié et visible sur Google.</p></li>
 <li class="step" style="--i: 3"><span class="step__bar" aria-hidden="true"><i></i></span><span class="step__n" aria-hidden="true">04</span><h3 class="h-m">On s'occupe du reste</h3><p>Maintenance, mises à jour, modifications : vous n'avez plus rien à gérer.</p></li>
 </ol>
+<div class="gantt" data-rv="" role="img" aria-label="Planning type : on échange le premier jour, on crée la maquette les 2e et 3e jours, vous validez le 4e, le site est en ligne le 5e jour, puis on s'occupe du suivi.">
+<div class="gantt__head" aria-hidden="true"><p class="label" style="margin: 0">Planning type</p><span class="mono">5 jours, puis le suivi</span></div>
+<div class="gantt__grid" aria-hidden="true">
+<span></span><span class="gantt__d">J1</span><span class="gantt__d">J2</span><span class="gantt__d">J3</span><span class="gantt__d">J4</span><span class="gantt__d">J5</span><span class="gantt__d">Puis</span>
+<span class="gantt__r">On échange</span><span class="gantt__bar" style="grid-column: 2 / 3; --i: 0"><i></i></span>
+<span class="gantt__r">On crée la maquette</span><span class="gantt__bar" style="grid-column: 3 / 5; --i: 1"><i></i></span>
+<span class="gantt__r">Vous validez</span><span class="gantt__bar" style="grid-column: 5 / 6; --i: 2"><i></i></span>
+<span class="gantt__r">En ligne</span><span class="gantt__bar gantt__bar--on" style="grid-column: 6 / 7; --i: 3"><i></i></span>
+<span class="gantt__r">Le suivi</span><span class="gantt__bar gantt__bar--next" style="grid-column: 7 / 8; --i: 4"><i></i></span>
+</div>
+</div>
 </div>
 </section>
 
@@ -612,6 +662,14 @@ if (!same && !location.hash && !matchMedia('(prefers-reduced-motion: reduce)').m
 <a href="tel:+33667864885">06 67 86 48 85</a>
 <a href="mailto:contact@agence-oxalis.fr?subject=Demande%20de%20devis%20%E2%80%94%20site%20Oxalis">contact@agence-oxalis.fr</a>
 </div>
+</div>
+<div class="delays" data-rv="" style="--d: 3">
+<div class="gantt__head"><p class="label" style="margin: 0">Nos délais</p><span class="mono">Échelle : 5 jours</span></div>
+<ul class="delays__list">
+<li style="--w: .2; --i: 0"><span class="delays__t">Réponse à votre message</span><span class="delays__v">24 h</span><span class="delays__bar" aria-hidden="true"><i></i></span></li>
+<li style="--w: .4; --i: 1"><span class="delays__t">Devis gratuit</span><span class="delays__v">48 h</span><span class="delays__bar" aria-hidden="true"><i></i></span></li>
+<li style="--w: 1; --i: 2"><span class="delays__t">Site livré</span><span class="delays__v">5 jours</span><span class="delays__bar" aria-hidden="true"><i></i></span></li>
+</ul>
 </div>
 </div>
 </section>
