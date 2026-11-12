@@ -21,7 +21,7 @@ js/pixmark.js           logo OXALIS en pixels : géant dans le hero de l'accueil
 avis.json               les avis Google affichés sur le globe, à remplir à la main (voir plus bas)
 fonts/                  polices auto-hébergées (woff2) + fonts.css + licences OFL
 assets/                 logo blanc/vert (mode nuit), logo foncé oxalis-logo-sombre.png (mode jour), 3 photos du site exemple (webp)
-favicon.png, apple-touch-icon.png
+favicon.ico, favicon.png (64 px), favicon-32.png, apple-touch-icon.png (180 px) : icône « O vert sur noir » (proposition n° 16 choisie par Adrien), O du logo en vert #7cc79b sur carré noir #050608
 netlify.toml            publication du dossier tel quel, en-têtes de cache
 ```
 
