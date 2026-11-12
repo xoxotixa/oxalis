@@ -126,7 +126,7 @@ Google ne donne pas la ville des auteurs d'avis, et son API demanderait une clé
 - **Hébergeur :** Netlify, Inc., 101 2nd Street, San Francisco, CA 94105, États-Unis
 - **Prix :** **aucun prix affiché sur le site**, c'est le choix d'Adrien, car chaque demande est particulière. Tout est « sur devis » : site vitrine (maintenance comprise) et automatisation. Ne jamais remettre de montant, ni dans les textes, ni dans la FAQ, ni dans les balises meta.
 - **Maintenance :** 6 mois minimum, puis sans engagement.
-- **Délais :** site en ligne en **3 à 4 semaines** · réponse aux messages sous **24 h** · devis gratuit sous **48 h**
+- **Délais :** site livré en **5 jours** · réponse aux messages sous **24 h** · devis gratuit sous **48 h**
 - **Zone :** sur place à Reims, dans la Marne et le Grand Est · à distance partout en France
 
 Si une de ces informations change, mettez à jour **toutes** ses occurrences : texte, FAQ, meta description, balises og:, mentions légales.
