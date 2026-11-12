@@ -420,7 +420,7 @@ textarea.ox-input{min-height:140px;resize:vertical}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 @media (max-width:420px){.btn{white-space:normal;text-align:center;padding-left:20px;padding-right:20px}}
 
-/* ===== Fond en grille lumineuse : réglages (dessin et animation dans js/grid.js) ===== */
+/* ===== Fond en grille lumineuse : réglages (plus d'animation : js/grid.js a été retiré, les réglages --grid-* restants ne servent qu'à la couleur et à la grille fixe) ===== */
 :root{
 --grid-base:#050608;            /* couleur du fond (fond B06 choisi par Adrien : noir profond, sans quadrillage la nuit) */
 --grid-cell:32px;               /* taille d'une case, en pixels */

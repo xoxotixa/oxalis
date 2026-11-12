@@ -660,11 +660,10 @@ if (!same && !location.hash && !matchMedia('(prefers-reduced-motion: reduce)').m
 
 <div class="sticky-cta"><a class="btn btn--primary btn--block" href="/devis/">Demander mon devis gratuit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></a></div>
 
-<!-- Fond en grille lumineuse : calque fixe derrière tout le contenu (js/grid.js) -->
-<div class="ox-grid" aria-hidden="true"><canvas></canvas></div>
+<!-- Fond fixe derrière tout le contenu : noir la nuit, fine grille le jour (sans animation) -->
+<div class="ox-grid" aria-hidden="true"></div>
 <script src="/js/site.js" defer></script>
 <script src="/js/visuels.js" defer></script>
-<script src="/js/grid.js" defer></script>
 <script src="/js/pixmark.js" defer></script>
 <!-- ===== PANNEAU MENTIONS LÉGALES (coller juste avant </body>) ===== -->
 <style>

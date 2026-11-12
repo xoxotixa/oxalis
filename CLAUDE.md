@@ -17,7 +17,6 @@ js/site.js              animations et interactions des trois pages (apparitions,
 js/visuels.js           maquette qui se construit, cerveau et réseau de nœuds (data-viz) ; l'ancien globe 2D (data-globe) n'est plus utilisé
 js/globe-avis.js        globe 3D des avis clients dans le hero (module, accueil seulement), lit /avis.json
 js/vendor/cobe.esm.js   bibliothèque du globe WebGL (cobe 2.0.1, MIT), copie locale : aucun chargement extérieur
-js/grid.js              fond en grille lumineuse : traînée verte sous la souris, onde ronde au clic
 js/pixmark.js           logo OXALIS en pixels : géant dans le hero de l'accueil, et tout en bas du pied de page (toutes les pages)
 avis.json               les avis Google affichés sur le globe, à remplir à la main (voir plus bas)
 fonts/                  polices auto-hébergées (woff2) + fonts.css + licences OFL
@@ -41,7 +40,7 @@ Le formulaire ne peut pas envoyer en local : il affiche son message d'erreur, c'
 ## Design : « éditorial épuré » + effets de la première version
 
 C'est un mélange voulu par Adrien. La mise en page est éditoriale : très grande typographie, beaucoup d'espace, de fins traits de séparation (`.hair`), des étiquettes numérotées (`.label` avec `<b>01</b>`). Les effets marquants viennent de la première version :
-- le **fond en grille lumineuse** (`js/grid.js`, réglages `--grid-*` dans `css/site.css`) : cases vertes sous la souris sur ordinateur et sous le doigt sur mobile (traînée d'origine du composant : portée 2,6 cases, densité 1), onde ronde au clic ou au toucher, cases qui s'allument seules. Derrière les textes posés sur le fond, les cases restent faibles. Les blocs listés dans `SKIP` sont ignorés ;
+- **plus de cases animées en fond** : Adrien a fait retirer la traînée verte sous la souris, l'onde au clic et les cases qui s'allument seules (`js/grid.js` supprimé). Le calque `.ox-grid` reste, fixe et sans animation : noir la nuit, fine grille le jour ;
 - le **globe 3D des avis** (cobe) dans la section « Pourquoi choisir Oxalis », à la place de l'ancien schéma de zone. La carte de l'avis s'affiche dessous quand `avis.json` contient des avis ;
 - le **grand logo OXALIS en pixels** tout en bas du pied de page (`js/pixmark.js`). Les carrés sont lus dans `assets/oxalis-logo.png`. Sous la souris ou le doigt, ils s'écartent, passent au vert et « buguent » avec des bandes décalées ; un clic envoie une onde de choc ;
 - les **mini-sites des autres métiers** sous le site exemple, avec une page qui défile au survol ;
