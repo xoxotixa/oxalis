@@ -16,16 +16,16 @@
   if (!reduce) root.classList.add('anim');
   // Intro de l'accueil : une fois le rideau levé, le calque est retiré.
   if (root.classList.contains('has-intro')) {
-    setTimeout(function () { root.classList.add('intro-done'); }, 3400);
-    // Ligne de terminal de l'intro : textes successifs et pourcentage synchronisé avec la barre (0,55 s → 2,05 s).
+    setTimeout(function () { root.classList.add('intro-done'); }, 4450);
+    // Ligne de terminal de l'intro : textes successifs et pourcentage synchronisé avec la barre (0,6 s → 2,9 s).
     var steps = ['> initialisation', '> chargement des pixels', '> connexion au réseau', '> prêt'];
     var t0 = performance.now(), pctEl = null, txtEl = null;
     var tick = function (now) {
       pctEl = pctEl || doc.querySelector('[data-intro-pct]'); txtEl = txtEl || doc.querySelector('[data-intro-text]');
-      var k = clamp((now - t0 - 550) / 1500, 0, 1), e = k < 0.5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+      var k = clamp((now - t0 - 600) / 2300, 0, 1), e = k < 0.5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
       if (pctEl) pctEl.textContent = ('00' + Math.round(e * 100)).slice(-3) + ' %';
       if (txtEl) txtEl.textContent = steps[Math.min(steps.length - 1, Math.floor(k * steps.length))];
-      if (now - t0 < 2200) requestAnimationFrame(tick);
+      if (now - t0 < 3000) requestAnimationFrame(tick);
     };
     requestAnimationFrame(tick);
   }
