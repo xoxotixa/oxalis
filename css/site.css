@@ -783,29 +783,29 @@ html:not(.anim) .cv-pulse{display:none}
 /* ===== Hero « plan d'architecte » (proposition 04 choisie par Adrien) ===== */
 :root{--plan-tick:rgba(238,241,242,.22);--plan-major:rgba(124,199,155,.5);--plan-line:rgba(124,199,155,.5)}
 :root[data-theme="light"]{--plan-tick:rgba(24,32,42,.22);--plan-major:rgba(47,138,91,.55);--plan-line:rgba(47,138,91,.55)}
-.plan{position:absolute;inset:0;z-index:0;pointer-events:none}
-.plan__rule{position:absolute;top:calc(var(--hd) + 16px);bottom:0;left:0;width:22px;background:repeating-linear-gradient(to bottom,var(--plan-tick) 0 1px,transparent 1px 12px);-webkit-mask:linear-gradient(90deg,#000 40%,transparent);mask:linear-gradient(90deg,#000 40%,transparent)}
-.plan__rule::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(to bottom,var(--plan-major) 0 1px,transparent 1px 60px)}
-.plan__rule--r{left:auto;right:0;-webkit-mask:linear-gradient(270deg,#000 40%,transparent);mask:linear-gradient(270deg,#000 40%,transparent)}
-.plan__side,.plan__scale{position:absolute;font:500 11px/16px var(--font-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-dim);white-space:nowrap}
-.plan__side{left:40px;top:50%;transform:rotate(-90deg) translateX(-50%);transform-origin:left top}
-.plan__scale{right:40px;bottom:34px}
-.plan__cote{display:flex;align-items:center;gap:14px;width:100%;max-width:1240px;margin:0 auto -6px;position:relative}
-.plan__cote i{flex:1;height:1px;background:var(--plan-line)}
-.plan__cote::before,.plan__cote::after{content:"";position:absolute;top:50%;width:1px;height:16px;margin-top:-8px;background:var(--accent-big)}
-.plan__cote::before{left:0}.plan__cote::after{right:0}
-.plan__cote span{font:500 11px/16px var(--font-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent-text);white-space:nowrap}
-:root[data-theme="light"] .plan__cote span{color:#2f8a5b}
-@media (max-width:699px){.plan__side,.plan__scale{display:none}.plan__rule{width:12px}.plan__cote{gap:10px}.plan__cote span{font-size:9.5px;letter-spacing:.08em}}
-@media (max-width:379px){.plan__cote span{font-size:8.5px;letter-spacing:.04em}}
+.hplan{position:absolute;inset:0;z-index:0;pointer-events:none}
+.hplan__rule{position:absolute;top:calc(var(--hd) + 16px);bottom:0;left:0;width:22px;background:repeating-linear-gradient(to bottom,var(--plan-tick) 0 1px,transparent 1px 12px);-webkit-mask:linear-gradient(90deg,#000 40%,transparent);mask:linear-gradient(90deg,#000 40%,transparent)}
+.hplan__rule::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(to bottom,var(--plan-major) 0 1px,transparent 1px 60px)}
+.hplan__rule--r{left:auto;right:0;-webkit-mask:linear-gradient(270deg,#000 40%,transparent);mask:linear-gradient(270deg,#000 40%,transparent)}
+.hplan__side,.hplan__scale{position:absolute;font:500 11px/16px var(--font-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-dim);white-space:nowrap}
+.hplan__side{left:40px;top:50%;transform:rotate(-90deg) translateX(-50%);transform-origin:left top}
+.hplan__scale{right:40px;bottom:34px}
+.hplan__cote{display:flex;align-items:center;gap:14px;width:100%;max-width:1240px;margin:0 auto -6px;position:relative}
+.hplan__cote i{flex:1;height:1px;background:var(--plan-line)}
+.hplan__cote::before,.hplan__cote::after{content:"";position:absolute;top:50%;width:1px;height:16px;margin-top:-8px;background:var(--accent-big)}
+.hplan__cote::before{left:0}.hplan__cote::after{right:0}
+.hplan__cote span{font:500 11px/16px var(--font-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent-text);white-space:nowrap}
+:root[data-theme="light"] .hplan__cote span{color:#2f8a5b}
+@media (max-width:699px){.hplan__side,.hplan__scale{display:none}.hplan__rule{width:12px}.hplan__cote{gap:10px}.hplan__cote span{font-size:9.5px;letter-spacing:.08em}}
+@media (max-width:379px){.hplan__cote span{font-size:8.5px;letter-spacing:.04em}}
 /* Animations : les traits de cote se dessinent depuis le centre, le reste apparaît doucement */
-.anim .plan__cote i{transform:scaleX(0);animation:coteL 1.1s var(--ease-io) both;animation-delay:calc(var(--intro-d,0s) + .55s)}
-.anim .plan__cote i:first-child{transform-origin:right}.anim .plan__cote i:last-child{transform-origin:left}
-.anim .plan__cote::before,.anim .plan__cote::after,.anim .plan__cote span{animation:fadeIn .8s var(--ease) both;animation-delay:calc(var(--intro-d,0s) + 1.2s)}
-.anim .plan__cote span{animation-delay:calc(var(--intro-d,0s) + .4s)}
-.anim .plan__rule,.anim .plan__side,.anim .plan__scale{animation:fadeIn 1.4s var(--ease) both;animation-delay:calc(var(--intro-d,0s) + .9s)}
-.anim .plan__rule{animation-name:ruleIn}
+.anim .hplan__cote i{transform:scaleX(0);animation:coteL 1.1s var(--ease-io) both;animation-delay:calc(var(--intro-d,0s) + .55s)}
+.anim .hplan__cote i:first-child{transform-origin:right}.anim .hplan__cote i:last-child{transform-origin:left}
+.anim .hplan__cote::before,.anim .hplan__cote::after,.anim .hplan__cote span{animation:fadeIn .8s var(--ease) both;animation-delay:calc(var(--intro-d,0s) + 1.2s)}
+.anim .hplan__cote span{animation-delay:calc(var(--intro-d,0s) + .4s)}
+.anim .hplan__rule,.anim .hplan__side,.anim .hplan__scale{animation:fadeIn 1.4s var(--ease) both;animation-delay:calc(var(--intro-d,0s) + .9s)}
+.anim .hplan__rule{animation-name:ruleIn}
 @keyframes coteL{to{transform:none}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @keyframes ruleIn{from{opacity:0;clip-path:inset(0 0 100% 0)}to{opacity:1;clip-path:inset(0 0 0 0)}}
-@media (max-width:1379px){.plan__side{display:none}}
+@media (max-width:1379px){.hplan__side{display:none}}
