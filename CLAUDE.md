@@ -40,7 +40,7 @@ Le formulaire ne peut pas envoyer en local : il affiche son message d'erreur, c'
 ## Design : « éditorial épuré » + effets de la première version
 
 C'est un mélange voulu par Adrien. La mise en page est éditoriale : très grande typographie, beaucoup d'espace, de fins traits de séparation (`.hair`), des étiquettes numérotées (`.label` avec `<b>01</b>`). Les effets marquants viennent de la première version :
-- **plus de cases animées en fond** : Adrien a fait retirer la traînée verte sous la souris, l'onde au clic et les cases qui s'allument seules (`js/grid.js` supprimé). Le calque `.ox-grid` reste, fixe, uni et sans quadrillage dans les deux thèmes (noir la nuit, clair le jour) ;
+- **plus de cases animées en fond** : Adrien a fait retirer la traînée verte sous la souris, l'onde au clic et les cases qui s'allument seules (`js/grid.js` supprimé). Le calque `.ox-grid` reste, fixe et sans animation : noir uni la nuit, fine grille le jour (Adrien trouvait le fond clair trop vide sans) ;
 - le **globe 3D des avis** (cobe) dans la section « Pourquoi choisir Oxalis », à la place de l'ancien schéma de zone. La carte de l'avis s'affiche dessous quand `avis.json` contient des avis ;
 - le **grand logo OXALIS en pixels** tout en bas du pied de page (`js/pixmark.js`). Les carrés sont lus dans `assets/oxalis-logo.png`. Sous la souris ou le doigt, ils s'écartent, passent au vert et « buguent » avec des bandes décalées ; un clic envoie une onde de choc ;
 - les **mini-sites des autres métiers** sous le site exemple, avec une page qui défile au survol ;
