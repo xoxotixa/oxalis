@@ -18,7 +18,7 @@ js/visuels.js           maquette qui se construit, cerveau et réseau de nœuds 
 js/globe-avis.js        globe 3D des avis clients dans le hero (module, accueil seulement), lit /avis.json
 js/vendor/cobe.esm.js   bibliothèque du globe WebGL (cobe 2.0.1, MIT), copie locale : aucun chargement extérieur
 js/grid.js              fond en grille lumineuse : traînée verte sous la souris, onde ronde au clic
-js/pixmark.js           grand logo OXALIS en pixels tout en bas du pied de page (toutes les pages)
+js/pixmark.js           logo OXALIS en pixels : géant dans le hero de l'accueil, et tout en bas du pied de page (toutes les pages)
 avis.json               les avis Google affichés sur le globe, à remplir à la main (voir plus bas)
 fonts/                  polices auto-hébergées (woff2) + fonts.css + licences OFL
 assets/                 logo blanc/vert (mode nuit), logo foncé oxalis-logo-sombre.png (mode jour), 3 photos du site exemple (webp)
@@ -63,7 +63,7 @@ C'est un mélange voulu par Adrien. La mise en page est éditoriale : très gran
 - `[data-split]` : titre découpé en mots qui montent un à un.
 - `[data-scrub]` : texte qui s'éclaire mot à mot au fil du défilement (le constat).
 - Le constat : la phrase à gauche (fixe pendant le défilement sur ordinateur), et à droite les 3 cartes de la première version avec leurs icônes animées (horloge, loupe, papiers).
-- Hero : titre centré sur deux phrases (la seconde en vert), phrase, boutons et 3 garanties, sur toute la hauteur du premier écran. Adrien ne veut pas qu'un site d'exemple soit la première chose vue (le portable qui le montrait a été retiré). Il va envoyer des sites modèles pour retravailler ce haut de page.
+- Hero : surtitre, puis le **logo OXALIS géant en pixels** (`.hero__pix`, `data-pixmark data-tone="accent" data-assemble`), puis le titre sur deux phrases (la seconde en vert), la phrase, les boutons et 3 garanties, centrés sur le premier écran. Les pixels arrivent des côtés et s'assemblent juste quand le rideau de l'intro s'ouvre (≈ 4,7 s, ou tout de suite sans intro) ; ensuite ils réagissent à la souris et au doigt comme le logo du pied de page. Adrien ne veut pas qu'un site d'exemple soit la première chose vue.
 - **Intro de l'accueil** (inspirée du site King River, version « futuriste ») : grille discrète (pas de ligne de balayage : Adrien la veut sobre) ; les lettres d'OXALIS (découpées dans `assets/oxalis-logo.png` par masque CSS, 3 calques chacune) arrivent des côtés avec flou de vitesse et dédoublement de couleurs, tressaillent très légèrement une fois (Adrien trouvait les gros bugs en tranches trop forts) ; un écran de chargement compte de 000 à 100 % par à-coups, avec de petites pauses comme un vrai chargement (texte, pourcentage et barre pilotés par `js/site.js`) ; les lettres repartent sur les côtés, puis l'écran se découpe en 10 bandes qui glissent à gauche et à droite (≈ 5,5 s). Un script dans le `<head>` de l'accueil pose `has-intro` sur `<html>` seulement à l'arrivée depuis un autre site, sans ancre dans l'adresse, et sans « réduire les animations » ; rien n'est enregistré. Les animations du hero attendent la fin (`--intro-d`). Ne jamais nommer la classe de `<html>` comme celle du calque (`.intro`), sinon toute la page est masquée.
 - Bandeau défilant (`.marquee`) qui accélère quand on fait défiler la page.
 - Services : colonne de gauche fixe, compteur 01/03 et barre de progression. Le grand numéro du bloc actif se remplit de vert.
@@ -83,7 +83,7 @@ C'est un mélange voulu par Adrien. La mise en page est éditoriale : très gran
 
 ## Sections de l'accueil (dans l'ordre)
 
-Hero (titre centré) → bandeau défilant → Le constat `#constat` → Services `#services` → Nos services `#nos-services` (Sites internet / Automatisations + exemple d'automatisation) → Méthode `#methode` → Réalisations `#realisations` (site exemple « Maçonnerie & Rénovation », entreprise fictive, puis les mini-sites « Autres métiers ») → Pourquoi `#pourquoi` (4 raisons + zone d'intervention avec le globe des avis) → FAQ `#faq` (accordéon néo-brutaliste, une seule question ouverte à la fois grâce à `name="faq"`) → Contact `#contact` → pied de page. Le formulaire est sur `/devis/`, les offres sur `/tarifs/`.
+Hero (logo en pixels + titre centré) → bandeau défilant → Le constat `#constat` → Services `#services` → Nos services `#nos-services` (Sites internet / Automatisations + exemple d'automatisation) → Méthode `#methode` → Réalisations `#realisations` (site exemple « Maçonnerie & Rénovation », entreprise fictive, puis les mini-sites « Autres métiers ») → Pourquoi `#pourquoi` (4 raisons + zone d'intervention avec le globe des avis) → FAQ `#faq` (accordéon néo-brutaliste, une seule question ouverte à la fois grâce à `name="faq"`) → Contact `#contact` → pied de page. Le formulaire est sur `/devis/`, les offres sur `/tarifs/`.
 
 ## Avis Google sur le globe (avis.json)
 

@@ -77,11 +77,12 @@ if (!same && !location.hash && !matchMedia('(prefers-reduced-motion: reduce)').m
 
 <main id="contenu">
 
-<!-- HERO : titre centré sur toute la hauteur de l'écran -->
+<!-- HERO : logo OXALIS géant en pixels (js/pixmark.js, assemblage à la fin de l'intro), puis titre, phrase, boutons -->
 <section class="hero hero--vitrine" aria-label="Accueil">
 <div class="hero__glow" aria-hidden="true"></div>
 <div class="wrap hero__center">
 <p class="label hero__fadein" style="--i: 0">Agence web pour artisans · Reims &amp; Grand Est</p>
+<div class="hero__pix" data-pixmark="" data-tone="accent" data-assemble="" aria-hidden="true"><canvas></canvas></div>
 <h1 class="display hero__title"><span class="ln"><span style="--i: 0">Votre métier, c'est votre passion.</span></span> <span class="ln ln--accent"><span style="--i: 1">Le digital, c'est le nôtre.</span></span></h1>
 <p class="lead hero__fadein" style="--i: 2">On crée votre site, on l'entretient et on automatise vos tâches répétitives. Vous, vous restez sur vos chantiers.</p>
 <div class="hero__actions hero__fadein" style="--i: 3">
@@ -654,7 +655,7 @@ if (!same && !location.hash && !matchMedia('(prefers-reduced-motion: reduce)').m
 </div>
 <div class="ft__bottom mono"><span>© 2026 Oxalis</span><span>Reims · Marne · Grand Est</span></div>
 </div>
-<div class="ft__pix" data-pixmark="" aria-hidden="true"><canvas></canvas></div>
+<div class="ft__pix" data-pixmark="" data-crop="0.22" aria-hidden="true"><canvas></canvas></div>
 </footer>
 
 <div class="sticky-cta"><a class="btn btn--primary btn--block" href="/devis/">Demander mon devis gratuit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></a></div>
