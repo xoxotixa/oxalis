@@ -142,7 +142,7 @@ Si une de ces informations change, mettez à jour **toutes** ses occurrences : t
   - Textes alternatifs sur les images (`alt=""` si l'image est décorative), contrastes AA, navigation au clavier, lien « Aller au contenu ».
   - Vrais `<button>` avec `aria-expanded` / `aria-controls` pour tout ce qui s'ouvre et se ferme.
 - **Design :**
-  - Fond nuit `#050608` (fond « B06 » choisi par Adrien : noir profond, sans quadrillage, halo vert derrière le logo du hero ; plus de cases animées), surfaces `#18202a` et `#222c38`, bordures `#354253`, traits fins `rgba(238,241,242,.1)`.
+  - Fond nuit `#050608` (fond « B06 » choisi par Adrien : noir profond, sans quadrillage, halo vert derrière le logo du hero ; plus de cases animées), surfaces très sombres `#0c1014` et `#10151b` (Adrien veut tout très sombre, bloc « Mode nuit plus sombre » en fin de `css/site.css`), bordures `#232b35`, traits fins `rgba(238,241,242,.1)`.
   - Accent vert sauge : `#7cc79b` et `#8fd0aa`. Texte : `#eef1f2`, texte secondaire `#aab5c1`.
   - Polices : Sora pour les titres, Geist pour le texte, Geist Mono pour les étiquettes.
   - Réutiliser les classes et les variables de `css/site.css` (`.btn`, `.label`, `.h-xl`, `.ticks`, `--ease`…).

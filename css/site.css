@@ -809,3 +809,9 @@ html:not(.anim) .cv-pulse{display:none}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @keyframes ruleIn{from{opacity:0;clip-path:inset(0 0 100% 0)}to{opacity:1;clip-path:inset(0 0 0 0)}}
 @media (max-width:1379px){.hplan__side{display:none}}
+
+/* ===== Mode nuit plus sombre (demande d'Adrien) : cartes et surfaces presque noires ===== */
+:root:not([data-theme="light"]){--surface:#0c1014;--surface-raised:#10151b;--surface-sunken:#07090c;--surface-hover:#161c23;--surface-tint:#0d1513;--line:#232b35}
+:root:not([data-theme="light"]) .plan{background:linear-gradient(180deg,#11161c,#0a0d11)}
+:root:not([data-theme="light"]) .plan--feat{background:radial-gradient(90% 60% at 100% 0%,rgba(124,199,155,.11),transparent 60%),linear-gradient(180deg,#11161c,#0a0d11)}
+:root:not([data-theme="light"]) .ox-input,:root:not([data-theme="light"]) .dv-chip{background:#0d1116;border-color:#29323d}
