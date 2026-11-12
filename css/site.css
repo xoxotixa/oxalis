@@ -426,8 +426,8 @@ textarea.ox-input{min-height:140px;resize:vertical}
 --grid-cell:32px;               /* taille d'une case, en pixels */
 --grid-line:rgba(238,241,242,.05); /* traits de la grille : .03 = presque invisibles, .08 = plus marqués */
 --grid-greens:#2fb872,#45c584,#5fd096,#7ddaa9,#9be4bd; /* nuances de vert des cases allumées, de la plus profonde à la plus claire */
---grid-fill:.45;                /* opacité maximale du fond d'une case allumée */
---grid-edge:.9;                 /* opacité maximale du contour d'une case allumée */
+--grid-fill:.2;                 /* opacité maximale du fond d'une case allumée */
+--grid-edge:.42;                /* opacité maximale du contour d'une case allumée */
 --grid-reach:2.6;               /* portée de la traînée autour de la souris ou du doigt, en cases */
 --grid-trail:1;                 /* densité de la traînée : 1 = toutes les cases à portée, .3 = très clairsemée */
 --grid-ripple-reach:13;         /* rayon de l'onde au clic, en cases */

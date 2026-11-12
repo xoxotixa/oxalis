@@ -27,8 +27,8 @@
     var cs=getComputedStyle(document.documentElement);
     var g=function(n,d){var v=cs.getPropertyValue(n).trim();return v||d;};
     cfg.cell=parseFloat(g('--grid-cell','32'))||32;
-    cfg.fill=parseFloat(g('--grid-fill','.45'));
-    cfg.edge=parseFloat(g('--grid-edge','.9'));
+    cfg.fill=parseFloat(g('--grid-fill','.2'));
+    cfg.edge=parseFloat(g('--grid-edge','.42'));
     cfg.reach=parseFloat(g('--grid-reach','2.6'))||2.6;
     cfg.trail=parseFloat(g('--grid-trail','1'));
     cfg.rReach=parseFloat(g('--grid-ripple-reach','13'))||13;
