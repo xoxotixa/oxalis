@@ -16,16 +16,27 @@
   if (!reduce) root.classList.add('anim');
   // Intro de l'accueil : une fois le rideau levé, le calque est retiré.
   if (root.classList.contains('has-intro')) {
-    setTimeout(function () { root.classList.add('intro-done'); }, 4450);
-    // Ligne de terminal de l'intro : textes successifs et pourcentage synchronisé avec la barre (0,6 s → 2,9 s).
-    var steps = ['> initialisation', '> chargement des pixels', '> connexion au réseau', '> prêt'];
-    var t0 = performance.now(), pctEl = null, txtEl = null;
+    setTimeout(function () { root.classList.add('intro-done'); }, 5650);
+    // Écran de chargement de l'intro : textes successifs, pourcentage et barre qui avancent par à-coups
+    // (petites pauses vers 27 %, 62 % et 90 %), de 0,6 s à 4,1 s.
+    var steps = ['> initialisation', '> chargement des pixels', '> connexion au réseau', '> optimisation', '> prêt'];
+    var curve = [[0, 0], [.16, .22], [.3, .27], [.46, .58], [.58, .62], [.76, .88], [.88, .9], [1, 1]];
+    var load = function (k) {
+      for (var i = 1; i < curve.length; i++) if (k <= curve[i][0]) {
+        var a = curve[i - 1], b = curve[i], u = (k - a[0]) / (b[0] - a[0]);
+        u = u * u * (3 - 2 * u);
+        return a[1] + (b[1] - a[1]) * u;
+      }
+      return 1;
+    };
+    var t0 = performance.now(), pctEl = null, txtEl = null, barEl = null;
     var tick = function (now) {
-      pctEl = pctEl || doc.querySelector('[data-intro-pct]'); txtEl = txtEl || doc.querySelector('[data-intro-text]');
-      var k = clamp((now - t0 - 600) / 2300, 0, 1), e = k < 0.5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+      pctEl = pctEl || doc.querySelector('[data-intro-pct]'); txtEl = txtEl || doc.querySelector('[data-intro-text]'); barEl = barEl || doc.querySelector('.intro__bar i');
+      var k = clamp((now - t0 - 600) / 3500, 0, 1), e = load(k);
       if (pctEl) pctEl.textContent = ('00' + Math.round(e * 100)).slice(-3) + ' %';
-      if (txtEl) txtEl.textContent = steps[Math.min(steps.length - 1, Math.floor(k * steps.length))];
-      if (now - t0 < 3000) requestAnimationFrame(tick);
+      if (barEl) barEl.style.transform = 'scaleX(' + e.toFixed(4) + ')';
+      if (txtEl) txtEl.textContent = steps[Math.min(steps.length - 1, Math.floor(e * (steps.length - 1) + (e >= 1 ? 1 : 0)))];
+      if (now - t0 < 4300) requestAnimationFrame(tick);
     };
     requestAnimationFrame(tick);
   }
