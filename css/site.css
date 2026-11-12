@@ -655,7 +655,7 @@ color-scheme:light;
    La classe .has-intro est posée sur <html> par un petit script dans <head> (arrivée depuis l'extérieur seulement).
    Ne jamais nommer la classe de <html> « intro » : elle masquerait toute la page.
    Déroulé (≈ 3,3 s) : grille + ligne de balayage ; les lettres arrivent des côtés (O X A de la gauche, L I S de la droite)
-   avec flou de vitesse et dédoublement de couleurs ; deux « bugs » en tranches ; terminal 000 → 100 % ;
+   avec flou de vitesse et dédoublement de couleurs ; un très léger tressaillement ; terminal 000 → 100 % ;
    les lettres repartent sur les côtés ; l'écran se découpe en 10 bandes qui glissent à gauche et à droite. */
 .intro{position:fixed;inset:0;z-index:500;display:none;overflow:hidden;pointer-events:none}
 html.has-intro .intro{display:block}
@@ -671,20 +671,20 @@ html.has-intro{--intro-d:2.85s}
 @keyframes introFadeIn{to{opacity:1}}
 @keyframes introScan{0%{opacity:1;transform:translateY(0)}90%{opacity:.8}100%{opacity:0;transform:translateY(100vh)}}
 /* Le mot : 6 lettres découpées dans le logo par masque, chacune en 3 calques (vert + 2 copies colorées décalées) */
-.intro__word{--u:calc(clamp(34px,7.2vw,92px) / 106);position:relative;display:flex;align-items:flex-end;animation:wordGlitch .32s steps(1) 1.38s, wordGlitch .26s steps(1) 1.98s}
+.intro__word{--u:calc(clamp(34px,7.2vw,92px) / 106);position:relative;display:flex;align-items:flex-end;animation:wordGlitch .16s steps(1) 1.55s}
 .intro__l{position:relative;display:block;flex:none;width:calc(var(--w) * var(--u));height:calc(108 * var(--u));margin-left:calc(var(--g) * var(--u));opacity:0;
 animation:lIn .95s cubic-bezier(.16,1,.3,1) calc(.3s + var(--o) * .09s) forwards, lOut .45s cubic-bezier(.7,0,.84,0) calc(2.08s + (2 - var(--o)) * .05s) forwards}
 .intro__l i{position:absolute;inset:0;background:#7cc79b;
 -webkit-mask:url(/assets/oxalis-logo.png) no-repeat;mask:url(/assets/oxalis-logo.png) no-repeat;
 -webkit-mask-size:calc(856 * var(--u)) auto;mask-size:calc(856 * var(--u)) auto;
 -webkit-mask-position:calc(var(--x) * var(--u) * -1) calc(-5 * var(--u));mask-position:calc(var(--x) * var(--u) * -1) calc(-5 * var(--u))}
-.intro__l i.c1{background:#46e3ff;mix-blend-mode:screen;opacity:0;animation:chromaIn .95s cubic-bezier(.16,1,.3,1) calc(.3s + var(--o) * .09s) both, chroma .32s steps(1) 1.38s, chroma .26s steps(1) 1.98s}
-.intro__l i.c2{background:#e9fff1;mix-blend-mode:screen;opacity:0;--k:-1;animation:chromaIn .95s cubic-bezier(.16,1,.3,1) calc(.3s + var(--o) * .09s) both, chroma .32s steps(1) 1.38s, chroma .26s steps(1) 1.98s}
+.intro__l i.c1{background:#46e3ff;mix-blend-mode:screen;opacity:0;animation:chromaIn .95s cubic-bezier(.16,1,.3,1) calc(.3s + var(--o) * .09s) both, chroma .16s steps(1) 1.55s}
+.intro__l i.c2{background:#e9fff1;mix-blend-mode:screen;opacity:0;--k:-1;animation:chromaIn .95s cubic-bezier(.16,1,.3,1) calc(.3s + var(--o) * .09s) both, chroma .16s steps(1) 1.55s}
 @keyframes lIn{0%{opacity:0;transform:translateX(calc(var(--dir) * 58vw)) skewX(calc(var(--dir) * -28deg));filter:blur(14px)}35%{opacity:1}100%{opacity:1;transform:none;filter:none}}
 @keyframes lOut{0%{opacity:1;transform:none;filter:none}100%{opacity:0;transform:translateX(calc(var(--dir) * 48vw)) skewX(calc(var(--dir) * 24deg));filter:blur(12px)}}
 @keyframes chromaIn{0%{opacity:.9;transform:translateX(calc(var(--dir) * 26px * var(--k,1)))}70%{opacity:.6;transform:translateX(calc(var(--dir) * 4px * var(--k,1)))}100%{opacity:0;transform:none}}
-@keyframes chroma{0%{opacity:.85;transform:translateX(calc(7px * var(--k,1)))}33%{opacity:.85;transform:translateX(calc(-5px * var(--k,1)))}66%{opacity:.7;transform:translateX(calc(3px * var(--k,1)))}100%{opacity:0;transform:none}}
-@keyframes wordGlitch{0%{clip-path:inset(18% 0 52% 0);transform:translateX(-10px)}20%{clip-path:inset(62% 0 8% 0);transform:translateX(8px)}40%{clip-path:inset(4% 0 78% 0);transform:translateX(-5px)}60%{clip-path:inset(38% 0 34% 0);transform:translateX(6px)}80%{clip-path:inset(0 0 0 0);transform:translateX(-2px)}100%{clip-path:none;transform:none}}
+@keyframes chroma{0%{opacity:.35;transform:translateX(calc(2px * var(--k,1)))}50%{opacity:.25;transform:translateX(calc(-1.5px * var(--k,1)))}100%{opacity:0;transform:none}}
+@keyframes wordGlitch{0%{transform:translateX(-2px)}50%{transform:translateX(2px)}100%{transform:none}}
 /* Terminal : barre + texte qui change + pourcentage (mis à jour par js/site.js) */
 .intro__term{display:grid;justify-items:center;gap:12px;opacity:0;animation:introFadeIn .4s ease .55s forwards}
 .intro__bar{position:relative;display:block;width:clamp(150px,18vw,240px);height:2px;background:rgba(124,199,155,.18);overflow:hidden}
