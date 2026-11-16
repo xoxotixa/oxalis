@@ -88,18 +88,21 @@
       };
       var drawV = function (time) {
         var g = ctx2; g.clearRect(0, 0, cv.width, cv.height); if (!VW) return;
+        // Mode jour : traits et points en vert foncé sur fond clair ; mode nuit : vert clair sur fond sombre
+        var LTv = doc.documentElement.getAttribute('data-theme') === 'light';
+        var cLine = LTv ? '47,138,91' : '124,199,155', cDot = LTv ? '38,112,74' : '143,208,170', cGlow = LTv ? 'rgba(47,138,91,0.9)' : 'rgba(181,236,201,0.85)', cCore = LTv ? '#1f5a3c' : '#e6fff0';
         for (var i = 0; i < pts.length; i++) { if (!proj2[i]) proj2[i] = [0, 0, 0, 0]; project(pts[i], proj2[i]); }
         g.lineWidth = 0.8 * vdpr;
         for (var e = 0; e < edges.length; e++) {
           var A = proj2[edges[e][0]], B = proj2[edges[e][1]], depth = ((A[2] + B[2]) / 2 + 1) / 2;
-          g.strokeStyle = 'rgba(124,199,155,' + (0.05 + depth * (kind === 'brain' ? 0.28 : 0.4)).toFixed(3) + ')';
+          g.strokeStyle = 'rgba(' + cLine + ',' + ((LTv ? 0.1 : 0.05) + depth * (kind === 'brain' ? 0.28 : 0.4)).toFixed(3) + ')';
           g.beginPath(); g.moveTo(A[0], A[1]); g.lineTo(B[0], B[1]); g.stroke();
         }
         for (var n = 0; n < pts.length; n++) {
           var P2 = proj2[n], dd = (P2[2] + 1) / 2, rr = (kind === 'brain' ? 1.1 : 2.2) * vdpr * P2[3];
-          g.fillStyle = 'rgba(143,208,170,' + (0.2 + dd * 0.75).toFixed(3) + ')';
+          g.fillStyle = 'rgba(' + cDot + ',' + (0.2 + dd * 0.75).toFixed(3) + ')';
           if (kind === 'brain') g.fillRect(P2[0] - rr / 2, P2[1] - rr / 2, rr, rr);
-          else { g.beginPath(); g.arc(P2[0], P2[1], rr, 0, 6.283); g.fill(); if (dd > 0.7) { g.fillStyle = 'rgba(124,199,155,0.18)'; g.beginPath(); g.arc(P2[0], P2[1], rr * 3, 0, 6.283); g.fill(); } }
+          else { g.beginPath(); g.arc(P2[0], P2[1], rr, 0, 6.283); g.fill(); if (dd > 0.7) { g.fillStyle = 'rgba(' + cLine + ',0.18)'; g.beginPath(); g.arc(P2[0], P2[1], rr * 3, 0, 6.283); g.fill(); } }
         }
         if (reduce) return;
         if (pulses.length < (kind === 'brain' ? 14 : 8) && rndP() < 0.12) pulses.push({ e: (rndP() * edges.length) | 0, t: 0, sp: 0.02 + rndP() * 0.03, hops: kind === 'brain' ? 4 : 3 });
@@ -107,9 +110,9 @@
           var pu = pulses[q]; pu.t += pu.sp;
           var ed = edges[pu.e], A2 = proj2[ed[0]], B2 = proj2[ed[1]];
           var x = A2[0] + (B2[0] - A2[0]) * pu.t, y = A2[1] + (B2[1] - A2[1]) * pu.t;
-          g.strokeStyle = 'rgba(181,236,201,0.85)'; g.lineWidth = 1.6 * vdpr; g.beginPath(); g.moveTo(A2[0], A2[1]); g.lineTo(x, y); g.stroke();
-          g.fillStyle = 'rgba(124,199,155,0.3)'; g.beginPath(); g.arc(x, y, 4 * vdpr, 0, 6.283); g.fill();
-          g.fillStyle = '#e6fff0'; g.beginPath(); g.arc(x, y, 1.6 * vdpr, 0, 6.283); g.fill();
+          g.strokeStyle = cGlow; g.lineWidth = 1.6 * vdpr; g.beginPath(); g.moveTo(A2[0], A2[1]); g.lineTo(x, y); g.stroke();
+          g.fillStyle = 'rgba(' + cLine + ',0.3)'; g.beginPath(); g.arc(x, y, 4 * vdpr, 0, 6.283); g.fill();
+          g.fillStyle = cCore; g.beginPath(); g.arc(x, y, 1.6 * vdpr, 0, 6.283); g.fill();
           if (pu.t >= 1) {
             pu.hops--; var end = ed[1], nexts = [];
             for (var z2 = 0; z2 < edges.length; z2++) if (z2 !== pu.e && (edges[z2][0] === end)) nexts.push(z2);
@@ -117,6 +120,7 @@
           }
         }
       };
+      if (reduce && 'MutationObserver' in win) { var vmo = new win.MutationObserver(function () { drawV(0); }); vmo.observe(doc.documentElement, { attributes: true, attributeFilter: ['data-theme'] }); self.cleanups.push(function () { vmo.disconnect(); }); }
       if ('ResizeObserver' in win) { var vro = new win.ResizeObserver(function () { vsize(); if (reduce) drawV(0); }); vro.observe(cv); self.cleanups.push(function () { vro.disconnect(); }); }
       if (reduce) { drawV(0); return; }
       var vVis = false, vRaf = 0, vT0 = 0;

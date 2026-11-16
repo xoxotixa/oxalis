@@ -52,7 +52,7 @@ C'est un mélange voulu par Adrien. La mise en page est éditoriale : très gran
 - Un petit script dans `<head>` pose `data-theme="dark"` ou `"light"` sur `<html>` avant l'affichage : choix enregistré, sinon réglage de l'appareil.
 - Les couleurs du mode jour sont dans le bloc « Mode jour » à la fin de `css/site.css` (variables redéfinies sous `:root[data-theme="light"]`, puis quelques retouches).
 - `--accent-big` est la couleur des grands textes verts : vert sauge la nuit, vert plus foncé le jour pour rester lisible.
-- Le logo existe en deux versions (`.logo-d` la nuit, `.logo-l` le jour). Le globe change de couleurs selon le thème (`js/visuels.js`). La maquette, le site exemple et les visuels cerveau et réseau restent sombres, comme des écrans.
+- Le logo existe en deux versions (`.logo-d` la nuit, `.logo-l` le jour). Le globe change de couleurs selon le thème (`js/visuels.js`). La maquette et le site exemple restent sombres, comme des écrans. Le cerveau (/tarifs/) et le réseau (/devis/) passent sur fond clair en mode jour (demande d'Adrien), couleurs dans `js/visuels.js` et `css/visuels.css`.
 - Tout nouvel élément doit être vérifié dans les deux thèmes.
 
 **Animations** (`js/site.js`) :

@@ -208,4 +208,6 @@
 
 /* Animations utilisées ci-dessus */
 @keyframes fill{to{transform:scaleX(1)}}
-@keyframes pct{to{--pct:100}}
+@keyframes pct{to{--pct:100}}/* Mode jour : cerveau (/tarifs/) et réseau (/devis/) sur fond clair, comme le reste de la page */
+[data-theme="light"] .viz{border-color:#d3dcd7;background-color:#f7faf8;background-image:linear-gradient(rgba(24,32,42,.05) 1px, transparent 1px),linear-gradient(90deg, rgba(24,32,42,.05) 1px, transparent 1px),radial-gradient(55% 60% at 50% 50%, rgba(124,199,155,.22), transparent 72%)}
+[data-theme="light"] .viz-tag{color:#2f6f4c;background:rgba(255,255,255,.85);border:1px solid #d3dcd7}
