@@ -22,7 +22,10 @@ avis.json               les avis Google affichés sur le globe, à remplir à la
 fonts/                  polices auto-hébergées (woff2) + fonts.css + licences OFL
 assets/                 logo blanc/vert (mode nuit), logo foncé oxalis-logo-sombre.png (mode jour), 3 photos du site exemple (webp)
 favicon.ico, favicon.png (64 px), favicon-32.png, apple-touch-icon.png (180 px) : icône « O vert sur noir » (proposition n° 16 choisie par Adrien), O du logo en vert #7cc79b sur carré noir #050608
-netlify.toml            publication du dossier tel quel, en-têtes de cache
+netlify.toml            publication du dossier tel quel, en-têtes de cache et de sécurité
+404.html                page « introuvable » (servie automatiquement par Netlify)
+robots.txt, sitemap.xml référencement : les 3 pages (mettre à jour lastmod après un gros changement)
+assets/partage.jpg      image de partage 1200 × 630 (og:image) : le premier écran du site
 ```
 
 Le site est en **HTML, CSS et JavaScript simples**, sans framework, sans moteur et sans étape de build : on modifie les fichiers et on déploie le dossier. L'ancien moteur `runtime.js` (gabarits `<x-dc>`) n'est plus utilisé depuis la refonte « éditorial épuré ».
@@ -124,6 +127,7 @@ Google ne donne pas la ville des auteurs d'avis, et son API demanderait une clé
 - **Contact :** contact@agence-oxalis.fr · 06 67 86 48 85 (`tel:+33667864885`) · LinkedIn https://www.linkedin.com/in/adrien-eloy-a9698928a/
 - **Éditeur :** Adrien Eloy, entrepreneur individuel, 24 rue Jane Addams, 51430 Bezannes · SIRET 130 950 876 00016 · TVA non applicable, art. 293 B du CGI
 - **Hébergeur :** Netlify, Inc., 101 2nd Street, San Francisco, CA 94105, États-Unis
+- **Référencement :** chaque page a `canonical`, `og:url` et `og:image` ; l'accueil a des données structurées JSON-LD (`ProfessionalService`) sans note ni avis : n'y ajouter des avis que s'ils sont réels.
 - **Prix :** **aucun prix affiché sur le site**, c'est le choix d'Adrien, car chaque demande est particulière. Tout est « sur devis » : site vitrine (maintenance comprise) et automatisation. Ne jamais remettre de montant, ni dans les textes, ni dans la FAQ, ni dans les balises meta.
 - **Maintenance :** 6 mois minimum, puis sans engagement.
 - **Délais :** site livré en **5 jours** · réponse aux messages sous **24 h** · devis gratuit sous **48 h**

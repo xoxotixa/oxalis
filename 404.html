@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="64x64" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Page introuvable · Oxalis</title>
+<meta name="theme-color" content="#050608">
+<script>
+(function () { var t; try { t = localStorage.getItem('oxalis-theme'); } catch (e) {}
+if (t !== 'light' && t !== 'dark') t = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+document.documentElement.setAttribute('data-theme', t); })();
+</script>
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/css/site.css">
+<style>
+.nf{min-height:100vh;min-height:100svh;display:grid;place-items:center;padding:40px 20px;text-align:center}
+.nf__in{display:grid;gap:24px;justify-items:center;max-width:620px}
+.nf__logo img{height:36px;width:auto}
+.nf__code{font:600 clamp(96px,22vw,200px)/.9 var(--font-display);letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1px var(--accent-big)}
+.nf h1{margin:0;font:600 clamp(28px,4vw,44px)/1.1 var(--font-display);letter-spacing:-.03em;color:var(--ink)}
+.nf p{margin:0;color:var(--ink-muted)}
+.nf__actions{display:flex;flex-wrap:wrap;gap:16px 24px;justify-content:center;align-items:center}
+</style>
+</head>
+<body>
+<div class="ox-grid" aria-hidden="true"></div>
+<main class="nf">
+<div class="nf__in">
+<a class="nf__logo" href="/" aria-label="Oxalis, retour à l'accueil"><img class="logo-d" src="/assets/oxalis-logo.png" alt="" width="856" height="180"><img class="logo-l" src="/assets/oxalis-logo-sombre.png" alt="" width="856" height="180"></a>
+<p class="label">Erreur 404</p>
+<div class="nf__code" aria-hidden="true">404</div>
+<h1>Cette page n'existe pas.</h1>
+<p>Le lien est peut-être ancien ou mal copié. Pas de souci : tout le reste est à portée de clic.</p>
+<div class="nf__actions">
+<a class="btn btn--primary" href="/">Retour à l'accueil</a>
+<a class="link-arrow" href="/devis/">Demander un devis gratuit</a>
+</div>
+</div>
+</main>
+</body>
+</html>
